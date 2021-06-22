@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="IniciarSesion" Height="450" Width="600">
     <Grid>
-        <Button Content="Iniciar" HorizontalAlignment="Left" Margin="171,320,0,0" VerticalAlignment="Top" Width="74" Height="40" FontWeight="Bold"/>
+        <Button Content="Iniciar" HorizontalAlignment="Left" Margin="171,320,0,0" VerticalAlignment="Top" Width="74" Height="40" FontWeight="Bold" Click="Login_Click"/>
         <Label Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="251,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="99,162,0,0" VerticalAlignment="Top"/>
         <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="99,222,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="223,166,0,0" VerticalAlignment="Top" Width="190"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="223,230,0,0" VerticalAlignment="Top" Width="190"/>
-        <Button Content="Salir" HorizontalAlignment="Left" Margin="361,320,0,0" VerticalAlignment="Top" Width="76" Height="40" FontWeight="Bold"/>
+        <TextBox Name="TBUsername" HorizontalAlignment="Left" Height="22" Margin="223,166,0,0" VerticalAlignment="Top" Width="190"/>
+        <PasswordBox Name="PBPassword" HorizontalAlignment="Left" Margin="223,230,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Salir" HorizontalAlignment="Left" Margin="361,320,0,0" VerticalAlignment="Top" Width="76" Height="40" FontWeight="Bold" Click="Exit_Click"/>
 
     </Grid>
 </Window>

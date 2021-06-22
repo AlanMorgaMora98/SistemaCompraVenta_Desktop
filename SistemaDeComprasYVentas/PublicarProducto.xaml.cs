@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace SistemaDeComprasYVentas
 {
     /// <summary>
-    /// Lógica de interacción para IniciarSesion.xaml
+    /// Lógica de interacción para PublicarProducto.xaml
     /// </summary>
-    public partial class IniciarSesion : Window
+    public partial class PublicarProducto : Window
     {
-        public IniciarSesion()
+        public PublicarProducto()
         {
             InitializeComponent();
-        }
-
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
