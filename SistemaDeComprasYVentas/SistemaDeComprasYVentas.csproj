@@ -57,6 +57,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
     <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />
     <Compile Include="ViewModels\EvaluarUsuarioViewModel.cs" />
