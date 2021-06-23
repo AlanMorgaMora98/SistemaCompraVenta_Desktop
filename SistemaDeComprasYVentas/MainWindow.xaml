@@ -5,13 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeComprasYVentas"
         xmlns:viewModels="clr-namespace:SistemaDeComprasYVentas.ViewModels"
-        xmlns:views="clr-namespace:SistemaDeComprasYVentas."
+        xmlns:views="clr-namespace:SistemaDeComprasYVentas.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <ContentControl Content="{ Binding CurrentViewModel }" >
         <ContentControl.Resources>
+            <DataTemplate DataType="{ x:Type viewModels:AgregarDomicilioViewModel }">
+                <views:AgregarDomicilioView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:AgregarTarjetaViewModel }">
+                <views:AgregarTarjetaView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:EvaluarUsuarioViewModel }">
+                <views:EvaluarUsuarioView />
+            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:IniciarSesionViewModel }">
-                <views:
+                <views:IniciarSesionView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:PublicarProductoViewModel }">
+                <views:PublicarProductoView />
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>

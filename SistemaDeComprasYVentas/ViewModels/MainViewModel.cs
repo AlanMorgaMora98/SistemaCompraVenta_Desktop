@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
-	class MainViewModel
+	class MainViewModel : ViewModelBase
 	{
+		public ViewModelBase CurrentViewModel { get; }
+
+		public MainViewModel()
+		{
+			CurrentViewModel = new IniciarSesionViewModel();
+		}
 	}
 }
