@@ -33,14 +33,14 @@ namespace SistemaDeComprasYVentas.ViewModels
 			INavigationService< HistorialVentasViewModel > historialVentasNavigationService )
 		{
 			NavigateToHomeCommand = new NavigateCommand< BuscarPublicacionesViewModel >( buscarPublicacionesService );
-			NavigateToHomeCommand = new NavigateCommand< IniciarSesionViewModel >( iniciarSesionNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< PerfilViewModel >( perilNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< DomiciliosViewModel >( domiciliosNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< CarritoComprasViewModel >( carritoComprasNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< FavoritosViewModel >( favoritosNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< PublicacionesViewModel >( publicacionesNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< HistorialComprasViewModel >( historialComprasNavigationService );
-			NavigateToHomeCommand = new NavigateCommand< HistorialVentasViewModel >( historialVentasNavigationService );
+			NavigateToLoginCommand = new NavigateCommand< IniciarSesionViewModel >( iniciarSesionNavigationService );
+			NavigateToProfileCommand = new NavigateCommand< PerfilViewModel >( perilNavigationService );
+			NavigateToAddressesCommand = new NavigateCommand< DomiciliosViewModel >( domiciliosNavigationService );
+			NavigateToCartCommand = new NavigateCommand< CarritoComprasViewModel >( carritoComprasNavigationService );
+			NavigateToFavoritesCommand = new NavigateCommand< FavoritosViewModel >( favoritosNavigationService );
+			NavigateToPublicationsCommand = new NavigateCommand< PublicacionesViewModel >( publicacionesNavigationService );
+			NavigateToBuyHistoryCommand = new NavigateCommand< HistorialComprasViewModel >( historialComprasNavigationService );
+			NavigateToSellHistoryCommand = new NavigateCommand< HistorialVentasViewModel >( historialVentasNavigationService );
 		}
 
 	}
