@@ -59,13 +59,17 @@
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\LayoutNavigationService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
     <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />
     <Compile Include="ViewModels\EvaluarUsuarioViewModel.cs" />
     <Compile Include="ViewModels\IniciarSesionViewModel.cs" />
+    <Compile Include="ViewModels\LayoutViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NavigationBarViewModel.cs" />
     <Compile Include="ViewModels\PublicarProductoViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AgregarDomicilioView.xaml.cs">
