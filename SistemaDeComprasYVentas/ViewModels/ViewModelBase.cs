@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
-	class ViewModelBase : INotifyPropertyChanged
+	public class ViewModelBase : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 

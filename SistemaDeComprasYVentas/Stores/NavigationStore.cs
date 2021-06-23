@@ -7,7 +7,7 @@ using SistemaDeComprasYVentas.ViewModels;
 
 namespace SistemaDeComprasYVentas.Stores
 {
-	class NavigationStore
+	public class NavigationStore
 	{
 		public event Action CurrentViewModelChanged;
 		private ViewModelBase _currentViewModel;
