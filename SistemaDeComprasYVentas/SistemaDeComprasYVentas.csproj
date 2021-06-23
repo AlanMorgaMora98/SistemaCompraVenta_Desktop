@@ -55,25 +55,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EvaluarUsuario.xaml.cs">
-      <DependentUpon>EvaluarUsuario.xaml</DependentUpon>
+    <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
+    <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />
+    <Compile Include="ViewModels\EvaluarUsuarioViewModel.cs" />
+    <Compile Include="ViewModels\IniciarSesionViewModel.cs" />
+    <Compile Include="ViewModels\PublicarProductoViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\EvaluarUsuarioView.xaml.cs">
+      <DependentUpon>EvaluarUsuarioView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PublicarProducto.xaml.cs">
-      <DependentUpon>PublicarProducto.xaml</DependentUpon>
+    <Compile Include="Views\PublicarProductoView.xaml.cs">
+      <DependentUpon>PublicarProductoView.xaml</DependentUpon>
     </Compile>
-    <Page Include="AgregarDomicilio.xaml">
+    <Page Include="Views\AgregarDomicilioView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AgregarTarjeta.xaml">
+    <Page Include="Views\AgregarTarjetaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EvaluarUsuario.xaml">
+    <Page Include="Views\EvaluarUsuarioView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IniciarSesion.xaml">
+    <Page Include="Views\IniciarSesionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,24 +87,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AgregarDomicilio.xaml.cs">
-      <DependentUpon>AgregarDomicilio.xaml</DependentUpon>
+    <Compile Include="Views\AgregarDomicilioView.xaml.cs">
+      <DependentUpon>AgregarDomicilioView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AgregarTarjeta.xaml.cs">
-      <DependentUpon>AgregarTarjeta.xaml</DependentUpon>
+    <Compile Include="Views\AgregarTarjetaView.xaml.cs">
+      <DependentUpon>AgregarTarjetaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IniciarSesion.xaml.cs">
-      <DependentUpon>IniciarSesion.xaml</DependentUpon>
+    <Compile Include="Views\IniciarSesionView.xaml.cs">
+      <DependentUpon>IniciarSesionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PublicarProducto.xaml">
+    <Page Include="Views\PublicarProductoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
