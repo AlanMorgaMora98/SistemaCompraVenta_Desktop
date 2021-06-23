@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SistemaDeComprasYVentas
+namespace SistemaDeComprasYVentas.Views
 {
-    /// <summary>
-    /// Lógica de interacción para EvaluarUsuario.xaml
-    /// </summary>
-    public partial class EvaluarUsuario : Window
-    {
-        public EvaluarUsuario()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for EvaluarUsuarioView.xaml
+	/// </summary>
+	public partial class EvaluarUsuarioView : UserControl
+	{
+		public EvaluarUsuarioView()
+		{
+			InitializeComponent();
+		}
+	}
 }

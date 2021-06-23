@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SistemaDeComprasYVentas
+namespace SistemaDeComprasYVentas.Views
 {
-    /// <summary>
-    /// Lógica de interacción para IniciarSesion.xaml
-    /// </summary>
-    public partial class IniciarSesion : Window
-    {
-        public IniciarSesion()
-        {
-            InitializeComponent();
-        }
-
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for IniciarSesionView.xaml
+	/// </summary>
+	public partial class IniciarSesionView : UserControl
+	{
+		public IniciarSesionView()
+		{
+			InitializeComponent();
+		}
+	}
 }
