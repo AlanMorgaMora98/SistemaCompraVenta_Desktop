@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
-	class CarritoComprasViewModel : ViewModelBase
+	public class CarritoComprasViewModel : ViewModelBase
 	{
 	}
 }
