@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SistemaDeComprasYVentas
+namespace SistemaDeComprasYVentas.Views
 {
-    /// <summary>
-    /// Lógica de interacción para PublicarProducto.xaml
-    /// </summary>
-    public partial class PublicarProducto : Window
-    {
-        public PublicarProducto()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for AgregarDomicilioView.xaml
+	/// </summary>
+	public partial class AgregarDomicilioView : UserControl
+	{
+		public AgregarDomicilioView()
+		{
+			InitializeComponent();
+		}
+	}
 }

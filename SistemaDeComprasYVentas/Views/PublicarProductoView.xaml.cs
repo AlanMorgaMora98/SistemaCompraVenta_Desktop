@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SistemaDeComprasYVentas
+namespace SistemaDeComprasYVentas.Views
 {
-    /// <summary>
-    /// Lógica de interacción para AgregarTarjeta.xaml
-    /// </summary>
-    public partial class AgregarTarjeta : Window
-    {
-        public AgregarTarjeta()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for PublicarProductoView.xaml
+	/// </summary>
+	public partial class PublicarProductoView : UserControl
+	{
+		public PublicarProductoView()
+		{
+			InitializeComponent();
+		}
+	}
 }
