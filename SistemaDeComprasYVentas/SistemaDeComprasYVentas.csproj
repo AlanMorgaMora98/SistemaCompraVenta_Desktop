@@ -71,11 +71,19 @@
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
     <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />
+    <Compile Include="ViewModels\BuscarPublicacionesViewModel.cs" />
+    <Compile Include="ViewModels\CarritoComprasViewModel.cs" />
+    <Compile Include="ViewModels\DomiciliosViewModel.cs" />
     <Compile Include="ViewModels\EvaluarUsuarioViewModel.cs" />
+    <Compile Include="ViewModels\FavoritosViewModel.cs" />
+    <Compile Include="ViewModels\HistorialComprasViewModel.cs" />
+    <Compile Include="ViewModels\HistorialVentasViewModel.cs" />
     <Compile Include="ViewModels\IniciarSesionViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NavigationBarViewModel.cs" />
+    <Compile Include="ViewModels\PerfilViewModel.cs" />
+    <Compile Include="ViewModels\PublicacionesViewModel.cs" />
     <Compile Include="ViewModels\PublicarProductoViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AgregarDomicilioView.xaml.cs">
@@ -84,11 +92,35 @@
     <Compile Include="Views\AgregarTarjetaView.xaml.cs">
       <DependentUpon>AgregarTarjetaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BuscarPublicacionesView.xaml.cs">
+      <DependentUpon>BuscarPublicacionesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CarritoComprasView.xaml.cs">
+      <DependentUpon>CarritoComprasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DomiciliosView.xaml.cs">
+      <DependentUpon>DomiciliosView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EvaluarUsuarioView.xaml.cs">
       <DependentUpon>EvaluarUsuarioView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FavoritosView.xaml.cs">
+      <DependentUpon>FavoritosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistorialComprasView.xaml.cs">
+      <DependentUpon>HistorialComprasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistorialVentasView.xaml.cs">
+      <DependentUpon>HistorialVentasView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\IniciarSesionView.xaml.cs">
       <DependentUpon>IniciarSesionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PerfilView.xaml.cs">
+      <DependentUpon>PerfilView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PublicacionesView.xaml.cs">
+      <DependentUpon>PublicacionesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PublicarProductoView.xaml.cs">
       <DependentUpon>PublicarProductoView.xaml</DependentUpon>
@@ -121,11 +153,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BuscarPublicacionesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CarritoComprasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DomiciliosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EvaluarUsuarioView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FavoritosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistorialComprasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistorialVentasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\IniciarSesionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PerfilView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PublicacionesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

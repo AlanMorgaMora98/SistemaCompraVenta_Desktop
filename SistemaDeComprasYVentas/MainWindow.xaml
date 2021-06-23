@@ -26,6 +26,30 @@
             <DataTemplate DataType="{ x:Type viewModels:PublicarProductoViewModel }">
                 <views:PublicarProductoView />
             </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:BuscarPublicacionesViewModel }">
+                <views:BuscarPublicacionesView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:CarritoComprasViewModel }">
+                <views:CarritoComprasView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:DomiciliosViewModel }">
+                <views:DomiciliosView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:FavoritosViewModel }">
+                <views:FavoritosView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:HistorialComprasViewModel }">
+                <views:HistorialComprasView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:HistorialVentasViewModel }">
+                <views:HistorialVentasView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:PerfilViewModel }">
+                <views:PerfilView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:PublicacionesViewModel }">
+                <views:PublicacionesView />
+            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
                 <components:Layout />
             </DataTemplate>

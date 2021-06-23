@@ -15,6 +15,10 @@ namespace SistemaDeComprasYVentas
     /// </summary>
     public partial class App : Application
     {
+        private readonly NavigationStore _navigationStore;
+        private readonly NavigationBarViewModel _navigationBarViewModel;
+
+
         protected override void OnStartup( StartupEventArgs startUpEvents )
 		{
             NavigationStore navigationStore = new NavigationStore();
@@ -22,7 +26,7 @@ namespace SistemaDeComprasYVentas
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel( navigationStore )
+                DataContext = new MainViewModel( _navigationStore )
             };
             MainWindow.Show();
 
