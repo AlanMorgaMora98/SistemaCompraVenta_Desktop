@@ -7,7 +7,7 @@ using SistemaDeComprasYVentas.Stores;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
-	class MainViewModel : ViewModelBase
+	public class MainViewModel : ViewModelBase
 	{
 		private readonly NavigationStore _navigationStore;
 
