@@ -9,7 +9,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 	public class LayoutViewModel : ViewModelBase
 	{
 		public NavigationBarViewModel NavigationBarViewModel { get; }
-		public ViewModelBase ContentViewModel;
+		public ViewModelBase ContentViewModel { get; }
 
 		public LayoutViewModel( NavigationBarViewModel navigationBarViewModel, ViewModelBase contentViewModel )
 		{
