@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:SistemaDeComprasYVentas"
         xmlns:viewModels="clr-namespace:SistemaDeComprasYVentas.ViewModels"
         xmlns:views="clr-namespace:SistemaDeComprasYVentas.Views"
+        xmlns:components="clr-namespace:SistemaDeComprasYVentas.Components"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
     <ContentControl Content="{ Binding CurrentViewModel }" >
         <ContentControl.Resources>
             <DataTemplate DataType="{ x:Type viewModels:AgregarDomicilioViewModel }">
@@ -24,6 +25,9 @@
             </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:PublicarProductoViewModel }">
                 <views:PublicarProductoView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
+                <components:Layout />
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>

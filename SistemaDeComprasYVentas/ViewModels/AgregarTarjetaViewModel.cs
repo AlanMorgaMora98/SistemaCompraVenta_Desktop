@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
-	class AgregarTarjetaViewModel : ViewModelBase
+	public class AgregarTarjetaViewModel : ViewModelBase
 	{
 	}
 }

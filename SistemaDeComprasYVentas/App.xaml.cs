@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using SistemaDeComprasYVentas.ViewModels;
+using SistemaDeComprasYVentas.Stores;
 
 namespace SistemaDeComprasYVentas
 {
@@ -16,9 +17,12 @@ namespace SistemaDeComprasYVentas
     {
         protected override void OnStartup( StartupEventArgs startUpEvents )
 		{
+            NavigationStore navigationStore = new NavigationStore();
+            navigationStore.CurrentViewModel = new IniciarSesionViewModel();
+
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel( navigationStore )
             };
             MainWindow.Show();
 
