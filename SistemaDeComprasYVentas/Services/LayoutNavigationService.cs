@@ -8,7 +8,7 @@ using SistemaDeComprasYVentas.Stores;
 
 namespace SistemaDeComprasYVentas.Services
 {
-	public class LayoutNavigationService< TViewModel > : INavigationService
+	public class LayoutNavigationService< TViewModel > : INavigationService< TViewModel >
 		where TViewModel : ViewModelBase
 	{
 		private readonly NavigationStore _navigationStore;
