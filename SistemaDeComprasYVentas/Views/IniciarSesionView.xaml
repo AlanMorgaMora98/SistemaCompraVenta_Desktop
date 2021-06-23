@@ -6,14 +6,94 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
-    <Grid>
-        <Button Content="Iniciar" HorizontalAlignment="Left" Margin="171,320,0,0" VerticalAlignment="Top" Width="74" Height="40" FontWeight="Bold" Click="Login_Click"/>
-        <Label Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="251,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="99,162,0,0" VerticalAlignment="Top"/>
-        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="99,222,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="TBUsername" HorizontalAlignment="Left" Height="22" Margin="223,166,0,0" VerticalAlignment="Top" Width="190"/>
-        <PasswordBox Name="PBPassword" HorizontalAlignment="Left" Margin="223,230,0,0" VerticalAlignment="Top" Width="190"/>
-        <Button Content="Salir" HorizontalAlignment="Left" Margin="361,320,0,0" VerticalAlignment="Top" Width="76" Height="40" FontWeight="Bold" Click="Exit_Click"/>
+    <Border
+        Background="#272537"
+        CornerRadius="20">
 
-    </Grid>
+        <Grid>
+            <Button
+                Content="Iniciar" 
+                HorizontalAlignment="Left" 
+                Margin="468,458,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" 
+                Click="Login_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+            <Label Content="Iniciar Sesion" Foreground="White" HorizontalAlignment="Left" Margin="317,32,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.877,0.5"/>
+            <Label Content="Username:" Foreground="White" HorizontalAlignment="Left" Margin="101,226,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Width="93" HorizontalContentAlignment="Right"/>
+            <Label Content="Contraseña:" Foreground="White" HorizontalAlignment="Left" Margin="101,296,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="93" HorizontalContentAlignment="Right"/>
+            <TextBox 
+                Name="TBUsername" 
+                HorizontalAlignment="Left" 
+                Height="26" 
+                Margin="267,226,0,0" 
+                VerticalAlignment="Top" 
+                Width="190"
+                Foreground="White"
+                
+                BorderThickness="0"/>
+            <PasswordBox Name="PBPassword" HorizontalAlignment="Left" Margin="267,296,0,0" VerticalAlignment="Top" Width="190" Height="26"/>
+            <Button
+                Content="Salir" 
+                HorizontalAlignment="Left" 
+                Margin="140,458,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" 
+                Click="Exit_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+
+        </Grid>
+    </Border>
 </UserControl>

@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
+
     <Grid>
         <Label Content="Agregar Tarjeta" HorizontalAlignment="Left" Margin="236,36,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="57,179,0,0" VerticalAlignment="Top" Width="209"/>
