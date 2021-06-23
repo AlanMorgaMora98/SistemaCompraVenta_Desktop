@@ -7,6 +7,59 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBox 
+            Grid.Row="0" 
+            Width="300"
+            Height="25" 
+            Margin="0, 10, 0, 10" >
+        </TextBox>
+
+        <Button 
+            Grid.Row="0" 
+            Width="50" 
+            Height="25" 
+            Margin="505,10,145,10" 
+            Content="Buscar">
+        </Button>
+        
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" FontSize="16" Margin="5, 0, 0, 10">Categorias</Label>
+            <CheckBox Grid.Column="0" Margin="5,34,0,-29" FontSize="14" >Tecnología</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,58,0,-48" FontSize="14" >Cocina</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,83,0,-68" FontSize="14" >Juguetes y Bebes</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,109,0,-89" FontSize="14" >Moda</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,132,0,-107" FontSize="14" >Deportes</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,156,0,-126" FontSize="14" >Herramientas</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,180,0,-145" FontSize="14" >Industrias y Oficina</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,204,0,-164" FontSize="14" >Accesorios para Vehiculo</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,228,0,-183" FontSize="14" >Salud y Equipo Medico</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,253,0,-203" FontSize="14" >Belleza y Cuidado Personal</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,277,0,-222" FontSize="14" >Calzado</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,302,0,-242" FontSize="14" >Productos Sustentables</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,326,0,-261" FontSize="14" >Mascotas</CheckBox>
+
+            <ListBox Grid.Column="1" Margin="5, 5, 5, 5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                            <StackPanel Orientation="Vertical">
+                                
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
     </Grid>
 </UserControl>
