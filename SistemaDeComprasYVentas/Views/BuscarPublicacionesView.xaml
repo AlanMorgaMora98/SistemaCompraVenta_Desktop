@@ -48,12 +48,13 @@
             <CheckBox Grid.Column="0" Margin="5,302,0,-242" FontSize="14" >Productos Sustentables</CheckBox>
             <CheckBox Grid.Column="0" Margin="5,326,0,-261" FontSize="14" >Mascotas</CheckBox>
 
-            <ListBox Grid.Column="1" Margin="5, 5, 5, 5">
+            <ListBox Grid.Column="1" Margin="5, 5, 5, 5" ItemsSource="{ Binding PublicacionesFiltradas }" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
                             <StackPanel Orientation="Vertical">
-                                
+                                <TextBlock Text="{ Binding Nombre }" />
+                                <TextBlock Text="{ Binding Precio }" />
                             </StackPanel>
                         </Border>
                     </DataTemplate>
