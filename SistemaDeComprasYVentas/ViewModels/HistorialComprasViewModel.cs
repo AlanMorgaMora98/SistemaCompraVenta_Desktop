@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
-	class HistorialComprasViewModel
+	class HistorialComprasViewModel : ViewModelBase
 	{
 	}
 }
