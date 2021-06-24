@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
+             xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views" 
+             xmlns:viewmodels="clr-namespace:SistemaDeComprasYVentas.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:IniciarSesionViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
     <Border
@@ -55,9 +57,16 @@
                 Margin="267,226,0,0" 
                 VerticalAlignment="Top" 
                 Width="190"
+                Text="{ Binding Usuario, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                 
                 BorderThickness="0" VerticalContentAlignment="Center"/>
-            <PasswordBox Name="PBPassword" HorizontalAlignment="Left" Margin="267,296,0,0" VerticalAlignment="Top" Width="190" Height="26" VerticalContentAlignment="Center"/>
+            <PasswordBox 
+                Name="PBPassword" 
+                HorizontalAlignment="Left" 
+                Margin="267,296,0,0" 
+                VerticalAlignment="Top"
+                Width="190" Height="26" 
+                VerticalContentAlignment="Center" PasswordChanged="PasswordBox_PasswordChanged" />
             <Button
                 Content="Salir" 
                 HorizontalAlignment="Left" 
