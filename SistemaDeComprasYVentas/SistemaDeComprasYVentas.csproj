@@ -83,6 +83,7 @@
     <Compile Include="ViewModels\IniciarSesionViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ModificarDatosPersonalesViewModel.cs" />
     <Compile Include="ViewModels\NavigationBarViewModel.cs" />
     <Compile Include="ViewModels\PerfilViewModel.cs" />
     <Compile Include="ViewModels\PublicacionesViewModel.cs" />
@@ -118,6 +119,9 @@
     </Compile>
     <Compile Include="Views\IniciarSesionView.xaml.cs">
       <DependentUpon>IniciarSesionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModificarDatosPersonalesView.xaml.cs">
+      <DependentUpon>ModificarDatosPersonalesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PerfilView.xaml.cs">
       <DependentUpon>PerfilView.xaml</DependentUpon>
@@ -188,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\IniciarSesionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModificarDatosPersonalesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
