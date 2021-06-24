@@ -87,6 +87,7 @@
     <Compile Include="ViewModels\PerfilViewModel.cs" />
     <Compile Include="ViewModels\PublicacionesViewModel.cs" />
     <Compile Include="ViewModels\PublicarProductoViewModel.cs" />
+    <Compile Include="ViewModels\RegistrarUsuarioViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AgregarDomicilioView.xaml.cs">
       <DependentUpon>AgregarDomicilioView.xaml</DependentUpon>
@@ -126,6 +127,9 @@
     </Compile>
     <Compile Include="Views\PublicarProductoView.xaml.cs">
       <DependentUpon>PublicarProductoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrarUsuarioView.xaml.cs">
+      <DependentUpon>RegistrarUsuarioView.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Layout.xaml">
       <SubType>Designer</SubType>
@@ -196,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PublicarProductoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrarUsuarioView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
