@@ -18,9 +18,9 @@ namespace SistemaDeComprasYVentas.Views
     /// <summary>
     /// Lógica de interacción para RegistrarUsuario.xaml
     /// </summary>
-    public partial class RegistrarUsuario : UserControl
+    public partial class RegistrarUsuarioView : UserControl
     {
-        public RegistrarUsuario()
+        public RegistrarUsuarioView()
         {
             InitializeComponent();
         }

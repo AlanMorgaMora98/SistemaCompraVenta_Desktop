@@ -50,6 +50,9 @@
             <DataTemplate DataType="{ x:Type viewModels:PublicacionesViewModel }">
                 <views:PublicacionesView />
             </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:RegistrarUsuarioViewModel }">
+                <views:RegistrarUsuarioView />
+            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
                 <components:Layout />
             </DataTemplate>
