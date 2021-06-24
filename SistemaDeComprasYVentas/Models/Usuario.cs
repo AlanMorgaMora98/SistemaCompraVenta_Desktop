@@ -4,59 +4,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaDeComprasYVentas.Enumerations;
 
 namespace SistemaDeComprasYVentas.Models
 {
 	class Usuario
 	{
-        private int claveUsuario;
-        private string nombres;
-        private string apellidos;
-        private string correoElectronico;
-        private string nombreUsuario;
-        private string contrasena;
-        private TipoUsuario tipoUsuario;
-        private string telefono;
-        private float calificacion;
+        public int Clave_Usuario { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public string Nombre_Usuario { get; set; }
+        public string Contrasena { get; set; }
+        public string Correo_Electronico { get; set; }
+        public string Telefono { get; set; }
+        public TipoUsuario Tipo_Usuario { get; set; }
+        public float Calificacion { get; set; }
 
         public Usuario()
         {
-            claveUsuario = 0;
-            nombres = "";
-            apellidos = "";
-            correoElectronico = "";
-            telefono = "";
-            nombreUsuario = "";
-            contrasena = "";
-            calificacion = 0.0f;
-            tipoUsuario = null;
+            Clave_Usuario = 0;
+            Nombres = "";
+            Apellidos = "";
+            Correo_Electronico = "";
+            Telefono = "";
+            Nombre_Usuario = "";
+            Contrasena = "";
+            Calificacion = 0.0f;
+            Tipo_Usuario = TipoUsuario.comprador;
         }
 
         public Usuario( Usuario original )
         {
-            claveUsuario = original.claveUsuario;
-            nombres = original.nombres;
-            apellidos = original.apellidos;
-            correoElectronico = original.correoElectronico;
-            telefono = original.telefono;
-            nombreUsuario = original.nombreUsuario;
-            contrasena = original.contrasena;
-            calificacion = original.calificacion;
-            tipoUsuario = original.tipoUsuario;
+            Clave_Usuario = original.Clave_Usuario;
+            Nombres = original.Nombres;
+            Apellidos = original.Apellidos;
+            Correo_Electronico = original.Correo_Electronico;
+            Telefono = original.Telefono;
+            Nombre_Usuario = original.Nombre_Usuario;
+            Contrasena = original.Contrasena;
+            Calificacion = original.Calificacion;
+            Tipo_Usuario = original.Tipo_Usuario;
         }
 
-        public Usuario( int claveUsuarioIn, string nombresIn, string apellidosIn, string correoIn, string telefonoIn,
-                        string usuarioIn, string contrasenaIn, float calificacionIn, TipoUsuario tipoIn )
+        public Usuario( int claveUsuarioIn, string NombresIn, string ApellidosIn, string correoIn, string TelefonoIn,
+                        string usuarioIn, string ContrasenaIn, float CalificacionIn, TipoUsuario tipoIn )
         {
-            claveUsuario = claveUsuarioIn;
-            nombres = nombresIn;
-            apellidos = apellidosIn;
-            correoElectronico = correoIn;
-            telefono = telefonoIn;
-            nombreUsuario = usuarioIn;
-            contrasena = contrasenaIn;
-            calificacion = calificacionIn;
-            tipoUsuario = tipoIn;
+            Clave_Usuario = claveUsuarioIn;
+            Nombres = NombresIn;
+            Apellidos = ApellidosIn;
+            Correo_Electronico = correoIn;
+            Telefono = TelefonoIn;
+            Nombre_Usuario = usuarioIn;
+            Contrasena = ContrasenaIn;
+            Calificacion = CalificacionIn;
+            Tipo_Usuario = tipoIn;
         }
     }
 }
