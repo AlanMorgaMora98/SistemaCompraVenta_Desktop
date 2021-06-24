@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="700" Background="White">
+             d:DesignHeight="600" d:DesignWidth="700" Background="White" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -14,6 +14,7 @@
 
         <TextBox 
             Grid.Row="0" 
+            Text="{ Binding CadenaBusqueda, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
             Width="300"
             Height="25" 
             Margin="0, 10, 0, 10" >
@@ -34,27 +35,30 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" FontSize="16" Margin="5, 0, 0, 10">Categorias</Label>
-            <CheckBox Grid.Column="0" Margin="5,34,0,-29" FontSize="14" >Tecnología</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,58,0,-48" FontSize="14" >Cocina</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,83,0,-68" FontSize="14" >Juguetes y Bebes</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,109,0,-89" FontSize="14" >Moda</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,132,0,-107" FontSize="14" >Deportes</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,156,0,-126" FontSize="14" >Herramientas</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,180,0,-145" FontSize="14" >Industrias y Oficina</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,204,0,-164" FontSize="14" >Accesorios para Vehiculo</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,228,0,-183" FontSize="14" >Salud y Equipo Medico</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,253,0,-203" FontSize="14" >Belleza y Cuidado Personal</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,277,0,-222" FontSize="14" >Calzado</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,302,0,-242" FontSize="14" >Productos Sustentables</CheckBox>
-            <CheckBox Grid.Column="0" Margin="5,326,0,-261" FontSize="14" >Mascotas</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,34,0,-29" FontSize="14" IsChecked="{ Binding TecnologiaChecked }" >Tecnología</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,58,0,-48" FontSize="14" IsChecked="{ Binding CocinaChecked }" >Cocina</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,83,0,-68" FontSize="14" IsChecked="{ Binding JuguetesYBebesChecked }" >Juguetes y Bebes</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,109,0,-89" FontSize="14" IsChecked="{ Binding ModaChecked }" >Moda</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,132,0,-107" FontSize="14" IsChecked="{ Binding DeportesChecked }" >Deportes</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,156,0,-126" FontSize="14" IsChecked="{ Binding HerramientasChecked }" >Herramientas</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,180,0,-145" FontSize="14" IsChecked="{ Binding IndustriaYOficinasChecked }" >Industrias y Oficina</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,204,0,-164" FontSize="14" IsChecked="{ Binding AccesoriosVehiculoChecked }" >Accesorios para Vehiculo</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,228,0,-183" FontSize="14" IsChecked="{ Binding SaludEquipoMedicoChecked }" >Salud y Equipo Medico</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,253,0,-203" FontSize="14" IsChecked="{ Binding BellezaCuidadoPersonalChecked }" >Belleza y Cuidado Personal</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,277,0,-222" FontSize="14" IsChecked="{ Binding CalzadoChecked }" >Calzado</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,302,0,-242" FontSize="14" IsChecked="{ Binding ProductosSustentablesChecked }" >Productos Sustentables</CheckBox>
+            <CheckBox Grid.Column="0" Margin="5,326,0,-261" FontSize="14" IsChecked="{ Binding MascotasChecked }" >Mascotas</CheckBox>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Margin="10,532,500,-532" Name="errorText" />
 
-            <ListBox Grid.Column="1" Margin="5, 5, 5, 5" ItemsSource="{ Binding PublicacionesFiltradas }" >
+            <ListBox Grid.Column="1" Margin="5, 5, 5, 5" ItemsSource="{ Binding PublicacionesFiltradas, UpdateSourceTrigger=PropertyChanged }" 
+                     HorizontalContentAlignment="Stretch" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{ Binding Nombre }" />
-                                <TextBlock Text="{ Binding Precio }" />
+                                <TextBlock Text="{ Binding Nombre }" Margin="0, 5, 0, 5 " />
+                                <TextBlock Text="{ Binding Descripcion }" Margin="0, 5, 0, 5 " />
+                                <TextBlock Text="{ Binding Precio }" Margin="0, 5, 0, 5 " />
                             </StackPanel>
                         </Border>
                     </DataTemplate>
