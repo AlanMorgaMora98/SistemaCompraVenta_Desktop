@@ -64,6 +64,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiRequests\ApiHelper.cs" />
+    <Compile Include="ApiRequests\PublicacionesRequests.cs" />
+    <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Components\Layout.xaml.cs">
