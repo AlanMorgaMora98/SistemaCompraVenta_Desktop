@@ -75,10 +75,13 @@
       <DependentUpon>NavigationBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enumerations\Categoria.cs" />
+    <Compile Include="Enumerations\TipoUsuario.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\LayoutNavigationService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Session\LoginSession.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
     <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />
