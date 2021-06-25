@@ -20,7 +20,7 @@
                 VerticalAlignment="Top" 
                 FontWeight="Bold" 
                 Command="{ Binding LoginCommand }"
-                Click="Login_Click" FontSize="14">
+                FontSize="14">
 
                 <Button.Style>
                     <Style TargetType="Button">
@@ -73,7 +73,7 @@
                 HorizontalAlignment="Left" 
                 Margin="134,378,0,0" 
                 VerticalAlignment="Top" 
-                Click="Exit_Click" FontWeight="Bold" FontSize="14">
+                FontWeight="Bold" FontSize="14">
 
                 <Button.Style>
                     <Style TargetType="Button">
@@ -108,7 +108,7 @@
                 Margin="321,458,0,0" 
                 VerticalAlignment="Top" 
                 Command="{ Binding NavigateRegistroUsuarioCommand }"
-                Click="Exit_Click" FontWeight="Bold" FontSize="14">
+                FontWeight="Bold" FontSize="14">
 
                 <Button.Style>
                     <Style TargetType="Button">

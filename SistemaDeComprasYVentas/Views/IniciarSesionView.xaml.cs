@@ -30,15 +30,5 @@ namespace SistemaDeComprasYVentas.Views
 			if( DataContext != null )
 			{ ( ( dynamic )DataContext ).Contrasena = ( ( PasswordBox )sender ).SecurePassword; }
 		}
-
-		private void Login_Click( object sender, RoutedEventArgs e )
-		{
-
-		}
-
-		private void Exit_Click( object sender, RoutedEventArgs e )
-		{
-
-		}
 	}
 }

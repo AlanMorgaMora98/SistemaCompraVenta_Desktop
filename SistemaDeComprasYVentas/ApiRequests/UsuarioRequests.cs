@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,46 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				else
 				{
 					Console.WriteLine( response.Content.ReadAsStringAsync() );
+					return null;
+				}
+			}
+		}
+
+		public async Task< Usuario > GetUsuarioInformation( int claveUsuario, string accessToken )
+		{
+			string requestURL = usuarioGeneralURL + "/" + claveUsuario;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
+					Console.WriteLine( respuesta.clave_usuario );
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task< Usuario > ActualizarUsuarioInformation( int claveUsuario, string accessToken, Usuario usuario )
+		{
+			string requestURL = usuarioGeneralURL + "/" + claveUsuario;
+			var json = JsonConvert.SerializeObject( usuario );
+			var data = new StringContent( json, Encoding.UTF8, "application/json" );
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.PutAsync( requestURL, data ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
+					Console.WriteLine( respuesta.clave_usuario );
+					return respuesta;
+				}
+				else
+				{
 					return null;
 				}
 			}

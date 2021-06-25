@@ -18,17 +18,17 @@
 
             <TextBlock Margin="270,0,-286,0" FontSize="25" Foreground="White">Perfil de Usuario</TextBlock>
             <TextBlock Grid.Row="1" Margin="100, 40, 0, 0" FontSize="20" Foreground="White">Nombres:</TextBlock>
-            <TextBlock Grid.Row="1" Margin="205, 40, 0, 0" FontSize="20" Foreground="White">User Names Go Here</TextBlock>
+            <TextBlock Grid.Row="1" Text="{ Binding Nombres, Mode=TwoWay, NotifyOnSourceUpdated=True }" Margin="205, 40, 0, 0" FontSize="20" Foreground="White">User Names Go Here</TextBlock>
             <TextBlock Grid.Row="1" Margin="100, 85, 0, 0" FontSize="20" Foreground="White">Apellidos:</TextBlock>
-            <TextBlock Grid.Row="1" Margin="205, 85, 0, 0" FontSize="20" Foreground="White">User Apellidos Go Here</TextBlock>
+            <TextBlock Grid.Row="1" Text="{ Binding Apellidos, Mode=TwoWay, NotifyOnSourceUpdated=True  }" Margin="205, 85, 0, 0" FontSize="20" Foreground="White">User Apellidos Go Here</TextBlock>
             <TextBlock Grid.Row="1" Margin="100, 130, 0, 0" FontSize="20" Foreground="White">Correo Electronico:</TextBlock>
-            <TextBlock Grid.Row="1" Margin="285, 130, 0, 0" FontSize="20" Foreground="White">User Correo Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Text="{ Binding Correo, Mode=TwoWay, NotifyOnSourceUpdated=True  }" Margin="285, 130, 0, 0" FontSize="20" Foreground="White">User Correo Goes Here</TextBlock>
             <TextBlock Grid.Row="1" Margin="100, 175, 0, 0" FontSize="20" Foreground="White">Nombre Usuario:</TextBlock>
-            <TextBlock Grid.Row="1" Margin="270, 175, 0, 0" FontSize="20" Foreground="White">User Usuario Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Text="{ Binding Usuario, Mode=TwoWay, NotifyOnSourceUpdated=True  }" Margin="270, 175, 0, 0" FontSize="20" Foreground="White">User Usuario Goes Here</TextBlock>
             <TextBlock Grid.Row="1" Margin="100, 215, 0, 0" FontSize="20" Foreground="White">Telefono:</TextBlock>
-            <TextBlock Grid.Row="1" Margin="200, 215, 0, 0" FontSize="20" Foreground="White">User Telefono Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Text="{ Binding Telefono, Mode=TwoWay, NotifyOnSourceUpdated=True  }" Margin="200, 215, 0, 0" FontSize="20" Foreground="White">User Telefono Goes Here</TextBlock>
             <TextBlock Grid.Row="1" Margin="100, 260, 0, 0" FontSize="20" Foreground="White">Calificacion:</TextBlock>
-            <TextBlock Grid.Row="1" Margin="220, 260, 0, 0" FontSize="20" Foreground="White">User Calificacion Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Text="{ Binding Calificacion, Mode=TwoWay, NotifyOnSourceUpdated=True  }" Margin="220, 260, 0, 0" FontSize="20" Foreground="White">User Calificacion Goes Here</TextBlock>
 
             <Button 
                 Grid.Row="1"
@@ -36,6 +36,7 @@
                 HorizontalAlignment="Left" 
                 Margin="100,369,0,0" 
                 VerticalAlignment="Top" 
+                Command="{ Binding NavigateModificarDatosCommand }"
                 FontWeight="Bold" FontSize="14">
 
                 <Button.Style>

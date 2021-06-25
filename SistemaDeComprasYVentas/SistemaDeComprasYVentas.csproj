@@ -71,6 +71,7 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\EliminarCuentaCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\ModificarDatosUsuarioCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\RegistrarUsuarioCommand.cs" />
     <Compile Include="Components\Layout.xaml.cs">
