@@ -34,6 +34,12 @@ namespace SistemaDeComprasYVentas.Utilities
 			return creator;
 		}
 
+        public INavigationService< RegistrarUsuarioViewModel > CreateRegistrarUsuarioNavigationService()
+		{
+            return new LayoutNavigationService<RegistrarUsuarioViewModel>(
+                _navigationStore,
+                () => new RegistrarUsuarioViewModel(), CreateNavigationBarViewModel );
+		}
 
         public INavigationService< BuscarPublicacionesViewModel > CreateBuscarNavigationService()
         {
