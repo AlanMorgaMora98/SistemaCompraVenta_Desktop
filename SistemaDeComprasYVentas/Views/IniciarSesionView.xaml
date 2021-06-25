@@ -16,7 +16,7 @@
             <Button
                 Content="Iniciar" 
                 HorizontalAlignment="Left" 
-                Margin="468,458,0,0" 
+                Margin="471,378,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" 
                 Command="{ Binding LoginCommand }"
@@ -71,7 +71,7 @@
             <Button
                 Content="Salir" 
                 HorizontalAlignment="Left" 
-                Margin="140,458,0,0" 
+                Margin="134,378,0,0" 
                 VerticalAlignment="Top" 
                 Click="Exit_Click" FontWeight="Bold" FontSize="14">
 
@@ -90,6 +90,41 @@
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Width="100" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+
+            <Button
+                Content="¿No tienes Cuenta? ¡Regístrate!" 
+                HorizontalAlignment="Left" 
+                Margin="321,458,0,0" 
+                VerticalAlignment="Top" 
+                Command="{ Binding NavigateRegistroUsuarioCommand }"
+                Click="Exit_Click" FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="250" 
                                 Height="40"
                                 CornerRadius="20"
                                 Background="{TemplateBinding Background}">

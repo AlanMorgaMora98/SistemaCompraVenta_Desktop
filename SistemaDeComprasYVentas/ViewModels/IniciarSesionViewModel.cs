@@ -5,6 +5,8 @@ using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using SistemaDeComprasYVentas.Utilities;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
@@ -12,7 +14,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 	{
 		private string usuario;
 		private SecureString contrasena;
+
 		public LoginCommand LoginCommand;
+		public ICommand NavigateRegistroUsuarioCommand { get; }
 		public string Usuario 
 		{
 			get { return usuario; } 
@@ -35,6 +39,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public IniciarSesionViewModel()
 		{
 			LoginCommand = new LoginCommand();
+			NavigateRegistroUsuarioCommand = new NavigateCommand< RegistrarUsuarioViewModel >( 
+											 NavigationServiceCreator.GetInstance().CreateRegistrarUsuarioNavigationService() );
 		}
 	}
 }
