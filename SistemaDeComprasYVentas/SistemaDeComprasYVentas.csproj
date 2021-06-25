@@ -78,7 +78,8 @@
     </Compile>
     <Compile Include="Enumerations\Categoria.cs" />
     <Compile Include="Enumerations\TipoUsuario.cs" />
-    <Compile Include="Models\LoginResponse.cs" />
+    <Compile Include="Models\LoginRequestData.cs" />
+    <Compile Include="Models\LoginResponseData.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Services\INavigationService.cs" />

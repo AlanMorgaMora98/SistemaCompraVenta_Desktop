@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace SistemaDeComprasYVentas.Models
 {
-	public class LoginResponse
+	public class LoginResponseData
 	{
 		public int Clave_Usuario { get; set; }
 		public string Access_Token { get; set; }
 
-		public LoginResponse()
+		public LoginResponseData()
 		{
 			Clave_Usuario = -1;
 			Access_Token = "";
 		}
 
-		public LoginResponse( LoginResponse original )
+		public LoginResponseData( LoginResponseData original )
 		{
 			Clave_Usuario = original.Clave_Usuario;
 			Access_Token = original.Access_Token;
 		}
 
-		public LoginResponse( int claveIn, string accessIn )
+		public LoginResponseData( int claveIn, string accessIn )
 		{
 			Clave_Usuario = claveIn;
 			Access_Token = accessIn;

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Session;
 
 namespace SistemaDeComprasYVentas.ApiRequests
 {
@@ -16,14 +19,18 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			ApiHelper.InitializeClient();
 		}
 
-		public async Task< List< Publicacion > > RealizarLogin()
+		public async Task< LoginResponseData > RealizarLogin( string nombre_usuario, string contrasena )
 		{
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( loginURL ) )
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( loginURL,
+												  new StringContent( JsonConvert.SerializeObject(
+												  new LoginRequestData( nombre_usuario, contrasena ) ) ) ) )
 			{
-				if (response.IsSuccessStatusCode)
+				if( response.IsSuccessStatusCode )
 				{
-					List<Publicacion> publicaciones = await response.Content.ReadAsAsync<List<Publicacion>>();
-					return publicaciones;
+					LoginResponseData respuesta = await response.Content.ReadAsAsync< LoginResponseData >();
+					Console.WriteLine( respuesta.Clave_Usuario );
+					Console.WriteLine( respuesta.Access_Token );
+					return respuesta;
 				}
 				else
 				{
