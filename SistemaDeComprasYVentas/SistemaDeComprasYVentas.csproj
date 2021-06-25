@@ -64,10 +64,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiRequests\ApiHelper.cs" />
+    <Compile Include="ApiRequests\LoginRequests.cs" />
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
+    <Compile Include="ApiRequests\UsuarioRequests.cs" />
     <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Commands\RegistrarUsuarioCommand.cs" />
     <Compile Include="Components\Layout.xaml.cs">
       <DependentUpon>Layout.xaml</DependentUpon>
     </Compile>
@@ -75,11 +79,17 @@
       <DependentUpon>NavigationBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enumerations\Categoria.cs" />
+    <Compile Include="Enumerations\TipoUsuario.cs" />
+    <Compile Include="Models\LoginRequestData.cs" />
+    <Compile Include="Models\LoginResponseData.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\LayoutNavigationService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Session\LoginSession.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="Utilities\NavigationServiceCreator.cs" />
     <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
     <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />
     <Compile Include="ViewModels\BuscarPublicacionesViewModel.cs" />

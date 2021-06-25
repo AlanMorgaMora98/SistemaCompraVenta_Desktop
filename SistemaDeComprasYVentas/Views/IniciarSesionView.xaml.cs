@@ -25,6 +25,12 @@ namespace SistemaDeComprasYVentas.Views
 			InitializeComponent();
 		}
 
+		private void PasswordBox_PasswordChanged( object sender, RoutedEventArgs e )
+		{
+			if( DataContext != null )
+			{ ( ( dynamic )DataContext ).Contrasena = ( ( PasswordBox )sender ).SecurePassword; }
+		}
+
 		private void Login_Click( object sender, RoutedEventArgs e )
 		{
 

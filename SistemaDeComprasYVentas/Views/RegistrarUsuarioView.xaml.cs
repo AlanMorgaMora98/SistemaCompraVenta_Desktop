@@ -18,11 +18,23 @@ namespace SistemaDeComprasYVentas.Views
     /// <summary>
     /// Lógica de interacción para RegistrarUsuario.xaml
     /// </summary>
-    public partial class RegistrarUsuario : UserControl
+    public partial class RegistrarUsuarioView : UserControl
     {
-        public RegistrarUsuario()
+        public RegistrarUsuarioView()
         {
             InitializeComponent();
+        }
+
+        private void Contrasena_Changed( object sender, RoutedEventArgs e )
+        {
+            if( DataContext != null )
+            { ( ( dynamic )DataContext ).Contrasena = ( ( PasswordBox )sender ).SecurePassword; }
+        }
+
+        private void ConfirmarContrasena_Changed( object sender, RoutedEventArgs e )
+        {
+            if( DataContext != null )
+            { ( ( dynamic )DataContext ).ConfirmarContrasena = ( ( PasswordBox )sender ).SecurePassword; }
         }
     }
 }
