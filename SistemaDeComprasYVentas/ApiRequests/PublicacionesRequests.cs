@@ -15,6 +15,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	public class PublicacionesRequests
 	{
 		private string publicacionesURL = "http://192.168.1.68:5000/publicaciones";
+
 		public PublicacionesRequests()
 		{
 			ApiHelper.InitializeClient();

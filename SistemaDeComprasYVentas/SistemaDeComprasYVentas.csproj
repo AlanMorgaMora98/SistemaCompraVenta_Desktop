@@ -64,6 +64,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiRequests\ApiHelper.cs" />
+    <Compile Include="ApiRequests\LoginRequests.cs" />
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
     <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
     <Compile Include="Commands\CommandBase.cs" />
@@ -77,6 +78,7 @@
     </Compile>
     <Compile Include="Enumerations\Categoria.cs" />
     <Compile Include="Enumerations\TipoUsuario.cs" />
+    <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Services\INavigationService.cs" />

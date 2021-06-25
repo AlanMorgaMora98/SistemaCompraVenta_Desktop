@@ -11,12 +11,17 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	class ApiHelper
 	{
 		public static HttpClient ApiClient { get; set; }
+		private static bool IsInitialized = false;
 
 		public static void InitializeClient()
 		{
-			ApiClient = new HttpClient();
-			ApiClient.DefaultRequestHeaders.Accept.Clear();
-			ApiClient.DefaultRequestHeaders.Accept.Add( new MediaTypeWithQualityHeaderValue( "application/json" ) );
+			if( !IsInitialized )
+			{
+				IsInitialized = true;
+				ApiClient = new HttpClient();
+				ApiClient.DefaultRequestHeaders.Accept.Clear();
+				ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			}
 		}
 	}
 }
