@@ -10,23 +10,25 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class IniciarSesionViewModel : ViewModelBase
 	{
-		private LoginCommand LoginCommand;
+		private string usuario;
+		private SecureString contrasena;
+		public LoginCommand LoginCommand;
 		public string Usuario 
 		{
-			get { return Usuario; } 
+			get { return usuario; } 
 			set 
 			{
-				Usuario = value;
-				LoginCommand.Usuario = Usuario;
+				usuario = value;
+				LoginCommand.Usuario = usuario;
 			} 
 		}
 		public SecureString Contrasena 
 		{
-			private get { return Contrasena; } 
+			private get { return contrasena; } 
 			set
 			{
-				Contrasena = value;
-				LoginCommand.Contrasena = Contrasena;
+				contrasena = value;
+				LoginCommand.Contrasena = contrasena;
 			}
 		}
 

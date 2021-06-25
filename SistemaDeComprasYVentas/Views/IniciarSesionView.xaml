@@ -19,6 +19,7 @@
                 Margin="468,458,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" 
+                Command="{ Binding LoginCommand }"
                 Click="Login_Click" FontSize="14">
 
                 <Button.Style>
