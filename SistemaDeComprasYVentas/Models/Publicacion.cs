@@ -9,59 +9,59 @@ namespace SistemaDeComprasYVentas.Models
 {
 	public class Publicacion
 	{
-		public int Clave_Publicacion { get; set; }
-		public string Nombre { get; set; }
-		public string Descripcion { get; set; }
-		public Categoria Categoria { get; set; }
-		public double Precio { get; set; }
-		public int Cantidad_Disponible { get; set; }
-		public double Calificacion_General { get; set; }
-		public string Unidad_Medida { get; set; }
-		public int Numero_Ventas { get; set; }
-		public string Imagen { get; set; }
+		public int clave_publicacion { get; set; }
+		public string nombre { get; set; }
+		public string descripcion { get; set; }
+		public Categoria categoria { get; set; }
+		public double precio { get; set; }
+		public int cantidad_disponible { get; set; }
+		public double calificacion_general { get; set; }
+		public string unidad_medida { get; set; }
+		public int numero_ventas { get; set; }
+		public string imagen { get; set; }
 
 		public Publicacion()
 		{
-			Clave_Publicacion = 0;
-			Nombre = "";
-			Descripcion = "";
-			Categoria = Categoria.tecnologia;
-			Precio = 0.0f;
-			Cantidad_Disponible = -1;
-			Calificacion_General = 0.0f;
-			Unidad_Medida = "";
-			Numero_Ventas = 0;
-			Imagen = "";
+			clave_publicacion = 0;
+			nombre = "";
+			descripcion = "";
+			categoria = Categoria.tecnologia;
+			precio = 0.0f;
+			cantidad_disponible = -1;
+			calificacion_general = 0.0f;
+			unidad_medida = "";
+			numero_ventas = 0;
+			imagen = "";
 		}
 
 		public Publicacion( Publicacion original )
 		{
-			Clave_Publicacion = original.Clave_Publicacion;
-			Nombre = original.Nombre;
-			Descripcion = original.Descripcion;
-			Categoria = original.Categoria;
-			Precio = original.Precio;
-			Cantidad_Disponible = original.Cantidad_Disponible;
-			Calificacion_General = original.Calificacion_General;
-			Unidad_Medida = original.Unidad_Medida;
-			Numero_Ventas = original.Numero_Ventas;
-			Imagen = original.Imagen;
+			clave_publicacion = original.clave_publicacion;
+			nombre = original.nombre;
+			descripcion = original.descripcion;
+			categoria = original.categoria;
+			precio = original.precio;
+			cantidad_disponible = original.cantidad_disponible;
+			calificacion_general = original.calificacion_general;
+			unidad_medida = original.unidad_medida;
+			numero_ventas = original.numero_ventas;
+			imagen = original.imagen;
 		}
 
 		public Publicacion( int claveIn, string nombreIn, string descripcionIn, Categoria categoriaIn,
 							double precioIn, int cantidadIn, double calificacionIn, string unidadIn, 
 							int ventasIn, string imagenIn)
 		{
-			Clave_Publicacion = claveIn;
-			Nombre = nombreIn;
-			Descripcion = descripcionIn;
-			Categoria = categoriaIn;
-			Precio = precioIn;
-			Cantidad_Disponible = cantidadIn;
-			Calificacion_General = calificacionIn;
-			Unidad_Medida = unidadIn;
-			Numero_Ventas = ventasIn;
-			Imagen = imagenIn;
+			clave_publicacion = claveIn;
+			nombre = nombreIn;
+			descripcion = descripcionIn;
+			categoria = categoriaIn;
+			precio = precioIn;
+			cantidad_disponible = cantidadIn;
+			calificacion_general = calificacionIn;
+			unidad_medida = unidadIn;
+			numero_ventas = ventasIn;
+			imagen = imagenIn;
 		}
 
 	}
