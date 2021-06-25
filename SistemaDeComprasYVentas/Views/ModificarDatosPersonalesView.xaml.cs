@@ -24,5 +24,17 @@ namespace SistemaDeComprasYVentas.Views
         {
             InitializeComponent();
         }
+
+        private void ContrasenaChanged( Object sender, RoutedEventArgs e )
+		{
+            if( DataContext != null )
+            { ( ( dynamic )DataContext ).Contrasena = ( ( PasswordBox )sender ).SecurePassword; }
+        }
+
+        private void ConfirmarContrasenaChanged( Object sender, RoutedEventArgs e )
+        {
+            if( DataContext != null )
+            { ( ( dynamic )DataContext ).ConfirmarContrasena = ( ( PasswordBox )sender ).SecurePassword; }
+        }
     }
 }

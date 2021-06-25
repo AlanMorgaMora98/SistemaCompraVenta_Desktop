@@ -24,7 +24,7 @@ namespace SistemaDeComprasYVentas.Commands
 
 		public override void Execute( object parameter )
 		{
-			requests.RealizarLogin( username, convertToUNSecureString( password) ).ContinueWith( Task => 
+			requests.RealizarLogin( username, convertToUNSecureString( password ) ).ContinueWith( Task => 
 			{
 				if( Task.Exception == null )
 				{

@@ -29,9 +29,9 @@ namespace SistemaDeComprasYVentas.Commands
 
 		public override void Execute( object parameter )
 		{
-			requests.RegistrarUsuario( CreateUsuario() ).ContinueWith(Task =>
+			requests.RegistrarUsuario( CreateUsuario() ).ContinueWith( Task =>
 			{
-				if (Task.Exception == null)
+				if( Task.Exception == null )
 				{
 					Usuario response = Task.Result;
 				}
