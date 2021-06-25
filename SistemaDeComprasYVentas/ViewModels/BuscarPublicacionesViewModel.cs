@@ -325,7 +325,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 				for( int currentCriterio = 0; currentCriterio < CriteriosFiltracion.Count(); currentCriterio++ )
 				{
 					if (!publicacionAgregada &&
-						_asyncViewModel.PublicacionesTotales[ currentPublicacion ].Categoria == CriteriosFiltracion[ currentCriterio ] )
+						_asyncViewModel.PublicacionesTotales[ currentPublicacion ].categoria == CriteriosFiltracion[ currentCriterio ] )
 					{
 						publicacionAgregada = true;
 						publicacionesFiltradas.Add( _asyncViewModel.PublicacionesTotales[ currentPublicacion ] );
@@ -344,7 +344,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 				{
 					bool publicacionAgregada = false;
 					if( !publicacionAgregada &&
-						publicacionesEntrada[ currentPublicacion ].Nombre.Contains( CadenaBusqueda ) )
+						publicacionesEntrada[ currentPublicacion ].nombre.Contains( CadenaBusqueda ) )
 					{
 						publicacionAgregada = true;
 						publicacionesFiltradasBusqueda.Add( publicacionesEntrada[ currentPublicacion ] );
