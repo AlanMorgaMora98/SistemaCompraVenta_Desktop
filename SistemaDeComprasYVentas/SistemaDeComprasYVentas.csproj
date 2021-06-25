@@ -69,6 +69,7 @@
     <Compile Include="ApiRequests\UsuarioRequests.cs" />
     <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\EliminarCuentaCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\RegistrarUsuarioCommand.cs" />

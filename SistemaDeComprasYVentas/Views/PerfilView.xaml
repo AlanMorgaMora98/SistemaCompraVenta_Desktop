@@ -6,7 +6,99 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
-    <Grid>
-            
-    </Grid>
+    <Border 
+        Background="#272537"
+        CornerRadius="20">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Margin="270,0,-286,0" FontSize="25" Foreground="White">Perfil de Usuario</TextBlock>
+            <TextBlock Grid.Row="1" Margin="100, 40, 0, 0" FontSize="20" Foreground="White">Nombres:</TextBlock>
+            <TextBlock Grid.Row="1" Margin="205, 40, 0, 0" FontSize="20" Foreground="White">User Names Go Here</TextBlock>
+            <TextBlock Grid.Row="1" Margin="100, 85, 0, 0" FontSize="20" Foreground="White">Apellidos:</TextBlock>
+            <TextBlock Grid.Row="1" Margin="205, 85, 0, 0" FontSize="20" Foreground="White">User Apellidos Go Here</TextBlock>
+            <TextBlock Grid.Row="1" Margin="100, 130, 0, 0" FontSize="20" Foreground="White">Correo Electronico:</TextBlock>
+            <TextBlock Grid.Row="1" Margin="285, 130, 0, 0" FontSize="20" Foreground="White">User Correo Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Margin="100, 175, 0, 0" FontSize="20" Foreground="White">Nombre Usuario:</TextBlock>
+            <TextBlock Grid.Row="1" Margin="270, 175, 0, 0" FontSize="20" Foreground="White">User Usuario Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Margin="100, 215, 0, 0" FontSize="20" Foreground="White">Telefono:</TextBlock>
+            <TextBlock Grid.Row="1" Margin="200, 215, 0, 0" FontSize="20" Foreground="White">User Telefono Goes Here</TextBlock>
+            <TextBlock Grid.Row="1" Margin="100, 260, 0, 0" FontSize="20" Foreground="White">Calificacion:</TextBlock>
+            <TextBlock Grid.Row="1" Margin="220, 260, 0, 0" FontSize="20" Foreground="White">User Calificacion Goes Here</TextBlock>
+
+            <Button 
+                Grid.Row="1"
+                Content="Modificar Datos Personales" 
+                HorizontalAlignment="Left" 
+                Margin="100,369,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="220" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+
+            <Button 
+                Grid.Row="1"
+                Content="Eliminar Cuenta" 
+                HorizontalAlignment="Left" 
+                Margin="425,369,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+        </Grid>
+    </Border>
 </UserControl>
