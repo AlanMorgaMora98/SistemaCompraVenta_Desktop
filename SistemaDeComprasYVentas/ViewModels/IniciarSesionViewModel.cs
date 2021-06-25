@@ -26,6 +26,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 				( ( LoginCommand )LoginCommand ).username = usuario;
 			} 
 		}
+
 		public SecureString Contrasena 
 		{
 			private get { return contrasena; } 
