@@ -8,25 +8,25 @@ namespace SistemaDeComprasYVentas.Models
 {
 	public class LoginResponseData
 	{
-		public int Clave_Usuario { get; set; }
-		public string Access_Token { get; set; }
+		public int clave_usuario { get; set; }
+		public string access_token { get; set; }
 
 		public LoginResponseData()
 		{
-			Clave_Usuario = -1;
-			Access_Token = "";
+			clave_usuario = -1;
+			access_token = "";
 		}
 
 		public LoginResponseData( LoginResponseData original )
 		{
-			Clave_Usuario = original.Clave_Usuario;
-			Access_Token = original.Access_Token;
+			clave_usuario = original.clave_usuario;
+			access_token = original.access_token;
 		}
 
 		public LoginResponseData( int claveIn, string accessIn )
 		{
-			Clave_Usuario = claveIn;
-			Access_Token = accessIn;
+			clave_usuario = claveIn;
+			access_token = accessIn;
 		}
 	}
 }

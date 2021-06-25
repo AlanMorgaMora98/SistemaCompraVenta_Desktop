@@ -21,15 +21,13 @@ namespace SistemaDeComprasYVentas.ApiRequests
 
 		public async Task< LoginResponseData > RealizarLogin( string nombre_usuario, string contrasena )
 		{
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( loginURL,
-												  new StringContent( JsonConvert.SerializeObject(
-												  new LoginRequestData( nombre_usuario, contrasena ) ) ) ) )
+			var json = JsonConvert.SerializeObject( new LoginRequestData( nombre_usuario, contrasena ) );
+			var data = new StringContent( json, Encoding.UTF8, "application/json" );
+			using ( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( loginURL, data ) )
 			{
 				if( response.IsSuccessStatusCode )
 				{
 					LoginResponseData respuesta = await response.Content.ReadAsAsync< LoginResponseData >();
-					Console.WriteLine( respuesta.Clave_Usuario );
-					Console.WriteLine( respuesta.Access_Token );
 					return respuesta;
 				}
 				else

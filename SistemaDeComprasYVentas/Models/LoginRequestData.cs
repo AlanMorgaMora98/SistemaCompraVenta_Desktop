@@ -8,25 +8,25 @@ namespace SistemaDeComprasYVentas.Models
 {
 	public class LoginRequestData
 	{
-		public string Nombre_Usuario { get; set; }
-		public string Contrasena { get; set; }
+		public string username { get; set; }
+		public string password { get; set; }
 
 		public LoginRequestData()
 		{
-			Nombre_Usuario = "";
-			Contrasena = "";
+			username = "";
+			password = "";
 		}
 
 		public LoginRequestData( LoginRequestData original )
 		{
-			Nombre_Usuario = original.Nombre_Usuario;
-			Contrasena = original.Contrasena;
+			username = original.username;
+			password = original.password;
 		}
 
 		public LoginRequestData( string nombreIn, string contrasenaIn )
 		{
-			Nombre_Usuario = nombreIn;
-			Contrasena = contrasenaIn;
+			username = nombreIn;
+			password = contrasenaIn;
 		}
 	}
 }

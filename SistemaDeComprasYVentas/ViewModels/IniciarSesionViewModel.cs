@@ -15,7 +15,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private string usuario;
 		private SecureString contrasena;
 
-		public LoginCommand LoginCommand;
+		public ICommand LoginCommand { get; set; }
 		public ICommand NavigateRegistroUsuarioCommand { get; }
 		public string Usuario 
 		{
@@ -23,7 +23,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			set 
 			{
 				usuario = value;
-				LoginCommand.Usuario = usuario;
+				( ( LoginCommand )LoginCommand ).username = usuario;
 			} 
 		}
 		public SecureString Contrasena 
@@ -32,7 +32,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			set
 			{
 				contrasena = value;
-				LoginCommand.Contrasena = contrasena;
+				( ( LoginCommand )LoginCommand ).password = contrasena;
 			}
 		}
 

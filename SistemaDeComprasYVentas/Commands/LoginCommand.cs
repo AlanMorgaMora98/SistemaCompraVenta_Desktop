@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,8 @@ namespace SistemaDeComprasYVentas.Commands
 	public class LoginCommand : CommandBase
 	{
 		private LoginRequests requests;
-		public string Usuario { get; set; }
-		public SecureString Contrasena { get; set; }
+		public string username { get; set; }
+		public SecureString password { get; set; }
 
 		public LoginCommand()
 		{
@@ -23,14 +24,28 @@ namespace SistemaDeComprasYVentas.Commands
 
 		public override void Execute( object parameter )
 		{
-			requests.RealizarLogin( Usuario, Contrasena.ToString() ).ContinueWith( Task => 
+			requests.RealizarLogin( username, convertToUNSecureString( password) ).ContinueWith( Task => 
 			{
 				if( Task.Exception == null )
 				{
 					LoginResponseData response = Task.Result;
-					LoginSession.GetInstance().Login( response.Clave_Usuario, response.Access_Token );
+					LoginSession.GetInstance().Login( response.clave_usuario, response.access_token );
 				}
 			} );
+		}
+
+		public string convertToUNSecureString( SecureString secstrPassword )
+		{
+			IntPtr unmanagedString = IntPtr.Zero;
+			try
+			{
+				unmanagedString = Marshal.SecureStringToGlobalAllocUnicode( secstrPassword );
+				return Marshal.PtrToStringUni( unmanagedString );
+			}
+			finally
+			{
+				Marshal.ZeroFreeGlobalAllocUnicode( unmanagedString );
+			}
 		}
 	}
 }
