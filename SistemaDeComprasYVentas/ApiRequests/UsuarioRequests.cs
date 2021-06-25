@@ -28,12 +28,10 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				if( response.IsSuccessStatusCode )
 				{
 					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
-					Console.WriteLine( respuesta.clave_usuario );
 					return respuesta;
 				}
 				else
 				{
-					Console.WriteLine( response.Content.ReadAsStringAsync() );
 					return null;
 				}
 			}
@@ -48,7 +46,6 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				if( response.IsSuccessStatusCode )
 				{
 					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
-					Console.WriteLine( respuesta.clave_usuario );
 					return respuesta;
 				}
 				else
@@ -69,7 +66,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				if( response.IsSuccessStatusCode )
 				{
 					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
-					Console.WriteLine( respuesta.clave_usuario );
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task< Usuario > DeleteUsuario( int claveUsuario, string accessToken )
+		{
+			string requestURL = usuarioGeneralURL + "/" + claveUsuario;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					Usuario respuesta = await response.Content.ReadAsAsync<Usuario>();
 					return respuesta;
 				}
 				else

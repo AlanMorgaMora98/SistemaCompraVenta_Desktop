@@ -81,6 +81,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public PerfilViewModel()
 		{
 			requests = new UsuarioRequests();
+			EliminarCuentaCommand = new EliminarCuentaCommand();
 			NavigateModificarDatosCommand = new NavigateCommand< ModificarDatosPersonalesViewModel >(
 											NavigationServiceCreator.GetInstance().CreateModificarDatosNavigationService() );
 			GetUserFields();

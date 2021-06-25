@@ -12,6 +12,7 @@ namespace SistemaDeComprasYVentas.ViewModels
     public class ModificarDatosPersonalesViewModel : ViewModelBase
     {
 		public ICommand ModificarDatosCommand { get; }
+
 		private string nombres;
 		private string apellidos;
 		private string correo;
