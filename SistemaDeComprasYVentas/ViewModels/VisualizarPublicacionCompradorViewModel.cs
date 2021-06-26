@@ -8,5 +8,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class VisualizarPublicacionCompradorViewModel : ViewModelBase
 	{
+		public VisualizarPublicacionCompradorViewModel()
+		{
+
+		}
 	}
 }

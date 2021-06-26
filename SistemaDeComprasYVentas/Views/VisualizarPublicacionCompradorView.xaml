@@ -25,18 +25,18 @@
                     
                 </Image>
 
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Nombre:" FontSize="20" Foreground="White" Margin="20, 100, 0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Categoria:" FontSize="20" Foreground="White" Margin="20, 150,0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Precio:" FontSize="20" Foreground="White" Margin="20, 200, 0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Cantidad Diponible:" FontSize="20" Foreground="White" Margin="20, 250, 0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Name Goes Here" FontSize="20" Foreground="White" Margin="140, 100, 0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Category Goes Here" FontSize="20" Foreground="White" Margin="140, 150, 0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Price Goes Here" FontSize="20" Foreground="White" Margin="140, 200, 0, 0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Amount Goes Here" FontSize="20" Foreground="White" Margin="230, 250, 0, 50"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Nombre:" FontSize="15" Foreground="White" Margin="20, 80, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Categoria:" FontSize="15" Foreground="White" Margin="20, 130,0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Precio:" FontSize="15" Foreground="White" Margin="20, 180, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Cantidad Diponible:" FontSize="15" Foreground="White" Margin="20, 230, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Name Goes Here" FontSize="15" Foreground="White" Margin="105, 80, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Category Goes Here" FontSize="15" Foreground="White" Margin="105, 130, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Price Goes Here" FontSize="15" Foreground="White" Margin="105, 180, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Product Amount Goes Here" FontSize="15" Foreground="White" Margin="185, 230, 0, 50"/>
             </Grid>
 
-            <TextBlock Grid.Row="1" Text="Descripción:" Foreground="White" FontSize="20" Margin="50, 20, 0, 0"/>
-            <TextBlock Grid.Row="1" Text="Descripción:" Foreground="White" FontSize="20" Margin="0, 50, 0, 0" TextWrapping="Wrap" Width="600"/>
+            <TextBlock Grid.Row="1" Text="Descripción:" Foreground="White" FontSize="15" Margin="50, 20, 0, 0"/>
+            <TextBlock Grid.Row="1" Text="Descripción:" Foreground="White" FontSize="15" Margin="0, 50, 0, 0" TextWrapping="Wrap" Width="600"/>
             <Button
                 Grid.Row="1"
                 Content="Agregar A Carrito" 
@@ -76,7 +76,7 @@
                 Grid.Row="1"
                 Content="Agregar A Favoritos" 
                 HorizontalAlignment="Left" 
-                Margin="393,150,0,0" 
+                Margin="426,150,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" FontSize="14">
 

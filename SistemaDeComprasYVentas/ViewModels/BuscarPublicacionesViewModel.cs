@@ -8,6 +8,10 @@ using SistemaDeComprasYVentas.Enumerations;
 using SistemaDeComprasYVentas.ApiRequests;
 using SistemaDeComprasYVentas.AsyncViewModels;
 using System.Collections.ObjectModel;
+using SistemaDeComprasYVentas.Stores;
+using System.Windows.Input;
+using SistemaDeComprasYVentas.Commands;
+using SistemaDeComprasYVentas.Utilities;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
@@ -16,6 +20,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private readonly BuscarPublicacionesAsyncViewModel _asyncViewModel;
 		private List< Publicacion > publicacionesTotales;
 		private ObservableCollection< Publicacion > publicacionesFiltradas;
+		private ICommand NavigateVisualizarPublicacion { get; }
 		private bool tecnologiaChecked;
 		private bool cocinaChecked;
 		private bool juguetesYBebesChecked;
@@ -293,12 +298,23 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public Publicacion ItemSeleccionado
+		{
+			set
+			{
+				SelectionContainerStore.GetInstance().Publicacion = value;
+				NavigateVisualizarPublicacion.Execute( this );
+			}
+		}
+
 		public BuscarPublicacionesViewModel()
 		{
 			PublicacionesTotales = new List< Publicacion >();
 			PublicacionesFiltradas = new ObservableCollection< Publicacion >();
 			CriteriosFiltracion = new List< Categoria >();
 			_asyncViewModel = BuscarPublicacionesAsyncViewModel.CargarPublicaciones();
+			NavigateVisualizarPublicacion = new NavigateCommand< VisualizarPublicacionCompradorViewModel >( 
+											NavigationServiceCreator.GetInstance().CreateVisualizarPublicacionCompradorService() );
 		}
 
 		public void FilterPublicaciones()
