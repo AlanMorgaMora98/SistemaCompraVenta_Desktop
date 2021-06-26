@@ -68,6 +68,7 @@
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
     <Compile Include="ApiRequests\UsuarioRequests.cs" />
     <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
+    <Compile Include="Commands\AgregarACarritoCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\EliminarCuentaCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
@@ -82,6 +83,7 @@
     </Compile>
     <Compile Include="Enumerations\Categoria.cs" />
     <Compile Include="Enumerations\TipoUsuario.cs" />
+    <Compile Include="Models\CarritoAddData.cs" />
     <Compile Include="Models\LoginRequestData.cs" />
     <Compile Include="Models\LoginResponseData.cs" />
     <Compile Include="Models\Usuario.cs" />

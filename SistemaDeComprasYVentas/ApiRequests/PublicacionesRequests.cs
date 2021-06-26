@@ -36,5 +36,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				}
 			}
 		}
+
+		public async Task< Publicacion > AgregarACarrito( Publicacion publicacion )
+		{
+			string requestURL = publicacionesURL +
+			var json = JsonConvert.SerializeObject( publicacion );
+			var data = new StringContent( json, Encoding.UTF8, "application/json" );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( usuarioGeneralURL, data ) )
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
 	}
 }
