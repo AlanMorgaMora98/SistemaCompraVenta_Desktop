@@ -69,11 +69,11 @@ namespace SistemaDeComprasYVentas.ViewModels
 		{
 			AgregarACarritoCommand = new AgregarACarritoCommand();
 			AgregarAFavoritoCommand = new AgregarAFavoritosCommand();
-			Nombre = SelectionContainerStore.GetInstance().Publicacion.nombre;
-			Categoria = SelectionContainerStore.GetInstance().Publicacion.categoria.ToString();
-			Precio = string.Format( "{0:N2}", SelectionContainerStore.GetInstance().Publicacion.precio );
-			Cantidad = SelectionContainerStore.GetInstance().Publicacion.cantidad_disponible.ToString();
-			Descripcion = SelectionContainerStore.GetInstance().Publicacion.descripcion;
+			Nombre = SelectionContainerStore.GetInstance().PublicacionBusqueda.nombre;
+			Categoria = SelectionContainerStore.GetInstance().PublicacionBusqueda.categoria.ToString();
+			Precio = string.Format( "{0:N2}", SelectionContainerStore.GetInstance().PublicacionBusqueda.precio );
+			Cantidad = SelectionContainerStore.GetInstance().PublicacionBusqueda.cantidad_disponible.ToString();
+			Descripcion = SelectionContainerStore.GetInstance().PublicacionBusqueda.descripcion;
 		}
 	}
 }

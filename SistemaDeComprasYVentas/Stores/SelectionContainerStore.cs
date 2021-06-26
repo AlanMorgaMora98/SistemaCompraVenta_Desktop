@@ -10,11 +10,15 @@ namespace SistemaDeComprasYVentas.Stores
 	public class SelectionContainerStore
 	{
 		private static SelectionContainerStore selectionContainerStore;
-		public Publicacion Publicacion { get; set; }
+		public Publicacion PublicacionBusqueda { get; set; }
+		public Publicacion PublicacionCarrito { get; set; }
+		public Publicacion PublicacionFavorito { get; set; }
 
 		private SelectionContainerStore()
 		{
-			Publicacion = null;
+			PublicacionBusqueda = null;
+			PublicacionCarrito = null;
+			PublicacionFavorito = null;
 		}
 
 		public static SelectionContainerStore GetInstance()

@@ -22,7 +22,7 @@ namespace SistemaDeComprasYVentas.Commands
 		public override void Execute( object parameter )
 		{
 			requests.AgregarACarrito( new CarritoFavoritoData( LoginSession.GetInstance().ClaveUsuario,
-									  SelectionContainerStore.GetInstance().Publicacion.clave_publicacion),
+									  SelectionContainerStore.GetInstance().PublicacionBusqueda.clave_publicacion),
 									  LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
 			 {
 				 if( Task.Exception == null )
