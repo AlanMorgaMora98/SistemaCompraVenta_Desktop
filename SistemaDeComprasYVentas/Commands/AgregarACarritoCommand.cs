@@ -1,4 +1,7 @@
 ﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Session;
+using SistemaDeComprasYVentas.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +21,14 @@ namespace SistemaDeComprasYVentas.Commands
 
 		public override void Execute( object parameter )
 		{
+			requests.AgregarACarrito( new CarritoFavoritoData( LoginSession.GetInstance().ClaveUsuario,
+									  SelectionContainerStore.GetInstance().Publicacion.clave_publicacion ) ).ContinueWith( Task =>
+			 {
+				 if( Task.Exception == null )
+				 {
 
+				 }
+			 } );
 		}
 	}
 }

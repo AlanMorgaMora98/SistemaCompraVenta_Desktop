@@ -15,6 +15,8 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	public class PublicacionesRequests
 	{
 		private string publicacionesURL = "http://192.168.1.68:5000/publicaciones";
+		private string carritoURL = "http://192.168.1.68:5000/usuarios";
+		private string favoritoURL = "http://192.168.1.68:5000/usuarios";
 
 		public PublicacionesRequests()
 		{
@@ -37,14 +39,33 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
-		public async Task< Publicacion > AgregarACarrito( Publicacion publicacion )
+		public async Task< Publicacion > AgregarACarrito( CarritoFavoritoData publicacion )
 		{
-			string requestURL = publicacionesURL +
+			string requestURL = carritoURL + "/" + publicacion.clave_usuario_usuario + "/carritos";
 			var json = JsonConvert.SerializeObject( publicacion );
 			var data = new StringContent( json, Encoding.UTF8, "application/json" );
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( usuarioGeneralURL, data ) )
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
 			{
-				if (response.IsSuccessStatusCode)
+				if( response.IsSuccessStatusCode )
+				{
+					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task< Publicacion > AgregarAFavorito( CarritoFavoritoData publicacion )
+		{
+			string requestURL = favoritoURL + "/" + publicacion.clave_usuario_usuario + "/favoritos";
+			var json = JsonConvert.SerializeObject( publicacion );
+			var data = new StringContent( json, Encoding.UTF8, "application/json" );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
+			{
+				if( response.IsSuccessStatusCode )
 				{
 					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
 					return respuesta;
