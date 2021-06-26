@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="SistemaDeComprasYVentas.Views.VisualizarPublicacionCompradorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="700" Background="White">
+    <Border 
+        Background="#272537"
+        CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Margin="20, 100, 25, 50" Width="150" Height="150">
+                    
+                </Image>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Nombre:" FontSize="15" Foreground="White" Margin="20, 80, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Categoria:" FontSize="15" Foreground="White" Margin="20, 130,0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Precio:" FontSize="15" Foreground="White" Margin="20, 180, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Cantidad Diponible:" FontSize="15" Foreground="White" Margin="20, 230, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{ Binding Nombre, Mode=TwoWay, NotifyOnSourceUpdated=True }" FontSize="15" Foreground="White" Margin="105, 80, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{ Binding Categoria, Mode=TwoWay, NotifyOnSourceUpdated=True }" FontSize="15" Foreground="White" Margin="105, 130, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{ Binding Precio, Mode=TwoWay, NotifyOnSourceUpdated=True }" FontSize="15" Foreground="White" Margin="105, 180, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{ Binding Cantidad, Mode=TwoWay, NotifyOnSourceUpdated=True }" FontSize="15" Foreground="White" Margin="185, 230, 0, 50"/>
+            </Grid>
+
+            <TextBlock Grid.Row="1" Text="Descripción:" Foreground="White" FontSize="15" Margin="50, 20, 0, 0"/>
+            <TextBlock Grid.Row="1" Text="{ Binding Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="White" FontSize="15" Margin="0, 50, 0, 0" TextWrapping="Wrap" Width="600"/>
+            <Button
+                Grid.Row="1"
+                Content="Agregar A Carrito" 
+                HorizontalAlignment="Left" 
+                Margin="157,150,0,0" 
+                VerticalAlignment="Top"
+                Command="{ Binding AgregarACarritoCommand }"
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+
+            <Button
+                Grid.Row="1"
+                Content="Agregar A Favoritos" 
+                HorizontalAlignment="Left" 
+                Margin="426,150,0,0" 
+                Command="{ Binding AgregarAFavoritoCommand }"
+                VerticalAlignment="Top" 
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="160" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

@@ -56,6 +56,9 @@
             <DataTemplate DataType="{ x:Type viewModels:ModificarDatosPersonalesViewModel }">
                 <views:ModificarDatosPersonalesView />
             </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:VisualizarPublicacionCompradorViewModel }">
+                <views:VisualizarPublicacionCompradorView />
+            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
                 <components:Layout />
             </DataTemplate>

@@ -34,6 +34,13 @@ namespace SistemaDeComprasYVentas.Utilities
 			return creator;
 		}
 
+        public INavigationService< VisualizarPublicacionCompradorViewModel > CreateVisualizarPublicacionCompradorService()
+        {
+            return new LayoutNavigationService< VisualizarPublicacionCompradorViewModel >(
+                _navigationStore,
+                () => new VisualizarPublicacionCompradorViewModel(), CreateNavigationBarViewModel );
+        }
+
         public INavigationService< ModificarDatosPersonalesViewModel > CreateModificarDatosNavigationService()
 		{
             return new LayoutNavigationService< ModificarDatosPersonalesViewModel >(
