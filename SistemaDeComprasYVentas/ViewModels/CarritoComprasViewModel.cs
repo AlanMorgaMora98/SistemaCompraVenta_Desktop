@@ -8,5 +8,6 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class CarritoComprasViewModel : ViewModelBase
 	{
+
 	}
 }
