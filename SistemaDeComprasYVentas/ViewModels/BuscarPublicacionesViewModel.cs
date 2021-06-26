@@ -20,7 +20,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private readonly BuscarPublicacionesAsyncViewModel _asyncViewModel;
 		private List< Publicacion > publicacionesTotales;
 		private ObservableCollection< Publicacion > publicacionesFiltradas;
-		private ICommand NavigateVisualizarPublicacion { get; }
+		private ICommand NavigateVisualizarPublicacion { get; set; }
 		private bool tecnologiaChecked;
 		private bool cocinaChecked;
 		private bool juguetesYBebesChecked;
@@ -303,6 +303,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 			set
 			{
 				SelectionContainerStore.GetInstance().Publicacion = value;
+				NavigateVisualizarPublicacion = new NavigateCommand<VisualizarPublicacionCompradorViewModel>(
+											NavigationServiceCreator.GetInstance().CreateVisualizarPublicacionCompradorService() );
 				NavigateVisualizarPublicacion.Execute( this );
 			}
 		}
@@ -313,8 +315,6 @@ namespace SistemaDeComprasYVentas.ViewModels
 			PublicacionesFiltradas = new ObservableCollection< Publicacion >();
 			CriteriosFiltracion = new List< Categoria >();
 			_asyncViewModel = BuscarPublicacionesAsyncViewModel.CargarPublicaciones();
-			NavigateVisualizarPublicacion = new NavigateCommand< VisualizarPublicacionCompradorViewModel >( 
-											NavigationServiceCreator.GetInstance().CreateVisualizarPublicacionCompradorService() );
 		}
 
 		public void FilterPublicaciones()
