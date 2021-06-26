@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.IO;
 using SistemaDeComprasYVentas.Models;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace SistemaDeComprasYVentas.ApiRequests
 {
@@ -39,12 +40,13 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
-		public async Task< Publicacion > AgregarACarrito( CarritoFavoritoData publicacion )
+		public async Task< Publicacion > AgregarACarrito( CarritoFavoritoData publicacion, string accessToken )
 		{
 			string requestURL = carritoURL + "/" + publicacion.clave_usuario_usuario + "/carritos";
 			var json = JsonConvert.SerializeObject( publicacion );
 			var data = new StringContent( json, Encoding.UTF8, "application/json" );
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using ( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
 			{
 				if( response.IsSuccessStatusCode )
 				{
@@ -58,12 +60,13 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
-		public async Task< Publicacion > AgregarAFavorito( CarritoFavoritoData publicacion )
+		public async Task< Publicacion > AgregarAFavorito( CarritoFavoritoData publicacion, string accessToken )
 		{
 			string requestURL = favoritoURL + "/" + publicacion.clave_usuario_usuario + "/favoritos";
 			var json = JsonConvert.SerializeObject( publicacion );
 			var data = new StringContent( json, Encoding.UTF8, "application/json" );
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using ( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
 			{
 				if( response.IsSuccessStatusCode )
 				{
