@@ -17,14 +17,13 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
-            <Button
-                Grid.Row="1" Grid.Column="0"
+
+            <Button Grid.Column="0"
                 Content="Eliminar de Carrito" 
                 HorizontalAlignment="Left" 
-                Margin="10,179,10,0" 
+                Margin="10,126,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" FontSize="14">
 
@@ -55,11 +54,10 @@
 
             </Button>
 
-            <Button
-                Grid.Row="1" Grid.Column="0"
+            <Button Grid.Column="0"
                 Content="Realizar Pedido" 
                 HorizontalAlignment="Left" 
-                Margin="10,328,10,0" 
+                Margin="10,275,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" FontSize="14">
 

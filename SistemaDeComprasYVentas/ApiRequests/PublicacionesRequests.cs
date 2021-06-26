@@ -10,6 +10,7 @@ using System.IO;
 using SistemaDeComprasYVentas.Models;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using System.Collections.ObjectModel;
 
 namespace SistemaDeComprasYVentas.ApiRequests
 {
@@ -33,6 +34,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 					List< Publicacion > publicaciones = await response.Content.ReadAsAsync< List< Publicacion > >();
 					return publicaciones;
 				} 
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task< ObservableCollection< Publicacion > > RecuperarPublicacionesCarrito( int claveUsuario, string accessToken )
+		{
+			string requestURL = carritoURL + "/" + claveUsuario + "/carritos";
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					ObservableCollection< Publicacion > publicaciones = await response.Content.ReadAsAsync< ObservableCollection< Publicacion > >();
+					return publicaciones;
+				}
 				else
 				{
 					return null;

@@ -1,4 +1,6 @@
-﻿using SistemaDeComprasYVentas.Models;
+﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
 using System;
 using System.Collections.Generic;
@@ -11,13 +13,13 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class CarritoComprasViewModel : ViewModelBase
 	{
-		private ObservableCollection< Publicacion > publicacionesCarrito;
+		private PublicacionesRequests requests;
 		public ObservableCollection< Publicacion > PublicacionesCarrito
 		{
-			get { return publicacionesCarrito; }
+			get { return SelectionContainerStore.GetInstance().PublicacionesCarrito; }
 			set
 			{
-				publicacionesCarrito = value;
+				SelectionContainerStore.GetInstance().PublicacionesCarrito = value;
 				OnPropertyChanged( nameof( PublicacionesCarrito ) );
 			}
 		}
@@ -26,13 +28,26 @@ namespace SistemaDeComprasYVentas.ViewModels
 		{
 			set
 			{
-				SelectionContainerStore.GetInstance().PublicacionCarrito = value;
+				SelectionContainerStore.GetInstance().PublicacionSeleccionadaCarrito = value;
 			}
 		}
 
 		public CarritoComprasViewModel()
 		{
+			requests = new PublicacionesRequests();
+			RecuperarPublicacionesCarrito();
+		}
 
+		private void RecuperarPublicacionesCarrito()
+		{
+			requests.RecuperarPublicacionesCarrito( LoginSession.GetInstance().ClaveUsuario, 
+													LoginSession.GetInstance().AccessToken).ContinueWith( Task => 
+			{
+				if( Task.Exception == null )
+				{
+					PublicacionesCarrito = Task.Result;
+				}
+			} );
 		}
 	}
 }
