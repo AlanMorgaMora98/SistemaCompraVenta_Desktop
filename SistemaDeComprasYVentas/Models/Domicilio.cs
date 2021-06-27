@@ -19,6 +19,11 @@ namespace SistemaDeComprasYVentas.Models
 		public int numero_externo { get; set; }
 		public string descripcion { get; set; }
 
+		public string callecompleta
+		{
+			get { return $"{ calle } { numero_externo } { colonia }, { municipio }, { estado }"; }
+		}
+
 		public Domicilio()
 		{
 			discriminante_domicilio = -1;
