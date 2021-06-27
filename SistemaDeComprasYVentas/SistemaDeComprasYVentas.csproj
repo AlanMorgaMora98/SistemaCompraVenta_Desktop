@@ -96,6 +96,7 @@
     <Compile Include="Models\LoginRequestData.cs" />
     <Compile Include="Models\LoginResponseData.cs" />
     <Compile Include="Models\Tarjeta.cs" />
+    <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Models\UsuarioPublicacion.cs" />
