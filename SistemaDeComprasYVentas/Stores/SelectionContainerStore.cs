@@ -12,12 +12,21 @@ namespace SistemaDeComprasYVentas.Stores
 	{
 		private static SelectionContainerStore selectionContainerStore;
 		private ObservableCollection< Publicacion > publicacionesCarrito;
+		private ObservableCollection< Publicacion > publicacionesFavoritos;
 		public ObservableCollection< Publicacion > PublicacionesCarrito 
 		{
 			get { return publicacionesCarrito; } 
 			set
 			{
 				publicacionesCarrito = value;
+			}
+		}
+		public ObservableCollection<Publicacion> PublicacionesFavoritos
+		{
+			get { return publicacionesFavoritos; }
+			set
+			{
+				publicacionesFavoritos = value;
 			}
 		}
 		public Publicacion PublicacionSeleccionadaBusqueda { get; set; }
@@ -44,6 +53,11 @@ namespace SistemaDeComprasYVentas.Stores
 		public void EliminarPublicacionDeListaCarrito()
 		{
 			publicacionesCarrito.Remove( PublicacionSeleccionadaCarrito );
+		}
+
+		public void EliminarPublicacionDeListaFavoritos()
+		{
+			publicacionesFavoritos.Remove( PublicacionSeleccionadaFavorito );
 		}
 	}
 }

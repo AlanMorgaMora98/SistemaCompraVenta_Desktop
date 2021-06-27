@@ -59,6 +59,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
+		public async Task< ObservableCollection< Publicacion > > RecuperarPublicacionesFavoritos( int claveUsuario, string accessToken )
+		{
+			string requestURL = favoritoURL + "/" + claveUsuario + "/favoritos";
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					ObservableCollection< Publicacion > publicaciones = await response.Content.ReadAsAsync< ObservableCollection< Publicacion > >();
+					return publicaciones;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
 		public async Task< Publicacion > AgregarACarrito( CarritoFavoritoData publicacion, string accessToken )
 		{
 			string requestURL = carritoURL + "/" + publicacion.clave_usuario_usuario + "/carritos";
@@ -104,6 +122,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			var data = new StringContent( json, Encoding.UTF8, "application/json" );
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
 			using ( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task< Publicacion > EliminarDeFavoritos( int claveUsuario, int clavePublicacion, string accessToken )
+		{
+			string requestURL = favoritoURL + "/" + claveUsuario + "/favoritos/" + clavePublicacion;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
 			{
 				if( response.IsSuccessStatusCode )
 				{

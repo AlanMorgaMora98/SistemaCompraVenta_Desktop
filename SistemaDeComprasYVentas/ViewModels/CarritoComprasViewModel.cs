@@ -67,7 +67,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 							RecuperarPublicacionesCarrito();
 						} );
 					}
-				});
+				} );
 		}
 	}
 }
