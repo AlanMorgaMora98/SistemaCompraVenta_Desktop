@@ -29,7 +29,7 @@ namespace SistemaDeComprasYVentas.Commands
 				{
 					if( Task.Exception == null )
 					{
-						carritoViewModel.PublicacionesCarrito = SelectionContainerStore.GetInstance().EliminarPublicacionDeListaCarrito();
+						SelectionContainerStore.GetInstance().EliminarPublicacionDeListaCarrito();
 					}
 				} );
 		}

@@ -33,5 +33,10 @@ namespace SistemaDeComprasYVentas.Views
 				( ( dynamic )DataContext ).ItemSeleccionado = ( Publicacion )( ( ListBox )sender ).SelectedItem;
 			}
 		}
+
+		public void EliminarPublicacion( object sender, RoutedEventArgs e )
+		{
+			( ( dynamic )DataContext ).EliminarPublicacionDeCarrito();
+		}
 	}
 }
