@@ -88,6 +88,7 @@
     <Compile Include="Enumerations\TipoUsuario.cs" />
     <Compile Include="Enumerations\UnidadMedida.cs" />
     <Compile Include="Models\CarritoFavoritoData.cs" />
+    <Compile Include="Models\Domicilio.cs" />
     <Compile Include="Models\LoginRequestData.cs" />
     <Compile Include="Models\LoginResponseData.cs" />
     <Compile Include="Models\Usuario.cs" />
