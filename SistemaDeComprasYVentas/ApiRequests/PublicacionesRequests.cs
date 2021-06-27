@@ -79,6 +79,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
+		public async Task< Publicacion > EliminarDeCarrito( int claveUsuario, int clavePublicacion, string accessToken )
+		{
+			string requestURL = carritoURL + "/" + claveUsuario + "/carritos/" + clavePublicacion;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
 		public async Task< Publicacion > AgregarAFavorito( CarritoFavoritoData publicacion, string accessToken )
 		{
 			string requestURL = favoritoURL + "/" + publicacion.clave_usuario_usuario + "/favoritos";

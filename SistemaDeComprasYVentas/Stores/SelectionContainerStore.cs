@@ -32,5 +32,11 @@ namespace SistemaDeComprasYVentas.Stores
 			}
 			return selectionContainerStore;
 		}
+
+		public ObservableCollection< Publicacion > EliminarPublicacionDeListaCarrito()
+		{
+			PublicacionesCarrito.Remove( PublicacionSeleccionadaCarrito );
+			return PublicacionesCarrito;
+		}
 	}
 }
