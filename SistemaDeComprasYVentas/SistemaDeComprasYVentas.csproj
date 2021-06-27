@@ -97,6 +97,7 @@
     <Compile Include="Models\Tarjeta.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
+    <Compile Include="Models\UsuarioPublicacion.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\LayoutNavigationService.cs" />
     <Compile Include="Services\NavigationService.cs" />
