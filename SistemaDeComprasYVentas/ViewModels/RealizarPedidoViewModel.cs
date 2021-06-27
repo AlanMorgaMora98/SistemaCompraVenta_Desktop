@@ -12,8 +12,10 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class RealizarPedidoViewModel : ViewModelBase
 	{
-		private DomicilioRequests requests;
+		private DomicilioRequests domicilioRequests;
+		private TarjetaRequests tarjetaRequests;
 		private List< Domicilio > domiciliosUsuario;
+		private List< Tarjeta > tarjetasUsuario;
 		private string productosTotales;
 		private string subtotal;
 
@@ -47,11 +49,24 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public List< Tarjeta > TarjetasUsuario
+		{
+			get { return tarjetasUsuario; }
+			set
+			{
+				tarjetasUsuario = value;
+				OnPropertyChanged( nameof( TarjetasUsuario ) );
+			}
+		}
+
 		public RealizarPedidoViewModel()
 		{
-			requests = new DomicilioRequests();
+			domicilioRequests = new DomicilioRequests();
+			tarjetaRequests = new TarjetaRequests();
 			ProductosTotales = SelectionContainerStore.GetInstance().PublicacionesCarrito.Count.ToString();
 			Subtotal = CalculateSubtotal();
+			RecuperarDomiliosUsuario();
+			RecuperarTarjetasUsuario();
 		}
 
 		private string CalculateSubtotal()
@@ -66,7 +81,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		private void RecuperarDomiliosUsuario()
 		{
-			requests.RecuperarDomiciliosUsuario( LoginSession.GetInstance().ClaveUsuario, 
+			domicilioRequests.RecuperarDomiciliosUsuario( LoginSession.GetInstance().ClaveUsuario, 
 											     LoginSession.GetInstance().AccessToken ).ContinueWith( Task => 
 			{
 				if( Task.Exception == null )
@@ -74,6 +89,18 @@ namespace SistemaDeComprasYVentas.ViewModels
 					DomiciliosUsuario = Task.Result;
 				}
 			} );
+		}
+
+		private void RecuperarTarjetasUsuario()
+		{
+			tarjetaRequests.RecuperarTarjetasUsuario( LoginSession.GetInstance().ClaveUsuario,
+													   LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
+				{
+				 if (Task.Exception == null)
+				 {
+					 TarjetasUsuario = Task.Result;
+				 }
+				});
 		}
 	}
 }

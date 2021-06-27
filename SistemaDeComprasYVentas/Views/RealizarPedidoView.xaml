@@ -29,10 +29,10 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <ComboBox Grid.Row="1" Width="200" Height="35" Margin="270, -31, 0, 0">
+            <ComboBox Grid.Row="1" Width="200" Height="35" Margin="270, -31, 0, 0" ItemsSource="{ Binding TarjetasUsuario }">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="" />
+                        <TextBlock Text="{ Binding numero }" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>

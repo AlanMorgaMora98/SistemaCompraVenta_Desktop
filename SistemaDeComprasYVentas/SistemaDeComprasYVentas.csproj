@@ -67,6 +67,7 @@
     <Compile Include="ApiRequests\DomicilioRequests.cs" />
     <Compile Include="ApiRequests\LoginRequests.cs" />
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
+    <Compile Include="ApiRequests\TarjetaRequests.cs" />
     <Compile Include="ApiRequests\UsuarioRequests.cs" />
     <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
     <Compile Include="Commands\AgregarACarritoCommand.cs" />
