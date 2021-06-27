@@ -3,6 +3,7 @@ using SistemaDeComprasYVentas.Commands;
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 	public class CarritoComprasViewModel : ViewModelBase
 	{
 		private PublicacionesRequests requests;
+		public ICommand NavigateRealizarPedidoCommand { get; }
 
 		public ObservableCollection< Publicacion > PublicacionesCarrito
 		{
@@ -38,6 +40,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public CarritoComprasViewModel()
 		{
 			requests = new PublicacionesRequests();
+			NavigateRealizarPedidoCommand = new NavigateCommand< RealizarPedidoViewModel >( 
+											NavigationServiceCreator.GetInstance().CreateRealizarPedidoNavigationService() );
 			RecuperarPublicacionesCarrito();
 		}
 
