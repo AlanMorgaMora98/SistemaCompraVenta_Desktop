@@ -15,14 +15,51 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock FontSize="22" Foreground="White" Margin="285,0,-285,0" >Pedido Final</TextBlock>
+            <TextBlock FontSize="22" Foreground="White" Margin="285,10,-285,10" >Pedido Final</TextBlock>
+            <TextBlock Grid.Row="1" Foreground="White" FontSize="20" Margin="143,81, 0, 0" >Número de Articulos totales:</TextBlock>
+            <TextBlock Grid.Row="1" Foreground="White" FontSize="20" Margin="143,135, 0, 0" >Subtotal:</TextBlock>
+            <TextBlock Grid.Row="1" Foreground="White" FontSize="20" Margin="143,190, 0, 0" >Seleccionar Domicilio:</TextBlock>
+            <TextBlock Grid.Row="1" Foreground="White" FontSize="20" Margin="143,245, 0, 0" >Seleccionar Tarjeta:</TextBlock>
+            <TextBlock Grid.Row="1" Foreground="White" FontSize="20" Margin="413,81, 0, 0" >Cantidad</TextBlock>
+            <TextBlock Grid.Row="1" Foreground="White" FontSize="20" Margin="243,135, 0, 0" >Subtotal</TextBlock>
+            <ComboBox Grid.Row="1" Width="200" Height="35" Margin="270,-140, 0, 0"></ComboBox>
+            <ComboBox Grid.Row="1" Width="200" Height="35" Margin="270, -31, 0, 0"></ComboBox>
 
-            <Grid Grid.Row="0" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-            </Grid>
+            <Button
+                Grid.Row="1"
+                Content="Realizar Pedido" 
+                HorizontalAlignment="Left" 
+                Margin="265,328,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+
         </Grid>
     </Border>
 </UserControl>
