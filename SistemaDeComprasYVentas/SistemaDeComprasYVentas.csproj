@@ -114,6 +114,7 @@
     <Compile Include="ViewModels\PerfilViewModel.cs" />
     <Compile Include="ViewModels\PublicacionesViewModel.cs" />
     <Compile Include="ViewModels\PublicarProductoViewModel.cs" />
+    <Compile Include="ViewModels\RealizarPedidoViewModel.cs" />
     <Compile Include="ViewModels\RegistrarUsuarioViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\VisualizarPublicacionCompradorViewModel.cs" />
@@ -158,6 +159,9 @@
     </Compile>
     <Compile Include="Views\PublicarProductoView.xaml.cs">
       <DependentUpon>PublicarProductoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RealizarPedidoView.xaml.cs">
+      <DependentUpon>RealizarPedidoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistrarUsuarioView.xaml.cs">
       <DependentUpon>RegistrarUsuarioView.xaml</DependentUpon>
@@ -238,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PublicarProductoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RealizarPedidoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
