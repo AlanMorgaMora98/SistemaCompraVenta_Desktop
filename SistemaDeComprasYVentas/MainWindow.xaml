@@ -59,6 +59,12 @@
             <DataTemplate DataType="{ x:Type viewModels:VisualizarPublicacionCompradorViewModel }">
                 <views:VisualizarPublicacionCompradorView />
             </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:AgregarDomicilioViewModel }">
+                <views:AgregarDomicilioView />
+            </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:AgregarTarjetaViewModel }">
+                <views:AgregarTarjetaView />
+            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
                 <components:Layout />
             </DataTemplate>
