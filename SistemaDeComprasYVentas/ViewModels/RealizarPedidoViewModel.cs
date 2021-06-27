@@ -1,4 +1,6 @@
-﻿using SistemaDeComprasYVentas.Models;
+﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class RealizarPedidoViewModel : ViewModelBase
 	{
+		private DomicilioRequests requests;
+		private List< Domicilio > domiciliosUsuario;
 		private string productosTotales;
 		private string subtotal;
 
@@ -33,8 +37,19 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public List< Domicilio > DomiciliosUsuario
+		{
+			get { return domiciliosUsuario; }
+			set
+			{
+				domiciliosUsuario = value;
+				OnPropertyChanged( nameof( DomiciliosUsuario ) );
+			}
+		}
+
 		public RealizarPedidoViewModel()
 		{
+			requests = new DomicilioRequests();
 			ProductosTotales = SelectionContainerStore.GetInstance().PublicacionesCarrito.Count.ToString();
 			Subtotal = CalculateSubtotal();
 		}
@@ -47,6 +62,18 @@ namespace SistemaDeComprasYVentas.ViewModels
 				subtotal += publicacion.precio;
 			}
 			return subtotal.ToString();
+		}
+
+		private void RecuperarDomiliosUsuario()
+		{
+			requests.RecuperarDomiciliosUsuario( LoginSession.GetInstance().ClaveUsuario, 
+											     LoginSession.GetInstance().AccessToken ).ContinueWith( Task => 
+			{
+				if( Task.Exception == null )
+				{
+					DomiciliosUsuario = Task.Result;
+				}
+			} );
 		}
 	}
 }
