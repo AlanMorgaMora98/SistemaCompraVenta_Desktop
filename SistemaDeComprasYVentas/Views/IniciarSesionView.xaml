@@ -44,9 +44,7 @@
                                               HorizontalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
-
                 </Button.Template>
-
             </Button>
             <Label Content="Iniciar Sesion" Foreground="White" HorizontalAlignment="Left" Margin="289,23,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.877,0.5"/>
             <Label Content="Username:" Foreground="White" HorizontalAlignment="Left" Margin="101,226,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Width="93" HorizontalContentAlignment="Right"/>
@@ -57,6 +55,7 @@
                 Height="26" 
                 Margin="267,226,0,0" 
                 VerticalAlignment="Top" 
+                MaxLength="50"
                 Width="190"
                 Text="{ Binding Usuario, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                 
@@ -66,6 +65,7 @@
                 HorizontalAlignment="Left" 
                 Margin="267,296,0,0" 
                 VerticalAlignment="Top"
+                MaxLength="50"
                 Width="190" Height="26" 
                 VerticalContentAlignment="Center" PasswordChanged="PasswordBox_PasswordChanged" />
             <Button
