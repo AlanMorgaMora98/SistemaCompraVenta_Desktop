@@ -72,6 +72,7 @@
     <Compile Include="Commands\AgregarAFavoritosCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\EliminarCuentaCommand.cs" />
+    <Compile Include="Commands\EliminarDeCarritoCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\ModificarDatosUsuarioCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />

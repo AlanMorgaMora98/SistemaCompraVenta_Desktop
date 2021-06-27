@@ -302,8 +302,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 		{
 			set
 			{
-				SelectionContainerStore.GetInstance().Publicacion = value;
-				NavigateVisualizarPublicacion = new NavigateCommand<VisualizarPublicacionCompradorViewModel>(
+				SelectionContainerStore.GetInstance().PublicacionSeleccionadaBusqueda = value;
+				NavigateVisualizarPublicacion = new NavigateCommand< VisualizarPublicacionCompradorViewModel >(
 											NavigationServiceCreator.GetInstance().CreateVisualizarPublicacionCompradorService() );
 				NavigateVisualizarPublicacion.Execute( this );
 			}
