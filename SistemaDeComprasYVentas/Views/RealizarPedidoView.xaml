@@ -45,6 +45,7 @@
                 HorizontalAlignment="Left" 
                 Margin="265,328,0,0" 
                 VerticalAlignment="Top" 
+                Command="{ Binding RealizarPedidoCommand }"
                 FontWeight="Bold" FontSize="14">
 
                 <Button.Style>
