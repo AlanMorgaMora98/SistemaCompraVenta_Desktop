@@ -18,6 +18,11 @@ namespace SistemaDeComprasYVentas.Session
 			get { return ClaveUsuario > -1; }
 		}
 
+		public bool IsLoggedOut
+		{
+			get { return ClaveUsuario == -1; }
+		}
+
 
 		private LoginSession()
 		{

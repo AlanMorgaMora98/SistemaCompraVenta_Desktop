@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using SistemaDeComprasYVentas.Services;
 using SistemaDeComprasYVentas.Commands;
+using SistemaDeComprasYVentas.Session;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
@@ -21,6 +22,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public ICommand NavigateToBuyHistoryCommand { get; }
 		public ICommand NavigateToSellHistoryCommand { get; }
 		public ICommand LogoutCommand { get; }
+
+		public bool IsLoggedIn => LoginSession.GetInstance().IsLoggedIn;
+		public bool IsLoggedOut => LoginSession.GetInstance().IsLoggedOut;
 
 		public NavigationBarViewModel( INavigationService< BuscarPublicacionesViewModel > buscarPublicacionesService,
 			INavigationService< IniciarSesionViewModel > iniciarSesionNavigationService,
