@@ -59,7 +59,7 @@
 
             <Button Content="Publicar" 
                     HorizontalAlignment="Left" 
-                    Margin="525,487,0,0" 
+                    Margin="525,465,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold">
 
                 <Button.Style>
@@ -90,7 +90,7 @@
 
             <Button Content="Cancelar" 
                     HorizontalAlignment="Left" 
-                    Margin="395,487,0,0" 
+                    Margin="395,465,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold">
 
                 <Button.Style>
@@ -121,7 +121,7 @@
 
             <Button Content="Regresar" 
                     HorizontalAlignment="Left" 
-                    Margin="135,487,0,0" 
+                    Margin="135,465,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold">
 
                 <Button.Style>
@@ -149,7 +149,7 @@
                 </Button.Template>
 
             </Button>
-            <Image HorizontalAlignment="Left" Height="100" Margin="337,374,0,0" VerticalAlignment="Top" Width="100"/>
+            <Image HorizontalAlignment="Left" Height="75" Margin="340,365,0,0" VerticalAlignment="Top" Width="80"/>
 
         </Grid>
     </Border>
