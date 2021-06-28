@@ -30,13 +30,16 @@ namespace SistemaDeComprasYVentas.Views
 		{
 			if( ( ( ComboBox )sender ).SelectedIndex > -1 )
 			{
-				( ( dynamic )DataContext ).ItemSeleccionado = ( Domicilio )( ( ComboBox )sender ).SelectedItem;
+				( ( dynamic )DataContext ).DomicilioSeleccionado = ( Domicilio )( ( ComboBox )sender ).SelectedItem;
 			}
 		}
 
 		public void TarjetaChanged( object sender, RoutedEventArgs e )
 		{
-
+			if( ( ( ComboBox )sender ).SelectedIndex > -1 )
+			{
+				( ( dynamic )DataContext ).TarjetaSeleccionada = ( Domicilio )( ( ComboBox )sender ).SelectedItem;
+			}
 		}
 	}
 }

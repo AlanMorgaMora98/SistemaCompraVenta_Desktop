@@ -1,4 +1,5 @@
 ﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Commands;
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
@@ -14,6 +16,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 	{
 		private DomicilioRequests domicilioRequests;
 		private TarjetaRequests tarjetaRequests;
+		public ICommand RealizarPedidoCommand { get; }
 		private List< Domicilio > domiciliosUsuario;
 		private List< Tarjeta > tarjetasUsuario;
 		private string productosTotales;
@@ -59,10 +62,29 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public Domicilio DomicilioSeleccionado 
+		{
+			get { return ( ( RealizarPedidoCommand )RealizarPedidoCommand ).DomicilioSeleccionado; }
+			set
+			{
+				( ( RealizarPedidoCommand )RealizarPedidoCommand ).DomicilioSeleccionado = value;
+			}
+		}
+
+		public Tarjeta TarjetaSeleccionada
+		{
+			get { return ( ( RealizarPedidoCommand )RealizarPedidoCommand ).TarjetaSeleccionada; }
+			set
+			{
+				( ( RealizarPedidoCommand )RealizarPedidoCommand ).TarjetaSeleccionada = value;
+			}
+		}
+
 		public RealizarPedidoViewModel()
 		{
 			domicilioRequests = new DomicilioRequests();
 			tarjetaRequests = new TarjetaRequests();
+			RealizarPedidoCommand = new RealizarPedidoCommand();
 			ProductosTotales = SelectionContainerStore.GetInstance().PublicacionesCarrito.Count.ToString();
 			Subtotal = CalculateSubtotal();
 			RecuperarDomiliosUsuario();

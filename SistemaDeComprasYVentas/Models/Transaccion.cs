@@ -13,7 +13,7 @@ namespace SistemaDeComprasYVentas.Models
 		public string direccion_comprador { get; set; }
 		public string numero_tarjeta { get; set; }
 		public string fecha_venta { get; set; }
-		public float total { get; set; }
+		public double total { get; set; }
 		public bool usuario_evaluado { get; set; }
 
 		public Transaccion()
@@ -23,7 +23,7 @@ namespace SistemaDeComprasYVentas.Models
 			direccion_comprador = "";
 			numero_tarjeta = "";
 			fecha_venta = "";
-			total = 0.0f;
+			total = 0.0;
 			usuario_evaluado = false;
 		}
 
@@ -39,7 +39,7 @@ namespace SistemaDeComprasYVentas.Models
 		}
 
 		public Transaccion( int claveTransaccionIn, int claveVendedorIn, string direccionIn, 
-							string numeroIn, string fechaIn, float totalIn, bool usuarioIn )
+							string numeroIn, string fechaIn, double totalIn, bool usuarioIn )
 		{
 			clave_transaccion = claveTransaccionIn;
 			clave_vendedor = claveVendedorIn;
