@@ -31,7 +31,7 @@
                 <TextBox Text="{ Binding Telefono, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="26" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
                 <PasswordBox PasswordChanged="ContrasenaChanged" Grid.Column="1" HorizontalAlignment="Left" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <PasswordBox PasswordChanged="ConfirmarContrasenaChanged" HorizontalAlignment="Left" Margin="65,338,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
-                <Label Content="Modificar Usuario" Foreground="White" HorizontalAlignment="Left" Margin="274,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.579,0.577" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="18"/>
+                <Label Content="Modificar Datos Personales" Foreground="White" HorizontalAlignment="Left" Margin="230,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.579,0.577" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="18"/>
 
                 <Button Content="Modificar" 
                         HorizontalAlignment="Left" 
