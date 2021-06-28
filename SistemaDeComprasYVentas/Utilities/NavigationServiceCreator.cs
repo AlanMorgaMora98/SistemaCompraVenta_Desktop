@@ -117,6 +117,13 @@ namespace SistemaDeComprasYVentas.Utilities
                 () => new PublicacionesViewModel(), CreateNavigationBarViewModel );
         }
 
+        public INavigationService<PublicarProductoViewModel> CreateAgregarPublicacionNavigationService()
+        {
+            return new LayoutNavigationService<PublicarProductoViewModel>(
+                _navigationStore,
+                () => new PublicarProductoViewModel(), CreateNavigationBarViewModel);
+        }
+
         public INavigationService< HistorialComprasViewModel > CreateHistorialComprasNavigationService()
         {
             return new LayoutNavigationService<HistorialComprasViewModel>(
