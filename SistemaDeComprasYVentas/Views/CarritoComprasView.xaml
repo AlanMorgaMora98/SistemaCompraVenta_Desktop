@@ -6,21 +6,25 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Border
+        Background="#272537"
+        CornerRadius="20">
 
-        <TextBlock Grid.Row="0" FontSize="22" Margin="226, 10, -226, 10">Carrito de Compras</TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" FontSize="22" Foreground="White" Margin="226, 10, -226, 10">Carrito de Compras</TextBlock>
 
-            <Button Grid.Column="0"
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
                 Content="Eliminar de Carrito" 
                 HorizontalAlignment="Left" 
                 Margin="10,126,0,0" 
@@ -28,34 +32,34 @@
                 Click="EliminarPublicacion"
                 FontWeight="Bold" FontSize="14">
 
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#FF4C70"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FE6584"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF4C70"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FE6584"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
 
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" 
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" 
                                 Height="40"
                                 CornerRadius="20"
                                 Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
+                                <ContentPresenter VerticalAlignment="Center"
                                               HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
+                            </Border>
+                        </ControlTemplate>
 
-                </Button.Template>
+                    </Button.Template>
 
-            </Button>
+                </Button>
 
-            <Button Grid.Column="0"
+                <Button Grid.Column="0"
                 Content="Realizar Pedido" 
                 HorizontalAlignment="Left" 
                 Margin="10,275,0,0" 
@@ -63,47 +67,49 @@
                 Command="{ Binding NavigateRealizarPedidoCommand }"
                 FontWeight="Bold" FontSize="14">
 
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#FF4C70"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FE6584"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF4C70"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FE6584"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
 
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" 
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" 
                                 Height="40"
                                 CornerRadius="20"
                                 Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
+                                <ContentPresenter VerticalAlignment="Center"
                                               HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
+                            </Border>
+                        </ControlTemplate>
 
-                </Button.Template>
+                    </Button.Template>
 
-            </Button>
+                </Button>
 
-            <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{ Binding PublicacionesCarrito, UpdateSourceTrigger=PropertyChanged }"
+                <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{ Binding PublicacionesCarrito, UpdateSourceTrigger=PropertyChanged }"
                      Margin="15, 15, 15, 15" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="SelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{ Binding nombre }" Margin="0, 5, 0, 5 " />
-                                <TextBlock Text="{ Binding descripcion }" Margin="0, 5, 0, 5 " />
-                                <TextBlock Text="{ Binding precio }" Margin="0, 5, 0, 5 " />
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{ Binding nombre }" Margin="0, 5, 0, 5 " />
+                                    <TextBlock Text="{ Binding descripcion }" Margin="0, 5, 0, 5 " />
+                                    <TextBlock Text="{ Binding precio }" Margin="0, 5, 0, 5 " />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
         </Grid>
-    </Grid>
+
+    </Border>
 </UserControl>
