@@ -45,6 +45,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			NavigateToPublicationsCommand = new NavigateCommand< PublicacionesViewModel >( publicacionesNavigationService );
 			NavigateToBuyHistoryCommand = new NavigateCommand< HistorialComprasViewModel >( historialComprasNavigationService );
 			NavigateToSellHistoryCommand = new NavigateCommand< HistorialVentasViewModel >( historialVentasNavigationService );
+			LogoutCommand = new LogoutCommand();
 		}
 
 	}

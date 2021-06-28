@@ -5,21 +5,28 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using SistemaDeComprasYVentas.ApiRequests;
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
+using SistemaDeComprasYVentas.Utilities;
+using SistemaDeComprasYVentas.ViewModels;
 
 namespace SistemaDeComprasYVentas.Commands
 {
 	public class LoginCommand : CommandBase
 	{
 		private LoginRequests requests;
+		private ICommand NavigateToHomeCommand { get; }
+
 		public string username { get; set; }
 		public SecureString password { get; set; }
 
 		public LoginCommand()
 		{
 			requests = new LoginRequests();
+			NavigateToHomeCommand = new NavigateCommand< BuscarPublicacionesViewModel >( 
+										NavigationServiceCreator.GetInstance().CreateBuscarNavigationService() );
 		}
 
 		public override void Execute( object parameter )
@@ -30,6 +37,7 @@ namespace SistemaDeComprasYVentas.Commands
 				{
 					LoginResponseData response = Task.Result;
 					LoginSession.GetInstance().Login( response.clave_usuario, response.access_token );
+					NavigateToHomeCommand.Execute( this );
 				}
 			} );
 		}
