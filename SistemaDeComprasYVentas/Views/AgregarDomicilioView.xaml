@@ -31,7 +31,7 @@
             
             <Button Content="Cancelar" 
                     HorizontalAlignment="Left" 
-                    Margin="381,481,0,0"
+                    Margin="381,465,0,0"
                     VerticalAlignment="Top" FontWeight="Bold">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -60,7 +60,7 @@
 
             <Button Content="Guardar" 
                     HorizontalAlignment="Left" 
-                    Margin="515,481,0,0" 
+                    Margin="515,465,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold">
                 
                 <Button.Style>
@@ -90,7 +90,7 @@
 
             <Button Content="Regresar" 
                     HorizontalAlignment="Left" 
-                    Margin="95,481,0,0" 
+                    Margin="95,465,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold">
                     <Button.Style>
                         <Style TargetType="Button">
