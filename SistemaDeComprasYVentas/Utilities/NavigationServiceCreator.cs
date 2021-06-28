@@ -89,6 +89,13 @@ namespace SistemaDeComprasYVentas.Utilities
                 () => new DomiciliosViewModel(), CreateNavigationBarViewModel );
         }
 
+        public INavigationService<AgregarDomicilioViewModel> CreateAgregarDomicilioNavigationService()
+        {
+            return new LayoutNavigationService<AgregarDomicilioViewModel>(
+                _navigationStore,
+                () => new AgregarDomicilioViewModel(), CreateNavigationBarViewModel);
+        }
+
         public INavigationService< CarritoComprasViewModel > CreateCarritoCompraNavigationService()
         {
             return new LayoutNavigationService<CarritoComprasViewModel>(
@@ -129,7 +136,7 @@ namespace SistemaDeComprasYVentas.Utilities
             return new NavigationBarViewModel( CreateBuscarNavigationService(),
                 CreateIniciarSesionNavigationService(), CreatePerfilNavigationService(), CreateDomicilioNavigationService(),
                 CreateCarritoCompraNavigationService(), CreateFavoritosViewModel(), CreatePublicacionesNavigaionService(),
-                CreateHistorialComprasNavigationService(), CreateHistorialVentasNavigationService() );
+                CreateHistorialComprasNavigationService(), CreateHistorialVentasNavigationService());
         }
     }
 }
