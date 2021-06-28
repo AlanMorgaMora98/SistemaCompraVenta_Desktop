@@ -2,6 +2,7 @@
 using SistemaDeComprasYVentas.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -37,6 +38,25 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				}
 			}
 		}
+
+		public async Task< ObservableCollection< Transaccion > > RecuperarTransaccionesUsuario( int claveUsuario, string accessToken )
+		{
+			string requestURL = transaccionURL + "/" + claveUsuario;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
+			{
+				if( response.IsSuccessStatusCode )
+				{
+					ObservableCollection< Transaccion > transacciones = await response.Content.ReadAsAsync< ObservableCollection< Transaccion > >();
+					return transacciones;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
 		public async Task< Transaccion > AgregarTransaccion( int claveUsuario, Transaccion transaccion, string accessToken)
 		{
 			string requestURL = transaccionURL + "/" + claveUsuario;
