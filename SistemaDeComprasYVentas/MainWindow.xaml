@@ -62,9 +62,6 @@
             <DataTemplate DataType="{ x:Type viewModels:RealizarPedidoViewModel }">
                 <views:RealizarPedidoView />
             </DataTemplate>
-            <DataTemplate DataType="{ x:Type viewModels:RevisarHistorialComprasViewModel }">
-                <views:RevisarHistorialComprasView />
-            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
                 <components:Layout />
             </DataTemplate>

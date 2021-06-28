@@ -126,7 +126,6 @@
     <Compile Include="ViewModels\PublicarProductoViewModel.cs" />
     <Compile Include="ViewModels\RealizarPedidoViewModel.cs" />
     <Compile Include="ViewModels\RegistrarUsuarioViewModel.cs" />
-    <Compile Include="ViewModels\RevisarHistorialComprasViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\VisualizarPublicacionCompradorViewModel.cs" />
     <Compile Include="Views\AgregarDomicilioView.xaml.cs">
@@ -176,9 +175,6 @@
     </Compile>
     <Compile Include="Views\RegistrarUsuarioView.xaml.cs">
       <DependentUpon>RegistrarUsuarioView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RevisarHistorialComprasView.xaml.cs">
-      <DependentUpon>RevisarHistorialComprasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VisualizarPublicacionCompradorView.xaml.cs">
       <DependentUpon>VisualizarPublicacionCompradorView.xaml</DependentUpon>
@@ -264,10 +260,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrarUsuarioView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RevisarHistorialComprasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
