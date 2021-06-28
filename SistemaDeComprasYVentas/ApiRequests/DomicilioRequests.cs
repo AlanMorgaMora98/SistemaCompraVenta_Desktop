@@ -1,4 +1,5 @@
-﻿using SistemaDeComprasYVentas.Models;
+﻿using Newtonsoft.Json;
+using SistemaDeComprasYVentas.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 {
 	public class DomicilioRequests
 	{
-		private string domicilioURL = "http://192.168.1.68:5000/usuarios";
+		private string domicilioURL = "http://192.168.56.1:5000/usuarios";
 
 		public DomicilioRequests()
 		{
@@ -28,6 +29,26 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				{
 					List< Domicilio > domicilios = await response.Content.ReadAsAsync< List< Domicilio > >();
 					return domicilios;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task<Domicilio> RegistrarDomicilio(int claveUsuario, string accessToken, Domicilio domicilio)
+		{
+			string requestURL = domicilioURL + "/" + claveUsuario + "/domicilios";
+			var json = JsonConvert.SerializeObject(domicilio);
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			var data = new StringContent(json, Encoding.UTF8, "application/json");
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync(requestURL, data))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					Domicilio respuesta = await response.Content.ReadAsAsync<Domicilio>();
+					return respuesta;
 				}
 				else
 				{

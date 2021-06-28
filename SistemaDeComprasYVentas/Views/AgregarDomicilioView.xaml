@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
+             xmlns:viewmodels="clr-namespace:SistemaDeComprasYVentas.ViewModels"
+             d:DataContext="{ d:DesignInstance Type=viewmodels:AgregarDomicilioViewModel }"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
     <Border
@@ -11,58 +13,59 @@
         CornerRadius="20">
 
         <Grid>
-            <TextBox HorizontalAlignment="Left" Height="22" Margin="187,94,0,0" VerticalAlignment="Top" Width="144"/>
-            <TextBox HorizontalAlignment="Left" Height="24" Margin="187,148,0,0" VerticalAlignment="Top" Width="181"/>
-            <TextBox HorizontalAlignment="Left" Height="24" Margin="187,202,0,0" VerticalAlignment="Top" Width="326"/>
-            <TextBox HorizontalAlignment="Left" Height="22" Margin="187,248,0,0" VerticalAlignment="Top" Width="326"/>
             <Label Content="Agregar Domicilio" Foreground="White" HorizontalAlignment="Left" Margin="265,26,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
             <Label Content="Codigo postal:" Foreground="White" HorizontalAlignment="Left" Margin="85,90,0,0" VerticalAlignment="Top"/>
             <Label Content="Municipio:" Foreground="White" HorizontalAlignment="Left" Margin="107,148,0,0" VerticalAlignment="Top"/>
             <Label Content="Colonia:" Foreground="White" HorizontalAlignment="Left" Margin="119,200,0,0" VerticalAlignment="Top"/>
             <Label Content="Direccion:" Foreground="White" HorizontalAlignment="Left" Margin="107,244,0,0" VerticalAlignment="Top"/>
             <Label Content="Numero interno:" Foreground="White" HorizontalAlignment="Left" Margin="74,292,0,0" VerticalAlignment="Top"/>
-            <Label Content="Numero externo:" Foreground="White" HorizontalAlignment="Left" Margin="329,292,0,0" VerticalAlignment="Top"/>
+            <Label Content="Numero externo:" Foreground="White" HorizontalAlignment="Left" Margin="325,292,0,0" VerticalAlignment="Top"/>
             <Label Content="Descripcion:" Foreground="White" HorizontalAlignment="Left" Margin="95,347,0,0" VerticalAlignment="Top"/>
-            <Label Content="Estado:" Foreground="White" HorizontalAlignment="Left" Margin="381,90,0,0" VerticalAlignment="Top"/>
-            <ComboBox HorizontalAlignment="Left" Margin="446,94,0,0" VerticalAlignment="Top" Width="141"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="187,292,0,0" VerticalAlignment="Top" Width="120"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="434,292,0,0" VerticalAlignment="Top" Width="120"/>
-            <TextBox HorizontalAlignment="Left" Height="59" Margin="187,351,0,0" VerticalAlignment="Top" Width="367"/>
+            <Label Content="Estado:" Foreground="White" HorizontalAlignment="Left" Margin="377,90,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding CodigoPostal }" Height="22" Margin="187,94,0,0" VerticalAlignment="Top" Width="144"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding Estado }" Height="26" Margin="434,90,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding Municipio }" Height="24" Margin="187,148,0,0" VerticalAlignment="Top" Width="181"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding Colonia }" Height="24" Margin="187,202,0,0" VerticalAlignment="Top" Width="326"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding Direccion }" Height="22" Margin="187,248,0,0" VerticalAlignment="Top" Width="326"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding NumInterno }" Height="23" Margin="187,292,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding NumExterno }" Height="23" Margin="434,292,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Text="{ Binding Descripcion }" Height="59" Margin="187,351,0,0" VerticalAlignment="Top" Width="367"/>
             
             <Button Content="Cancelar" 
                     HorizontalAlignment="Left" 
                     Margin="381,465,0,0"
                     VerticalAlignment="Top" FontWeight="Bold">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF4C70"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FE6584"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
 
-                        <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" 
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" 
                                     Height="40"
                                     CornerRadius="20"
                                     Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
+                            <ContentPresenter VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
 
             <Button Content="Guardar" 
                     HorizontalAlignment="Left" 
-                    Margin="515,465,0,0" 
+                    Margin="515,465,0,0"
+                    Command="{ Binding AgregarDomicilioCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
-                
+
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#FF4C70"/>
@@ -92,31 +95,32 @@
                     HorizontalAlignment="Left" 
                     Margin="95,465,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#FF4C70"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FE6584"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
 
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" 
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" 
                                         Height="40"
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
+                            <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
+            
         </Grid>
     </Border>
-   
+
 </UserControl>
