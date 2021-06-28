@@ -16,7 +16,7 @@
             <Button
                 Content="Iniciar" 
                 HorizontalAlignment="Left" 
-                Margin="471,378,0,0" 
+                Margin="500,325,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" 
                 Command="{ Binding LoginCommand }"
@@ -46,14 +46,14 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Label Content="Iniciar Sesion" Foreground="White" HorizontalAlignment="Left" Margin="289,23,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.877,0.5"/>
-            <Label Content="Username:" Foreground="White" HorizontalAlignment="Left" Margin="101,226,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Width="93" HorizontalContentAlignment="Right"/>
-            <Label Content="Contraseña:" Foreground="White" HorizontalAlignment="Left" Margin="101,296,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="93" HorizontalContentAlignment="Right"/>
+            <Label Content="Iniciar Sesion" Foreground="White" HorizontalAlignment="Left" Margin="323,31,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.877,0.5"/>
+            <Label Content="Username:" Foreground="White" HorizontalAlignment="Left" Margin="206,139,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Width="93" HorizontalContentAlignment="Right"/>
+            <Label Content="Contraseña:" Foreground="White" HorizontalAlignment="Left" Margin="206,208,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="93" HorizontalContentAlignment="Right"/>
             <TextBox 
                 Name="TBUsername" 
                 HorizontalAlignment="Left" 
                 Height="26" 
-                Margin="267,226,0,0" 
+                Margin="355,139,0,0" 
                 VerticalAlignment="Top" 
                 MaxLength="50"
                 Width="190"
@@ -63,7 +63,7 @@
             <PasswordBox 
                 Name="PBPassword" 
                 HorizontalAlignment="Left" 
-                Margin="267,296,0,0" 
+                Margin="355,208,0,0" 
                 VerticalAlignment="Top"
                 MaxLength="50"
                 Width="190" Height="26" 
@@ -71,7 +71,7 @@
             <Button
                 Content="Salir" 
                 HorizontalAlignment="Left" 
-                Margin="134,378,0,0" 
+                Margin="175,325,0,0" 
                 VerticalAlignment="Top" 
                 FontWeight="Bold" FontSize="14">
 
@@ -105,7 +105,7 @@
             <Button
                 Content="¿No tienes Cuenta? ¡Regístrate!" 
                 HorizontalAlignment="Left" 
-                Margin="321,458,0,0" 
+                Margin="350,434,0,0" 
                 VerticalAlignment="Top" 
                 Command="{ Binding NavigateRegistroUsuarioCommand }"
                 FontWeight="Bold" FontSize="14">
