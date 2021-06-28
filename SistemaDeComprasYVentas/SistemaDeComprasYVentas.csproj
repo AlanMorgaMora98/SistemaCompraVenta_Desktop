@@ -64,8 +64,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiRequests\ApiHelper.cs" />
+    <Compile Include="ApiRequests\DomicilioRequests.cs" />
     <Compile Include="ApiRequests\LoginRequests.cs" />
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
+    <Compile Include="ApiRequests\TarjetaRequests.cs" />
+    <Compile Include="ApiRequests\TransaccionRequests.cs" />
     <Compile Include="ApiRequests\UsuarioRequests.cs" />
     <Compile Include="AsyncViewModels\BuscarPublicacionesAsyncViewModel.cs" />
     <Compile Include="Commands\AgregarACarritoCommand.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\ModificarDatosUsuarioCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Commands\RealizarPedidoCommand.cs" />
     <Compile Include="Commands\RegistrarUsuarioCommand.cs" />
     <Compile Include="Components\Layout.xaml.cs">
       <DependentUpon>Layout.xaml</DependentUpon>
@@ -84,13 +88,18 @@
       <DependentUpon>NavigationBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enumerations\Categoria.cs" />
+    <Compile Include="Enumerations\TipoTarjeta.cs" />
     <Compile Include="Enumerations\TipoUsuario.cs" />
     <Compile Include="Enumerations\UnidadMedida.cs" />
     <Compile Include="Models\CarritoFavoritoData.cs" />
+    <Compile Include="Models\Domicilio.cs" />
     <Compile Include="Models\LoginRequestData.cs" />
     <Compile Include="Models\LoginResponseData.cs" />
+    <Compile Include="Models\Tarjeta.cs" />
+    <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Publicacion.cs" />
+    <Compile Include="Models\UsuarioPublicacion.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\LayoutNavigationService.cs" />
     <Compile Include="Services\NavigationService.cs" />

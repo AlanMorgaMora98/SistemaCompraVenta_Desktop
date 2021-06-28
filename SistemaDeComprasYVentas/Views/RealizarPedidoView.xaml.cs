@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeComprasYVentas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,22 @@ namespace SistemaDeComprasYVentas.Views
 		public RealizarPedidoView()
 		{
 			InitializeComponent();
+		}
+
+		public void DomicilioChanged( object sender, RoutedEventArgs e )
+		{
+			if( ( ( ComboBox )sender ).SelectedIndex > -1 )
+			{
+				( ( dynamic )DataContext ).DomicilioSeleccionado = ( Domicilio )( ( ComboBox )sender ).SelectedItem;
+			}
+		}
+
+		public void TarjetaChanged( object sender, RoutedEventArgs e )
+		{
+			if( ( ( ComboBox )sender ).SelectedIndex > -1 )
+			{
+				( ( dynamic )DataContext ).TarjetaSeleccionada = ( Domicilio )( ( ComboBox )sender ).SelectedItem;
+			}
 		}
 	}
 }
