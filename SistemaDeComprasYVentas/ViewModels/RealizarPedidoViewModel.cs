@@ -5,6 +5,7 @@ using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private DomicilioRequests domicilioRequests;
 		private TarjetaRequests tarjetaRequests;
 		public ICommand RealizarPedidoCommand { get; }
-		private List< Domicilio > domiciliosUsuario;
-		private List< Tarjeta > tarjetasUsuario;
+		private ObservableCollection< Domicilio > domiciliosUsuario;
+		private ObservableCollection< Tarjeta > tarjetasUsuario;
 		private string productosTotales;
 		private string subtotal;
 
@@ -42,7 +43,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
-		public List< Domicilio > DomiciliosUsuario
+		public ObservableCollection< Domicilio > DomiciliosUsuario
 		{
 			get { return domiciliosUsuario; }
 			set
@@ -52,7 +53,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
-		public List< Tarjeta > TarjetasUsuario
+		public ObservableCollection< Tarjeta > TarjetasUsuario
 		{
 			get { return tarjetasUsuario; }
 			set
@@ -104,7 +105,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private void RecuperarDomiliosUsuario()
 		{
 			domicilioRequests.RecuperarDomiciliosUsuario( LoginSession.GetInstance().ClaveUsuario, 
-											     LoginSession.GetInstance().AccessToken ).ContinueWith( Task => 
+																LoginSession.GetInstance().AccessToken ).ContinueWith( Task => 
 			{
 				if( Task.Exception == null )
 				{
@@ -116,7 +117,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private void RecuperarTarjetasUsuario()
 		{
 			tarjetaRequests.RecuperarTarjetasUsuario( LoginSession.GetInstance().ClaveUsuario,
-													   LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
+													  LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
 				{
 				 if (Task.Exception == null)
 				 {

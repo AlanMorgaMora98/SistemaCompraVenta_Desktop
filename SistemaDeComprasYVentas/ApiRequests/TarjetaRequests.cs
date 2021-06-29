@@ -1,6 +1,7 @@
 ﻿using SistemaDeComprasYVentas.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -18,7 +19,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			ApiHelper.InitializeClient();
 		}
 
-		public async Task< List< Tarjeta > > RecuperarTarjetasUsuario( int claveUsuario, string accessToken )
+		public async Task< ObservableCollection< Tarjeta > > RecuperarTarjetasUsuario( int claveUsuario, string accessToken )
 		{
 			string requestURL = tarjetasGeneralURL + "/" + claveUsuario;
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
@@ -26,7 +27,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			{
 				if( response.IsSuccessStatusCode )
 				{
-					List< Tarjeta > tarjetas = await response.Content.ReadAsAsync< List< Tarjeta > >();
+					ObservableCollection< Tarjeta > tarjetas = await response.Content.ReadAsAsync< ObservableCollection< Tarjeta > >();
 					return tarjetas;
 				}
 				else

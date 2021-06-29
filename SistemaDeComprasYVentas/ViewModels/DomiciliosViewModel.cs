@@ -47,8 +47,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		private void RecuperarDomiciliosDeUsuario()
 		{
-			requests.RecuperarDomicilioDeUsuario( LoginSession.GetInstance().ClaveUsuario,
-													LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
+			requests.RecuperarDomiciliosUsuario( LoginSession.GetInstance().ClaveUsuario,
+												 LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
 			{
 				if( Task.Exception == null )
 				{

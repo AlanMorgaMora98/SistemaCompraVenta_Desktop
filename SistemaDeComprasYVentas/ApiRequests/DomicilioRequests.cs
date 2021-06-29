@@ -20,7 +20,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			ApiHelper.InitializeClient();
 		}
 
-		public async Task< List< Domicilio > > RecuperarDomiciliosUsuario( int claveUsuario, string accessToken )
+		public async Task< List< Domicilio > > RecuperarDomiciliosUsuario2( int claveUsuario, string accessToken )
 		{
 			string requestURL = domicilioURL + "/" + claveUsuario;
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
@@ -38,17 +38,17 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
-		public async Task<Domicilio> RegistrarDomicilio(int claveUsuario, string accessToken, Domicilio domicilio)
+		public async Task< Domicilio > RegistrarDomicilio( int claveUsuario, string accessToken, Domicilio domicilio )
 		{
 			string requestURL = domicilioURL + "/" + claveUsuario + "/domicilios";
-			var json = JsonConvert.SerializeObject(domicilio);
-			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-			var data = new StringContent(json, Encoding.UTF8, "application/json");
-			using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync(requestURL, data))
+			var json = JsonConvert.SerializeObject( domicilio );
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			var data = new StringContent( json, Encoding.UTF8, "application/json" );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( requestURL, data ) )
 			{
-				if (response.IsSuccessStatusCode)
+				if( response.IsSuccessStatusCode )
 				{
-					Domicilio respuesta = await response.Content.ReadAsAsync<Domicilio>();
+					Domicilio respuesta = await response.Content.ReadAsAsync< Domicilio >();
 					return respuesta;
 				}
 				else
@@ -58,15 +58,15 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
-		public async Task<Domicilio> EliminarDomicilio(int claveUsuario, int discriminanteDomicilio, string accessToken)
+		public async Task< Domicilio > EliminarDomicilio( int claveUsuario, int discriminanteDomicilio, string accessToken )
 		{
 			string requestURL = domicilioURL + "/" + claveUsuario + "/domicilios/" + discriminanteDomicilio;
-			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-			using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(requestURL))
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
 			{
-				if (response.IsSuccessStatusCode)
+				if( response.IsSuccessStatusCode )
 				{
-					Domicilio respuesta = await response.Content.ReadAsAsync<Domicilio>();
+					Domicilio respuesta = await response.Content.ReadAsAsync< Domicilio >();
 					return respuesta;
 				}
 				else
@@ -76,15 +76,15 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			}
 		}
 
-		public async Task<ObservableCollection<Domicilio>> RecuperarDomicilioDeUsuario(int claveUsuario, string accessToken)
+		public async Task< ObservableCollection< Domicilio > > RecuperarDomiciliosUsuario( int claveUsuario, string accessToken )
 		{
 			string requestURL = domicilioURL + "/" + claveUsuario + "/domicilios";
-			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-			using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(requestURL))
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
 			{
-				if (response.IsSuccessStatusCode)
+				if( response.IsSuccessStatusCode )
 				{
-					ObservableCollection<Domicilio> domicilios = await response.Content.ReadAsAsync<ObservableCollection<Domicilio>>();
+					ObservableCollection< Domicilio > domicilios = await response.Content.ReadAsAsync< ObservableCollection< Domicilio > >();
 					return domicilios;
 				}
 				else
