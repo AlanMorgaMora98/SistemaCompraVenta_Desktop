@@ -36,7 +36,7 @@ namespace SistemaDeComprasYVentas.Views
 
 		public void EliminarDomicilio(object sender, RoutedEventArgs e)
 		{
-			((dynamic)DataContext).EliminarPublicacionDeCarrito();
+			((dynamic)DataContext).EliminarDomicilioDeUsuario();
 		}
 	}
 }

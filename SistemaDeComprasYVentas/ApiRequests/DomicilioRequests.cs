@@ -2,6 +2,7 @@
 using SistemaDeComprasYVentas.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -56,5 +57,42 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				}
 			}
 		}
+
+		public async Task<Domicilio> EliminarDomicilio(int claveUsuario, int discriminanteDomicilio, string accessToken)
+		{
+			string requestURL = domicilioURL + "/" + claveUsuario + "/domicilios/" + discriminanteDomicilio;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(requestURL))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					Domicilio respuesta = await response.Content.ReadAsAsync<Domicilio>();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task<ObservableCollection<Domicilio>> RecuperarDomicilioDeUsuario(int claveUsuario, string accessToken)
+		{
+			string requestURL = domicilioURL + "/" + claveUsuario + "/domicilios";
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(requestURL))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					ObservableCollection<Domicilio> domicilios = await response.Content.ReadAsAsync<ObservableCollection<Domicilio>>();
+					return domicilios;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
 	}
 }
