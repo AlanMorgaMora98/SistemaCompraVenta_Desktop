@@ -46,6 +46,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="Sistema Venta Compra" FontSize="18" Foreground="Honeydew" />
@@ -94,7 +95,18 @@
             Height="40" />
 
         <Button 
-            Grid.Row="5"
+            Grid.Row="5" 
+            Margin="0 5 0 5"
+            FontSize="15"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Command="{ Binding NavigateToTarjetasCommand }"
+            Visibility="{ Binding IsLoggedIn, Converter={ StaticResource BooleanToVisibilityConverter } }"
+            Content="Tarjetas" 
+            Height="40" />
+
+        <Button 
+            Grid.Row="6"
             Margin="0 5 0 5"
             FontSize="15"
             VerticalAlignment="Center"
@@ -105,7 +117,7 @@
             Height="40" />
 
         <Button 
-            Grid.Row="6" 
+            Grid.Row="7" 
             Margin="0 5 0 5"
             FontSize="15"
             VerticalAlignment="Center"
@@ -116,7 +128,7 @@
             Height="40" />
 
         <Button 
-            Grid.Row="7" 
+            Grid.Row="8" 
             Margin="0 5 0 5"
             FontSize="15"
             VerticalAlignment="Center"
@@ -127,7 +139,7 @@
             Height="40" />
 
         <Button 
-            Grid.Row="8" 
+            Grid.Row="9" 
             Margin="0 5 0 5"
             FontSize="15"
             VerticalAlignment="Center"
@@ -138,7 +150,7 @@
             Height="40" />
 
         <Button 
-            Grid.Row="9" 
+            Grid.Row="10" 
             Margin="0 5 0 5"
             FontSize="15"
             VerticalAlignment="Center"
@@ -149,7 +161,7 @@
             Height="40" />
 
         <Button 
-            Grid.Row="10" 
+            Grid.Row="11" 
             Margin="0 5 0 5"
             FontSize="15"
             VerticalAlignment="Center"

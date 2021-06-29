@@ -16,6 +16,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public ICommand NavigateToLoginCommand { get; }
 		public ICommand NavigateToProfileCommand { get; }
 		public ICommand NavigateToAddressesCommand { get; }
+		public ICommand NavigateToTarjetasCommand { get; }
 		public ICommand NavigateToCartCommand { get; }
 		public ICommand NavigateToFavoritesCommand { get; }
 		public ICommand NavigateToPublicationsCommand { get; }
@@ -30,6 +31,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			INavigationService< IniciarSesionViewModel > iniciarSesionNavigationService,
 			INavigationService< PerfilViewModel > perilNavigationService,
 			INavigationService< DomiciliosViewModel > domiciliosNavigationService,
+			INavigationService< TarjetasViewModel > tarjetasNavigationService,
 			INavigationService< CarritoComprasViewModel > carritoComprasNavigationService,
 			INavigationService< FavoritosViewModel > favoritosNavigationService,
 			INavigationService< PublicacionesViewModel > publicacionesNavigationService,
@@ -40,6 +42,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			NavigateToLoginCommand = new NavigateCommand< IniciarSesionViewModel >( iniciarSesionNavigationService );
 			NavigateToProfileCommand = new NavigateCommand< PerfilViewModel >( perilNavigationService );
 			NavigateToAddressesCommand = new NavigateCommand< DomiciliosViewModel >( domiciliosNavigationService );
+			NavigateToTarjetasCommand = new NavigateCommand< TarjetasViewModel >( tarjetasNavigationService );
 			NavigateToCartCommand = new NavigateCommand< CarritoComprasViewModel >( carritoComprasNavigationService );
 			NavigateToFavoritesCommand = new NavigateCommand< FavoritosViewModel >( favoritosNavigationService );
 			NavigateToPublicationsCommand = new NavigateCommand< PublicacionesViewModel >( publicacionesNavigationService );
