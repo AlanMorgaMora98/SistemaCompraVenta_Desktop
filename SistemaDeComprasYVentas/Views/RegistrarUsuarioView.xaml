@@ -36,7 +36,7 @@
                 <PasswordBox HorizontalAlignment="Left"  PasswordChanged="ConfirmarContrasena_Changed" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
                 <ComboBox HorizontalAlignment="Left" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <Label Content="Registrar Usuario" Foreground="White" HorizontalAlignment="Left" Margin="274,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.579,0.577" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="18"/>
-
+                <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="266,398,0,0">Error</TextBlock>
                 <Button Content="Registrar" 
                         Grid.Column="1" 
                         HorizontalAlignment="Left" 

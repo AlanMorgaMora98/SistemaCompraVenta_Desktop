@@ -56,7 +56,7 @@
                 Height="26" 
                 Margin="355,139,0,0" 
                 VerticalAlignment="Top" 
-                MaxLength="50"
+                MaxLength="30"
                 Width="190"
                 Text="{ Binding Usuario, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                 

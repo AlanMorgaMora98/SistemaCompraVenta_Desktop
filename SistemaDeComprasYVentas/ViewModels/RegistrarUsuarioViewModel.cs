@@ -20,6 +20,7 @@ namespace SistemaDeComprasYVentas.ViewModels
         private string telefono;
         private SecureString contrasena;
         private SecureString confirmarcontrasena;
+        private string errorText;
 
         public string Nombres 
         {
@@ -84,6 +85,16 @@ namespace SistemaDeComprasYVentas.ViewModels
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).ConfirmarContrasena = confirmarcontrasena;
             }
         }
+
+        public string ErrorText
+		{
+            get { return errorText; }
+            set
+			{
+                errorText = value;
+                OnPropertyChanged( nameof( ErrorText ) );
+			}
+		}
 
         public RegistrarUsuarioViewModel()
 		{
