@@ -34,6 +34,13 @@ namespace SistemaDeComprasYVentas.Utilities
 			return creator;
 		}
 
+        public INavigationService< TarjetasViewModel > CreateTarjetasNavigationService()
+        {
+            return new LayoutNavigationService< TarjetasViewModel >(
+                _navigationStore,
+                () => new TarjetasViewModel(), CreateNavigationBarViewModel );
+        }
+
         public INavigationService< RealizarPedidoViewModel > CreateRealizarPedidoNavigationService()
         {
             return new LayoutNavigationService< RealizarPedidoViewModel >(
@@ -142,8 +149,8 @@ namespace SistemaDeComprasYVentas.Utilities
         {
             return new NavigationBarViewModel( CreateBuscarNavigationService(),
                 CreateIniciarSesionNavigationService(), CreatePerfilNavigationService(), CreateDomicilioNavigationService(),
-                CreateCarritoCompraNavigationService(), CreateFavoritosViewModel(), CreatePublicacionesNavigaionService(),
-                CreateHistorialComprasNavigationService(), CreateHistorialVentasNavigationService());
+                CreateTarjetasNavigationService(), CreateCarritoCompraNavigationService(), CreateFavoritosViewModel(), 
+                CreatePublicacionesNavigaionService(), CreateHistorialComprasNavigationService(), CreateHistorialVentasNavigationService());
         }
     }
 }
