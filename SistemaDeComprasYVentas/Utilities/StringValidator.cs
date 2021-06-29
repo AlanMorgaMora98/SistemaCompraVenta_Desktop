@@ -123,7 +123,7 @@ namespace SistemaDeComprasYVentas.Utilities
 			bool hasInvalidCharacter = false;
 			foreach( char letter in input )
 			{
-				if( letter == ';' || letter == '|' || letter == '=' || letter == '.' ||
+				if( letter == ';' || letter == '|' || letter == '=' ||
 					letter == 39 || letter == '(' || letter == ')' )
 				{
 					hasInvalidCharacter = true;

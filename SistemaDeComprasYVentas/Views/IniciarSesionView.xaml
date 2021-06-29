@@ -13,39 +13,7 @@
         CornerRadius="20">
 
         <Grid>
-            <Button
-                Content="Iniciar" 
-                HorizontalAlignment="Left" 
-                Margin="500,325,0,0" 
-                VerticalAlignment="Top" 
-                FontWeight="Bold" 
-                Command="{ Binding LoginCommand }"
-                FontSize="14">
-
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#FF4C70"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FE6584"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="100" 
-                                Height="40"
-                                CornerRadius="20"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            
             <Label Content="Iniciar Sesion" Foreground="White" HorizontalAlignment="Left" Margin="323,31,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.877,0.5"/>
             <Label Content="Username:" Foreground="White" HorizontalAlignment="Left" Margin="206,139,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Width="93" HorizontalContentAlignment="Right"/>
             <Label Content="Contraseña:" Foreground="White" HorizontalAlignment="Left" Margin="206,208,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="93" HorizontalContentAlignment="Right"/>
@@ -136,6 +104,40 @@
 
                 </Button.Template>
 
+            </Button>
+
+            <Button
+                Content="Iniciar" 
+                HorizontalAlignment="Left" 
+                Margin="500,325,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" 
+                Command="{ Binding LoginCommand }"
+                FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
 
         </Grid>

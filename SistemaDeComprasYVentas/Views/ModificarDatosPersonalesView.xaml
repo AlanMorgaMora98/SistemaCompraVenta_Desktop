@@ -32,7 +32,7 @@
                 <PasswordBox MaxLength="20" PasswordChanged="ContrasenaChanged" Grid.Column="1" HorizontalAlignment="Left" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <PasswordBox MaxLength="20" PasswordChanged="ConfirmarContrasenaChanged" HorizontalAlignment="Left" Margin="65,338,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
                 <Label Content="Modificar Datos Personales" Foreground="White" HorizontalAlignment="Left" Margin="230,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.579,0.577" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="18"/>
-                <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="226,398,0,0" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }">Error Text</TextBlock>
+                <TextBlock Foreground="Red" Grid.ColumnSpan="2" FontSize="16" FontWeight="Bold" Margin="226,398,0,0" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }">Error Text</TextBlock>
                 <Button Content="Modificar" 
                         HorizontalAlignment="Left" 
                         Margin="300,444,0,0" 
