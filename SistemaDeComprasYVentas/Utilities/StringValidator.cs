@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeComprasYVentas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,22 +19,39 @@ namespace SistemaDeComprasYVentas.Utilities
 		private const int minCalleSize = 3;
 		private const int telefonoSize = 10;
 
+		public bool IsLoginRequestDataValid( LoginRequestData loginInfo )
+		{
+			return IsUsernameValid( loginInfo.username ) && IsPasswordValid( loginInfo.password );
+		}
+
+		public bool IsUsernameValid( string username )
+		{
+			return ( IsStringValidSize( username, minUsuarioSize, maxUsuarioSize ) && !HaveSpaces( username ) && 
+					 !HasInvalidCharacter( username ) );
+		}
+
+		public bool IsPasswordValid( string password )
+		{
+			return ( IsStringValidSize( password, minUsuarioSize, maxUsuarioSize ) && !HaveSpaces( password ) &&
+					 !HasInvalidCharacter( password ) );
+		}
+
 		private bool IsStringValidSize( string input, int minSize, int maxSize )
 		{
 			return ( input.Length >= minSize && input.Length <= maxSize );
 		}
 
-		private bool HasSpaces( string input )
+		private bool HaveSpaces( string input )
 		{
-			bool hasSpaces = false;
+			bool haveSpaces = false;
 			foreach( char letter in input ) 
 			{
 				if( letter == ' ' )
 				{
-					hasSpaces = true;
+					haveSpaces = true;
 				}
 			}
-			return hasSpaces;
+			return haveSpaces;
 		}
 
 		private bool HasNumbers( string input )
