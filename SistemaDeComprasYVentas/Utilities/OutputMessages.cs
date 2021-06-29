@@ -16,10 +16,10 @@ namespace SistemaDeComprasYVentas.Utilities
 
 		public string ApellidosInvalidosMessage() { return "Los apellidos introducidos no son válidos."; }
 
-		public string CorreoInvalidoMessage() { return "El correo introducido no son válido."; }
+		public string CorreoInvalidoMessage() { return "El correo introducido no es válido."; }
 
-		public string TelefonoInvalidoMessage() { return "El telefono introducido no son válidos."; }
+		public string TelefonoInvalidoMessage() { return "El telefono introducido no es válidos."; }
 
-		public string ContrasenasNoCoincidenMessage() { return "Las contraseñas introducidos no coinciden."; }
+		public string ContrasenasNoCoincidenMessage() { return "Las contraseñas introducidas no coinciden."; }
 	}
 }
