@@ -16,9 +16,9 @@ namespace SistemaDeComprasYVentas.ApiRequests
 {
 	public class PublicacionesRequests
 	{
-		private string publicacionesURL = "http://192.168.1.68:5000/publicaciones";
-		private string carritoURL = "http://192.168.1.68:5000/usuarios";
-		private string favoritoURL = "http://192.168.1.68:5000/usuarios";
+		private string publicacionesURL = "http://192.168.56.1:5000/publicaciones";
+		private string carritoURL = "http://192.168.56.1:5000/usuarios";
+		private string favoritoURL = "http://192.168.56.1:5000/usuarios";
 
 		public PublicacionesRequests()
 		{
@@ -142,6 +142,42 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
 			{
 				if( response.IsSuccessStatusCode )
+				{
+					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task<ObservableCollection<Publicacion>> RecuperarPublicacionDeUsuario(int claveUsuario, string accessToken)
+		{
+			string requestURL = publicacionesURL + "/" + claveUsuario;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(requestURL))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					ObservableCollection<Publicacion> publicaciones = await response.Content.ReadAsAsync<ObservableCollection<Publicacion>>();
+					return publicaciones;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task< Publicacion > EliminarPublicacion(int claveUsuario, int clavePublicacion, string accessToken)
+		{
+			string requestURL = publicacionesURL + "/"+ clavePublicacion;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(requestURL))
+			{
+				if (response.IsSuccessStatusCode)
 				{
 					Publicacion respuesta = await response.Content.ReadAsAsync< Publicacion >();
 					return respuesta;

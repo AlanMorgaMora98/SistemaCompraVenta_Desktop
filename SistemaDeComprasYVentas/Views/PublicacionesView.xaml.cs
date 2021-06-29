@@ -30,13 +30,13 @@ namespace SistemaDeComprasYVentas.Views
 		{
 			if (((ListBox)sender).SelectedIndex > -1)
 			{
-				((dynamic)DataContext).ItemSeleccionado = (Publicacion)((ListBox)sender).SelectedItem;
+				((dynamic)DataContext).ItemSeleccionado = ( Publicacion )((ListBox)sender).SelectedItem;
 			}
 		}
 
 		public void EliminarPublicacion(object sender, RoutedEventArgs e)
 		{
-			((dynamic)DataContext).EliminarPublicacionDeCarrito();
+			((dynamic)DataContext).EliminarPublicacionDeUsuario();
 		}
 	}
 }

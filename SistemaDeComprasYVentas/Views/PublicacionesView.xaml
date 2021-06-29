@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
+    
     <Border    
         Background="#272537"
         CornerRadius="20">
@@ -103,6 +104,8 @@
                                     <TextBlock Text="{ Binding nombre }" Margin="0, 5, 0, 5 " />
                                     <TextBlock Text="{ Binding descripcion }" Margin="0, 5, 0, 5 " />
                                     <TextBlock Text="{ Binding precio }" Margin="0, 5, 0, 5 " />
+                                    <TextBlock Text="{ Binding cantidad_disponible }" Margin="0, 5, 0, 5 " />
+                                    <TextBlock Text="{ Binding calificacion_general }" Margin="0, 5, 0, 5 " />
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
