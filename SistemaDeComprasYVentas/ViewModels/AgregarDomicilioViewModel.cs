@@ -1,4 +1,6 @@
-﻿using SistemaDeComprasYVentas.Commands;
+﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Commands;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,10 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class AgregarDomicilioViewModel : ViewModelBase
 	{
+		private DomicilioRequests requests;
 		public ICommand AgregarDomicilioCommand { get; set; }
+		public ICommand NavigateDomicilioCommand { get; }
+		public ICommand CancelarDomicilioCommand { get; }
 
 		private string codigo_postal;
 		private string estado;
@@ -104,6 +109,10 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public AgregarDomicilioViewModel()
 		{
 			AgregarDomicilioCommand = new AgregarDomicilioCommand();
+
+			requests = new DomicilioRequests();
+			NavigateDomicilioCommand = new NavigateCommand<DomiciliosViewModel>(
+											NavigationServiceCreator.GetInstance().CreateDomicilioNavigationService());
 		}
 	}
 }

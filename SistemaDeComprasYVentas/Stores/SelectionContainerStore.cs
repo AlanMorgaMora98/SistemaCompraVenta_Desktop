@@ -13,6 +13,8 @@ namespace SistemaDeComprasYVentas.Stores
 		private static SelectionContainerStore selectionContainerStore;
 		private ObservableCollection< Publicacion > publicacionesCarrito;
 		private ObservableCollection< Publicacion > publicacionesFavoritos;
+		private ObservableCollection< Domicilio > domiciliosUsuario;
+
 		public ObservableCollection< Publicacion > PublicacionesCarrito 
 		{
 			get { return publicacionesCarrito; } 
@@ -29,9 +31,18 @@ namespace SistemaDeComprasYVentas.Stores
 				publicacionesFavoritos = value;
 			}
 		}
+		public ObservableCollection<Domicilio> DomiciliosUsuario
+		{
+			get { return domiciliosUsuario; }
+			set
+			{
+				domiciliosUsuario = value;
+			}
+		}
 		public Publicacion PublicacionSeleccionadaBusqueda { get; set; }
 		public Publicacion PublicacionSeleccionadaCarrito { get; set; }
 		public Publicacion PublicacionSeleccionadaFavorito { get; set; }
+		public Domicilio DomicilioSeleccionado { get; set; }
 
 		private SelectionContainerStore()
 		{
@@ -39,6 +50,7 @@ namespace SistemaDeComprasYVentas.Stores
 			PublicacionSeleccionadaBusqueda = null;
 			PublicacionSeleccionadaCarrito = null;
 			PublicacionSeleccionadaFavorito = null;
+			DomicilioSeleccionado = null;
 		}
 
 		public static SelectionContainerStore GetInstance()
@@ -58,6 +70,11 @@ namespace SistemaDeComprasYVentas.Stores
 		public void EliminarPublicacionDeListaFavoritos()
 		{
 			publicacionesFavoritos.Remove( PublicacionSeleccionadaFavorito );
+		}
+
+		public void EliminarDomicilioDeUsuario()
+		{
+			domiciliosUsuario.Remove(DomicilioSeleccionado);
 		}
 	}
 }

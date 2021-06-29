@@ -94,6 +94,7 @@
             <Button Content="Regresar" 
                     HorizontalAlignment="Left" 
                     Margin="95,465,0,0" 
+                    Command="{ Binding NavigateDomicilioCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
                 <Button.Style>
                     <Style TargetType="Button">
