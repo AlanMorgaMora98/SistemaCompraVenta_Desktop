@@ -27,6 +27,13 @@ namespace SistemaDeComprasYVentas.Utilities
 			return IsUsernameValid( loginInfo.username ) && IsPasswordValid( loginInfo.password );
 		}
 
+		public bool IsUsuarioDataValid( Usuario usuario, string confirmarContrasena )
+		{
+			return ( AreNamesValid( usuario.nombres ) && AreLastNamesValid( usuario.apellidos ) && IsEmailValid( usuario.correo_electronico ) &&
+				     IsTelephoneValid( usuario.telefono ) && IsUsernameValid( usuario.nombre_usuario ) && IsPasswordValid( usuario.contrasena ) &&
+					 DoPasswordsMatch( usuario.contrasena, confirmarContrasena ) );
+		}
+
 		public bool AreNamesValid( string names )
 		{
 			return ( IsStringValidSize( names, minNombreSize, maxNombreSize ) && !HasNumbers( names ) &&
