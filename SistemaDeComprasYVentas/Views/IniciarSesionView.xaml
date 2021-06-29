@@ -49,6 +49,7 @@
             <Label Content="Iniciar Sesion" Foreground="White" HorizontalAlignment="Left" Margin="323,31,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.877,0.5"/>
             <Label Content="Username:" Foreground="White" HorizontalAlignment="Left" Margin="206,139,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Width="93" HorizontalContentAlignment="Right"/>
             <Label Content="Contraseña:" Foreground="White" HorizontalAlignment="Left" Margin="206,208,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="93" HorizontalContentAlignment="Right"/>
+            <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="266,268,0,0" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }"></TextBlock>
             <TextBox 
                 Name="TBUsername" 
                 HorizontalAlignment="Left" 
@@ -65,7 +66,7 @@
                 HorizontalAlignment="Left" 
                 Margin="355,208,0,0" 
                 VerticalAlignment="Top"
-                MaxLength="50"
+                MaxLength="20"
                 Width="190" Height="26" 
                 VerticalContentAlignment="Center" PasswordChanged="PasswordBox_PasswordChanged" />
             <Button

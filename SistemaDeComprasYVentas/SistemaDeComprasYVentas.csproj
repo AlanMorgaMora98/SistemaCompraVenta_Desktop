@@ -109,6 +109,7 @@
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="Stores\SelectionContainerStore.cs" />
     <Compile Include="Utilities\NavigationServiceCreator.cs" />
+    <Compile Include="Utilities\OutputMessages.cs" />
     <Compile Include="Utilities\StringValidator.cs" />
     <Compile Include="ViewModels\AgregarDomicilioViewModel.cs" />
     <Compile Include="ViewModels\AgregarTarjetaViewModel.cs" />

@@ -32,7 +32,7 @@ namespace SistemaDeComprasYVentas.Utilities
 
 		public bool IsPasswordValid( string password )
 		{
-			return ( IsStringValidSize( password, minUsuarioSize, maxUsuarioSize ) && !HaveSpaces( password ) &&
+			return ( IsStringValidSize( password, minContrasenaSize, maxContrasenaSize ) && !HaveSpaces( password ) &&
 					 !HasInvalidCharacter( password ) );
 		}
 
@@ -85,8 +85,8 @@ namespace SistemaDeComprasYVentas.Utilities
 			bool hasInvalidCharacter = false;
 			foreach( char letter in input )
 			{
-				if( letter == ';' || letter == '|' || letter == '=' ||
-					letter == 39 )
+				if( letter == ';' || letter == '|' || letter == '=' || letter == '.' ||
+					letter == 39 || letter == '(' || letter == ')' )
 				{
 					hasInvalidCharacter = true;
 				}
