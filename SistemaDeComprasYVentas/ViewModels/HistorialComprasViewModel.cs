@@ -35,7 +35,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			requests.RecuperarTransaccionesUsuario( LoginSession.GetInstance().ClaveUsuario,
 													LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
 				{
-					if (Task.Exception == null)
+					if( Task.Exception == null ) 
 					{
 						TransaccionesUsuario = Task.Result;
 					}

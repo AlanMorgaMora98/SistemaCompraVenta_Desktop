@@ -65,6 +65,9 @@
             <DataTemplate DataType="{ x:Type viewModels:TarjetasViewModel }">
                 <views:TarjetasView />
             </DataTemplate>
+            <DataTemplate DataType="{ x:Type viewModels:VisualizarTransaccionCompradorViewModel }">
+                <views:VisualizarTransaccionCompradorView />
+            </DataTemplate>
             <DataTemplate DataType="{ x:Type viewModels:LayoutViewModel }">
                 <components:Layout />
             </DataTemplate>

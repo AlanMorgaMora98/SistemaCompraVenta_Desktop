@@ -133,6 +133,7 @@
     <Compile Include="ViewModels\TarjetasViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\VisualizarPublicacionCompradorViewModel.cs" />
+    <Compile Include="ViewModels\VisualizarTransaccionCompradorViewModel.cs" />
     <Compile Include="Views\AgregarDomicilioView.xaml.cs">
       <DependentUpon>AgregarDomicilioView.xaml</DependentUpon>
     </Compile>
@@ -186,6 +187,9 @@
     </Compile>
     <Compile Include="Views\VisualizarPublicacionCompradorView.xaml.cs">
       <DependentUpon>VisualizarPublicacionCompradorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualizarTransaccionCompradorView.xaml.cs">
+      <DependentUpon>VisualizarTransaccionCompradorView.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Layout.xaml">
       <SubType>Designer</SubType>
@@ -276,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VisualizarPublicacionCompradorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualizarTransaccionCompradorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
