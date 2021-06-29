@@ -18,6 +18,7 @@ namespace SistemaDeComprasYVentas.Commands
 	public class ModificarDatosUsuarioCommand : CommandBase
 	{
 		private UsuarioRequests requests;
+		private StringValidator validator;
 		private ICommand NavigatePerfilCommand { get; }
 
 		public string nombres { get; set; }
@@ -31,21 +32,25 @@ namespace SistemaDeComprasYVentas.Commands
 		public ModificarDatosUsuarioCommand()
 		{
 			requests = new UsuarioRequests();
+			validator = new StringValidator();
 			NavigatePerfilCommand = new NavigateCommand< PerfilViewModel >( 
 									NavigationServiceCreator.GetInstance().CreatePerfilNavigationService() );
 		}
 
 		public override void Execute( object parameter )
 		{
-			requests.ActualizarUsuarioInformation( LoginSession.GetInstance().ClaveUsuario, LoginSession.GetInstance().AccessToken, 
-												   GetUsuario() ).ContinueWith( Task =>
+			if( validator.IsUsuarioDataValid( GetUsuario(), convertToUNSecureString( confirmarContrasena ) ) )
 			{
-				if( Task.Exception == null )
-				{
-					LoginSession.GetInstance().Usuario = Task.Result;
-					NavigatePerfilCommand.Execute( this );
-				}
-			} );
+				requests.ActualizarUsuarioInformation( LoginSession.GetInstance().ClaveUsuario, LoginSession.GetInstance().AccessToken,
+													   GetUsuario() ).ContinueWith( Task =>
+				   {
+					   if( Task.Exception == null )
+					   {
+						   LoginSession.GetInstance().Usuario = Task.Result;
+						   NavigatePerfilCommand.Execute( this );
+					   }
+				   } );
+			}
 		}
 
 		private Usuario GetUsuario()

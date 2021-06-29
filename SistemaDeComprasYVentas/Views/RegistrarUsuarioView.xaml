@@ -27,16 +27,16 @@
                 <Label Content="Correo Electronico:" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="109,148,0,0" VerticalAlignment="Top" Height="26" Width="147" HorizontalContentAlignment="Center"/>
                 <Label Content="Telefono:" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="115,226,0,0" VerticalAlignment="Top" Height="26" Width="122" HorizontalContentAlignment="Center"/>
                 <Label Content="Tipo de Usuario:" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="115,322,0,0" VerticalAlignment="Top" Height="26" Width="122" HorizontalContentAlignment="Center"/>
-                <TextBox HorizontalAlignment="Left" Text="{ Binding Nombres }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <TextBox HorizontalAlignment="Left" Text="{ Binding Apellidos }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" VerticalContentAlignment="Center"/>
-                <TextBox HorizontalAlignment="Left" Text="{ Binding Nombre_Usuario }" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <TextBox Grid.Column="1" Text="{ Binding Correo_Electronico }" HorizontalAlignment="Left" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <TextBox HorizontalAlignment="Left" Text="{ Binding Telefono }" Height="26" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <PasswordBox Grid.Column="1" PasswordChanged="Contrasena_Changed" HorizontalAlignment="Left" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
-                <PasswordBox HorizontalAlignment="Left"  PasswordChanged="ConfirmarContrasena_Changed" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="30" HorizontalAlignment="Left" Text="{ Binding Nombres, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Apellidos, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Nombre_Usuario, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="50" Grid.Column="1" Text="{ Binding Correo_Electronico, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="10" HorizontalAlignment="Left" Text="{ Binding Telefono, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <PasswordBox MaxLength="20" Grid.Column="1" PasswordChanged="Contrasena_Changed" HorizontalAlignment="Left" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
+                <PasswordBox MaxLength="20" HorizontalAlignment="Left"  PasswordChanged="ConfirmarContrasena_Changed" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
                 <ComboBox HorizontalAlignment="Left" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <Label Content="Registrar Usuario" Foreground="White" HorizontalAlignment="Left" Margin="274,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.579,0.577" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="18"/>
-
+                <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="226,398,0,0" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }" Grid.ColumnSpan="2" >Error</TextBlock>
                 <Button Content="Registrar" 
                         Grid.Column="1" 
                         HorizontalAlignment="Left" 

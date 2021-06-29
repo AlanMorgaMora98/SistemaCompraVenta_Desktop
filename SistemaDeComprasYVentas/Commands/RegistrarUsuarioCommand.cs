@@ -1,6 +1,7 @@
 ﻿using SistemaDeComprasYVentas.ApiRequests;
 using SistemaDeComprasYVentas.Enumerations;
 using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace SistemaDeComprasYVentas.Commands
 	public class RegistrarUsuarioCommand : CommandBase
     {
 		private UsuarioRequests requests;
+		private StringValidator validator;
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Nombre_Usuario { get; set; }
@@ -25,17 +27,21 @@ namespace SistemaDeComprasYVentas.Commands
 		public RegistrarUsuarioCommand()
 		{
 			requests = new UsuarioRequests();
+			validator = new StringValidator();
 		}
 
 		public override void Execute( object parameter )
 		{
-			requests.RegistrarUsuario( CreateUsuario() ).ContinueWith( Task =>
+			if( validator.IsUsuarioDataValid( CreateUsuario(), convertToUNSecureString( ConfirmarContrasena ) ) )
 			{
-				if( Task.Exception == null )
+				requests.RegistrarUsuario( CreateUsuario() ).ContinueWith( Task =>
 				{
-					Usuario response = Task.Result;
-				}
-			} );
+					if( Task.Exception == null )
+					{
+						Usuario response = Task.Result;
+					}
+				} );
+			}
 		}
 
 		private Usuario CreateUsuario()

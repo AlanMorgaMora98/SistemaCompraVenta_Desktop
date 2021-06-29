@@ -17,6 +17,7 @@ namespace SistemaDeComprasYVentas.Commands
 	public class LoginCommand : CommandBase
 	{
 		private LoginRequests requests;
+		private StringValidator validator;
 		private ICommand NavigateToHomeCommand { get; }
 
 		public string username { get; set; }
@@ -25,21 +26,25 @@ namespace SistemaDeComprasYVentas.Commands
 		public LoginCommand()
 		{
 			requests = new LoginRequests();
+			validator = new StringValidator();
 			NavigateToHomeCommand = new NavigateCommand< BuscarPublicacionesViewModel >( 
 										NavigationServiceCreator.GetInstance().CreateBuscarNavigationService() );
 		}
 
 		public override void Execute( object parameter )
 		{
-			requests.RealizarLogin( username, convertToUNSecureString( password ) ).ContinueWith( Task => 
+			if( validator.IsLoginRequestDataValid( new LoginRequestData( username, convertToUNSecureString( password ) ) ) )
 			{
-				if( Task.Exception == null )
+				requests.RealizarLogin( username, convertToUNSecureString( password ) ).ContinueWith( Task =>
 				{
-					LoginResponseData response = Task.Result;
-					LoginSession.GetInstance().Login( response.clave_usuario, response.access_token );
-					NavigateToHomeCommand.Execute( this );
-				}
-			} );
+					if( Task.Exception == null )
+					{
+						LoginResponseData response = Task.Result;
+						LoginSession.GetInstance().Login( response.clave_usuario, response.access_token );
+						NavigateToHomeCommand.Execute( this );
+					}
+				} );
+			}
 		}
 
 		public string convertToUNSecureString( SecureString secstrPassword )
