@@ -173,7 +173,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 
 		public async Task< Publicacion > EliminarPublicacion(int claveUsuario, int clavePublicacion, string accessToken)
 		{
-			string requestURL = publicacionesURL + "/"+ clavePublicacion;
+			string requestURL = publicacionesURL + "/"+ clavePublicacion + "/" + claveUsuario;
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 			using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(requestURL))
 			{

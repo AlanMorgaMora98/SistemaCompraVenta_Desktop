@@ -60,9 +60,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public void EliminarPublicacionDeUsuario()
 		{
-			requests.EliminarPublicacion(LoginSession.GetInstance().ClaveUsuario,
-										SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario.clave_publicacion,
-										LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
+			requests.EliminarPublicacion( LoginSession.GetInstance().ClaveUsuario,
+										  SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario.clave_publicacion,
+										  LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
 				{
 					if (Task.Exception == null)
 					{
