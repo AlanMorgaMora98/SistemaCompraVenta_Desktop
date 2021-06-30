@@ -53,6 +53,7 @@ namespace SistemaDeComprasYVentas.Stores
 		public Publicacion PublicacionSeleccionadaFavorito { get; set; }
 		public Domicilio DomicilioSeleccionado { get; set; }
 		public Publicacion PublicacionSeleccionadaUsuario { get; set; }
+		public Transaccion TransaccionSeleccionadaHistorial { get; set; }
 
 		private SelectionContainerStore()
 		{

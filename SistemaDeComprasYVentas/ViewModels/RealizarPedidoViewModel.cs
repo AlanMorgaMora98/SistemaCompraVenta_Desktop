@@ -119,11 +119,11 @@ namespace SistemaDeComprasYVentas.ViewModels
 			tarjetaRequests.RecuperarTarjetasUsuario( LoginSession.GetInstance().ClaveUsuario,
 													  LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
 				{
-				 if (Task.Exception == null)
+				 if( Task.Exception == null )
 				 {
 					 TarjetasUsuario = Task.Result;
 				 }
-				});
+				} );
 		}
 	}
 }

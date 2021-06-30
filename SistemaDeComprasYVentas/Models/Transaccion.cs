@@ -15,6 +15,7 @@ namespace SistemaDeComprasYVentas.Models
 		public string fecha_venta { get; set; }
 		public double total { get; set; }
 		public bool usuario_evaluado { get; set; }
+		public int clave_publicacion { get; set; }
 
 		public Transaccion()
 		{
@@ -25,6 +26,7 @@ namespace SistemaDeComprasYVentas.Models
 			fecha_venta = "";
 			total = 0.0;
 			usuario_evaluado = false;
+			clave_publicacion = -1;
 		}
 
 		public Transaccion( Transaccion original )
@@ -36,10 +38,11 @@ namespace SistemaDeComprasYVentas.Models
 			fecha_venta = original.fecha_venta;
 			total = original.total;
 			usuario_evaluado = original.usuario_evaluado;
+			clave_publicacion = original.clave_publicacion;
 		}
 
-		public Transaccion( int claveTransaccionIn, int claveVendedorIn, string direccionIn, 
-							string numeroIn, string fechaIn, double totalIn, bool usuarioIn )
+		public Transaccion( int claveTransaccionIn, int claveVendedorIn, string direccionIn, string numeroIn, 
+							string fechaIn, double totalIn, bool usuarioIn, int clavePublicacionIn )
 		{
 			clave_transaccion = claveTransaccionIn;
 			clave_vendedor = claveVendedorIn;
@@ -48,6 +51,7 @@ namespace SistemaDeComprasYVentas.Models
 			fecha_venta = fechaIn;
 			total = totalIn;
 			usuario_evaluado = usuarioIn;
+			clave_publicacion = clavePublicacionIn;
 		}
 	}
 }

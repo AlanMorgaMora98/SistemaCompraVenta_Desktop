@@ -21,7 +21,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 
 		public async Task< ObservableCollection< Tarjeta > > RecuperarTarjetasUsuario( int claveUsuario, string accessToken )
 		{
-			string requestURL = tarjetasGeneralURL + "/" + claveUsuario;
+			string requestURL = tarjetasGeneralURL + "/" + claveUsuario + "/tarjetas";
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
 			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
 			{

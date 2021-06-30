@@ -65,6 +65,7 @@
     </ApplicationDefinition>
     <Compile Include="ApiRequests\ApiHelper.cs" />
     <Compile Include="ApiRequests\DomicilioRequests.cs" />
+    <Compile Include="ApiRequests\EvaluacionRequests.cs" />
     <Compile Include="ApiRequests\LoginRequests.cs" />
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
     <Compile Include="ApiRequests\TarjetaRequests.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Enumerations\UnidadMedida.cs" />
     <Compile Include="Models\CarritoFavoritoData.cs" />
     <Compile Include="Models\Domicilio.cs" />
+    <Compile Include="Models\EvaluacionUsuario.cs" />
     <Compile Include="Models\LoginRequestData.cs" />
     <Compile Include="Models\LoginResponseData.cs" />
     <Compile Include="Models\Tarjeta.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="ViewModels\TarjetasViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\VisualizarPublicacionCompradorViewModel.cs" />
+    <Compile Include="ViewModels\VisualizarTransaccionCompradorViewModel.cs" />
     <Compile Include="Views\AgregarDomicilioView.xaml.cs">
       <DependentUpon>AgregarDomicilioView.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,9 @@
     </Compile>
     <Compile Include="Views\VisualizarPublicacionCompradorView.xaml.cs">
       <DependentUpon>VisualizarPublicacionCompradorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualizarTransaccionCompradorView.xaml.cs">
+      <DependentUpon>VisualizarTransaccionCompradorView.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Layout.xaml">
       <SubType>Designer</SubType>
@@ -276,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VisualizarPublicacionCompradorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualizarTransaccionCompradorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

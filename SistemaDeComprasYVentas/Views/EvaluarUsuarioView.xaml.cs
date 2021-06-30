@@ -24,5 +24,18 @@ namespace SistemaDeComprasYVentas.Views
 		{
 			InitializeComponent();
 		}
+
+		public void CalificacionChanged( object sender, RoutedEventArgs e )
+		{
+			if( ( ( ComboBox )sender ).SelectedIndex > -1 )
+			{
+				( ( dynamic )DataContext ).CalificacionSeleccionada = ( string )( ( ComboBox )sender ).SelectedItem;
+			}
+		}
+
+		private void MandarEvaluacion( object sender, RoutedEventArgs e )
+		{
+			( ( dynamic )DataContext ).MandarEvaluacion();
+		}
 	}
 }

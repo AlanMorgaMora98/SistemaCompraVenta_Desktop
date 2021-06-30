@@ -27,11 +27,11 @@
                 <Label Content="Correo Electronico:" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="109,148,0,0" VerticalAlignment="Top" Height="26" Width="147" HorizontalContentAlignment="Center"/>
                 <Label Content="Telefono:" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="115,226,0,0" VerticalAlignment="Top" Height="26" Width="122" HorizontalContentAlignment="Center"/>
                 <Label Content="Tipo de Usuario:" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="115,322,0,0" VerticalAlignment="Top" Height="26" Width="122" HorizontalContentAlignment="Center"/>
-                <TextBox MaxLength="30" HorizontalAlignment="Left" Text="{ Binding Nombres, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Apellidos, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" VerticalContentAlignment="Center"/>
-                <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Nombre_Usuario, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <TextBox MaxLength="50" Grid.Column="1" Text="{ Binding Correo_Electronico, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
-                <TextBox MaxLength="10" HorizontalAlignment="Left" Text="{ Binding Telefono, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="30" HorizontalAlignment="Left" Text="{ Binding Nombres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Apellidos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Nombre_Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="50" Grid.Column="1" Text="{ Binding Correo_Electronico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
+                <TextBox MaxLength="10" HorizontalAlignment="Left" Text="{ Binding Telefono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
                 <PasswordBox MaxLength="20" Grid.Column="1" PasswordChanged="Contrasena_Changed" HorizontalAlignment="Left" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <PasswordBox MaxLength="20" HorizontalAlignment="Left"  PasswordChanged="ConfirmarContrasena_Changed" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
                 <ComboBox HorizontalAlignment="Left" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
@@ -41,7 +41,7 @@
                         Grid.Column="1" 
                         HorizontalAlignment="Left" 
                         Margin="195,435,0,0" 
-                        Command="{ Binding RegistrarUsuarioCommand }"
+                        Click="RegistrarUsuario"
                         VerticalAlignment="Top" FontWeight="Bold">
                         <Button.Style>
                             <Style TargetType="Button">

@@ -44,7 +44,7 @@ namespace SistemaDeComprasYVentas.Commands
 			}
 		}
 
-		private Usuario CreateUsuario()
+		public Usuario CreateUsuario()
 		{
 			return new Usuario( 0, Nombres, Apellidos, Correo_Electronico, Telefono, Nombre_Usuario,
 								convertToUNSecureString( Contrasena ), 0.0f, TipoUsuario.vendedor );

@@ -1,5 +1,4 @@
-﻿using SistemaDeComprasYVentas.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,21 +16,13 @@ using System.Windows.Shapes;
 namespace SistemaDeComprasYVentas.Views
 {
 	/// <summary>
-	/// Interaction logic for HistorialComprasView.xaml
+	/// Interaction logic for VisualizarTransaccionCompradorView.xaml
 	/// </summary>
-	public partial class HistorialComprasView : UserControl
+	public partial class VisualizarTransaccionCompradorView : UserControl
 	{
-		public HistorialComprasView()
+		public VisualizarTransaccionCompradorView()
 		{
 			InitializeComponent();
-		}
-
-		public void SelectionChanged( object sender, RoutedEventArgs e )
-		{
-			if( ( ( ListBox )sender ).SelectedIndex > -1 )
-			{
-				( ( dynamic )DataContext ).ItemSeleccionado = ( Transaccion )( ( ListBox )sender ).SelectedItem;
-			}
 		}
 	}
 }

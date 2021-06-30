@@ -1,33 +1,38 @@
-﻿<UserControl x:Class="SistemaDeComprasYVentas.Views.EvaluarUsuarioView"
+﻿<UserControl x:Class="SistemaDeComprasYVentas.Views.VisualizarTransaccionCompradorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="700" Background="White" >
+             d:DesignHeight="600" d:DesignWidth="700" Background="White">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Border
         Background="#272537"
         CornerRadius="20">
 
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" FontSize="22" Foreground="White" FontWeight="Bold" Margin="251,10,-251,-10" >Evaluar Vendedor</TextBlock>
-            <TextBlock Grid.Column="1" FontSize="20" Foreground="White" Margin="37,66,-37,-66">¿Cómo fue tu experiencia con el vendedor?</TextBlock>
-            <TextBox Grid.Column="1" Height="200" Width="630" Margin="38,97,32,303" TextWrapping="Wrap" MaxLength="200" Text="{ Binding Evaluacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"></TextBox>
-            <TextBlock Grid.Column="1" FontSize="20" Foreground="White" Margin="38,346,-38,-346">Selecciona la Calificación:</TextBlock>
-            <ComboBox Grid.Column="1" Height="30" Width="200" Margin="-420,280, 0, 0" ItemsSource="{ Binding CalificacionValues, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
-                      SelectionChanged="CalificacionChanged"/>
-            <TextBlock FontSize="18" Foreground="Red" Margin="232,272,-202,-302" Text="{ Binding ErrorText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }">ErrorText</TextBlock>
+            <Label FontSize="22" Foreground="White" Margin="238,20,-238,0">Visualizar Transacción</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,100,-238,0">Clave Transacción:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,160,-238,0">Clave Vendedor:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,220,-238,0">Dirección seleccionada:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,280,-238,0">Fecha de Realización:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,340,-238,0">Total:</Label>
+            <TextBlock FontSize="20" Foreground="White" Margin="288,105,-238,0">Clave Transaccion</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="268,165,-238,0">Clave Vendedor</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="318,225,-238,0">Direccion seleccionada</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="318,285,-238,0">Fecha de Realizacion</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="168,345,-238,0">Total de transaccion</TextBlock>
 
             <Button
-                Content="Mandar Evaluación" 
+                Content="Evaluar Vendedor" 
                 HorizontalAlignment="Left" 
-                Margin="385,374,0,0" 
+                Margin="268,415,0,0" 
                 VerticalAlignment="Top" 
-                Click="MandarEvaluacion"
+                Command="{ Binding NavigateEvaluarUsuario }"
+                Visibility="{ Binding UsuarioNoEstaEvaluado, Converter={ StaticResource BooleanToVisibilityConverter } }"
                 FontWeight="Bold" FontSize="14">
 
                 <Button.Style>

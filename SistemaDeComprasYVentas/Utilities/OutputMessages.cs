@@ -21,5 +21,9 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string TelefonoInvalidoMessage() { return "El telefono introducido no es válidos."; }
 
 		public string ContrasenasNoCoincidenMessage() { return "Las contraseñas introducidas no coinciden."; }
+
+		public string EvaluacionNoEsValida() { return "La evaluación no es válida."; }
+
+		public string CalificacionNoEsValida() { return "La calificación no es válida."; }
 	}
 }

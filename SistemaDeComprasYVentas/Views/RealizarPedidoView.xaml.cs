@@ -38,7 +38,7 @@ namespace SistemaDeComprasYVentas.Views
 		{
 			if( ( ( ComboBox )sender ).SelectedIndex > -1 )
 			{
-				( ( dynamic )DataContext ).TarjetaSeleccionada = ( Domicilio )( ( ComboBox )sender ).SelectedItem;
+				( ( dynamic )DataContext ).TarjetaSeleccionada = ( Tarjeta )( ( ComboBox )sender ).SelectedItem;
 			}
 		}
 	}
