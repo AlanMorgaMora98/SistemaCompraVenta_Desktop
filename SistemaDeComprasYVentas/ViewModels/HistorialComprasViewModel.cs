@@ -38,6 +38,16 @@ namespace SistemaDeComprasYVentas.ViewModels
 				NavigateVisualizarTransaccion.Execute( this );
 			}
 		}
+		public Transaccion ItemSeleccionado
+		{
+			set
+			{
+				SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial = value;
+				NavigateVisualizarTransaccion = new NavigateCommand< VisualizarTransaccionCompradorViewModel >( 
+												NavigationServiceCreator.GetInstance().CreateVisualizarTransaccionNavigationService() );
+				NavigateVisualizarTransaccion.Execute( this );
+			}
+		}
 
 
 		public HistorialComprasViewModel()
