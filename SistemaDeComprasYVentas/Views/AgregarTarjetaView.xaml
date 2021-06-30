@@ -7,16 +7,82 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
 
-    <Grid>
-        <Label Content="Agregar Tarjeta" HorizontalAlignment="Left" Margin="236,36,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="57,179,0,0" VerticalAlignment="Top" Width="209"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="320,179,0,0" VerticalAlignment="Top" Width="198"/>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="170,349,0,0" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Regresar" HorizontalAlignment="Left" Margin="320,349,0,0" VerticalAlignment="Top" Width="74"/>
-        <Label Content="Nombre tarjetahabiente:" HorizontalAlignment="Left" Margin="96,132,0,0" VerticalAlignment="Top"/>
-        <Label Content="Numero de tarjeta:" HorizontalAlignment="Left" Margin="367,132,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="214,281,0,0" VerticalAlignment="Top" Width="163"/>
-        <Label Content="Tipo de tarjeta:" HorizontalAlignment="Left" Margin="255,250,0,0" VerticalAlignment="Top"/>
+    <Border
+        Background="#272537"
+        CornerRadius="20">
 
-    </Grid>
+        <Grid>
+            <Label Content="Agregar Tarjeta" Foreground="White" HorizontalAlignment="Left" Margin="277,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="190,187,0,0" VerticalAlignment="Top" Width="270"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="190,277,0,0" VerticalAlignment="Top" Width="270"/>
+            <Label Content="Nombre tarjetahabiente:" Foreground="White" HorizontalAlignment="Left" Margin="267,129,0,0" VerticalAlignment="Top"/>
+            <Label Content="Numero de tarjeta:"  Foreground="White" HorizontalAlignment="Left" Margin="267,229,0,0" VerticalAlignment="Top"/>
+            <ComboBox HorizontalAlignment="Left" Margin="255,363,0,0" VerticalAlignment="Top" Width="163"/>
+            <Label Content="Tipo de tarjeta:" Foreground="White" HorizontalAlignment="Left" Margin="288,319,0,0" VerticalAlignment="Top"/>
+
+            <Button Content="Guardar" 
+                    HorizontalAlignment="Left" 
+                    Margin="430,430,0,0" 
+                    VerticalAlignment="Top" FontWeight="Bold">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+            </Button>
+
+            <Button Content="Regresar" 
+                    HorizontalAlignment="Left" 
+                    Margin="86,430,0,0" 
+                    VerticalAlignment="Top" FontWeight="Bold">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+            </Button>
+
+
+        </Grid>
+
+    </Border>
 </UserControl>

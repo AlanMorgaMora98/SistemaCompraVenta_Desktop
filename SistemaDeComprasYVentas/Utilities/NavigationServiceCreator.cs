@@ -55,6 +55,13 @@ namespace SistemaDeComprasYVentas.Utilities
                 () => new TarjetasViewModel(), CreateNavigationBarViewModel );
         }
 
+        public INavigationService<AgregarTarjetaViewModel> CreateAgregarTarjetaNavigationService()
+        {
+            return new LayoutNavigationService<AgregarTarjetaViewModel>(
+                _navigationStore,
+                () => new AgregarTarjetaViewModel(), CreateNavigationBarViewModel);
+        }
+
         public INavigationService< RealizarPedidoViewModel > CreateRealizarPedidoNavigationService()
         {
             return new LayoutNavigationService< RealizarPedidoViewModel >(

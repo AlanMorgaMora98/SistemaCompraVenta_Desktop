@@ -12,7 +12,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 {
 	public class TarjetaRequests
 	{
-		private string tarjetasGeneralURL = "http://192.168.1.68:5000/usuarios";
+		private string tarjetasGeneralURL = "http://192.168.56.1:5000/usuarios";
 
 		public TarjetaRequests()
 		{
@@ -29,6 +29,24 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				{
 					ObservableCollection< Tarjeta > tarjetas = await response.Content.ReadAsAsync< ObservableCollection< Tarjeta > >();
 					return tarjetas;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task<Tarjeta> EliminarTarjeta(int claveUsuario, int claveTarjeta, string accessToken)
+		{
+			string requestURL = tarjetasGeneralURL + "/" + claveUsuario + "/tarjetas/" + claveTarjeta;
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(requestURL))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					Tarjeta respuesta = await response.Content.ReadAsAsync<Tarjeta>();
+					return respuesta;
 				}
 				else
 				{

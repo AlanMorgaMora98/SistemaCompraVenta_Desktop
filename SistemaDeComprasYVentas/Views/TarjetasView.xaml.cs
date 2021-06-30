@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeComprasYVentas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace SistemaDeComprasYVentas.Views
 		public TarjetasView()
 		{
 			InitializeComponent();
+		}
+
+		public void SelectionChanged(object sender, RoutedEventArgs e)
+		{
+			if (((ListBox)sender).SelectedIndex > -1)
+			{
+				((dynamic)DataContext).ItemSeleccionado = ( Tarjeta )((ListBox)sender).SelectedItem;
+			}
+		}
+
+
+		public void EliminarTarjeta(object sender, RoutedEventArgs e)
+		{
+			((dynamic)DataContext).EliminarTarjetaDeUsuario();
 		}
 	}
 }

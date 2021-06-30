@@ -15,6 +15,7 @@ namespace SistemaDeComprasYVentas.Stores
 		private ObservableCollection< Publicacion > publicacionesFavoritos;
 		private ObservableCollection< Domicilio > domiciliosUsuario;
 		private ObservableCollection< Publicacion > publicacionesUsuario;
+		private ObservableCollection< Tarjeta > tarjetasUsuario;
 
 		public ObservableCollection< Publicacion > PublicacionesCarrito 
 		{
@@ -24,7 +25,7 @@ namespace SistemaDeComprasYVentas.Stores
 				publicacionesCarrito = value;
 			}
 		}
-		public ObservableCollection<Publicacion> PublicacionesFavoritos
+		public ObservableCollection< Publicacion > PublicacionesFavoritos
 		{
 			get { return publicacionesFavoritos; }
 			set
@@ -32,7 +33,7 @@ namespace SistemaDeComprasYVentas.Stores
 				publicacionesFavoritos = value;
 			}
 		}
-		public ObservableCollection<Domicilio> DomiciliosUsuario
+		public ObservableCollection< Domicilio > DomiciliosUsuario
 		{
 			get { return domiciliosUsuario; }
 			set
@@ -40,12 +41,20 @@ namespace SistemaDeComprasYVentas.Stores
 				domiciliosUsuario = value;
 			}
 		}
-		public ObservableCollection<Publicacion> PublicacionesUsuario
+		public ObservableCollection< Publicacion > PublicacionesUsuario
 		{
 			get { return publicacionesUsuario; }
 			set
 			{
 				publicacionesUsuario = value;
+			}
+		}
+		public ObservableCollection< Tarjeta > TarjetasUsuario
+		{
+			get { return tarjetasUsuario; }
+			set
+			{
+				tarjetasUsuario = value;
 			}
 		}
 		public Publicacion PublicacionSeleccionadaBusqueda { get; set; }
@@ -54,6 +63,7 @@ namespace SistemaDeComprasYVentas.Stores
 		public Domicilio DomicilioSeleccionado { get; set; }
 		public Publicacion PublicacionSeleccionadaUsuario { get; set; }
 		public Transaccion TransaccionSeleccionadaHistorial { get; set; }
+		public Tarjeta TarjetaSeleccionadaUsuario { get; set; }
 
 		private SelectionContainerStore()
 		{
@@ -63,6 +73,7 @@ namespace SistemaDeComprasYVentas.Stores
 			PublicacionSeleccionadaFavorito = null;
 			DomicilioSeleccionado = null;
 			PublicacionSeleccionadaUsuario = null;
+			TarjetaSeleccionadaUsuario = null;
 		}
 
 		public static SelectionContainerStore GetInstance()
@@ -92,6 +103,11 @@ namespace SistemaDeComprasYVentas.Stores
 		public void EliminarPublicacionDeUsuario()
 		{
 			publicacionesUsuario.Remove(PublicacionSeleccionadaUsuario);
+		}
+
+		public void EliminarTarjetaDeUsuario()
+		{
+			tarjetasUsuario.Remove(TarjetaSeleccionadaUsuario);
 		}
 	}
 }
