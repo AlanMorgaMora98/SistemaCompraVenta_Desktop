@@ -1,4 +1,5 @@
 ﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Commands;
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
@@ -16,6 +18,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private EvaluacionRequests requests;
 		private StringValidator validator;
 		private OutputMessages messages;
+		private ICommand NavigateToHistorialComprasCommand { get; }
 		private string evaluacion;
 		private string calificacionSeleccionada;
 		private string errorText;
@@ -57,6 +60,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 			requests = new EvaluacionRequests();
 			validator = new StringValidator();
 			messages = new OutputMessages();
+			NavigateToHistorialComprasCommand = new NavigateCommand< HistorialComprasViewModel >( 
+												NavigationServiceCreator.GetInstance().CreateHistorialComprasNavigationService() );
 			CalificacionValues = new List< string > { "1", "2", "3", "4", "5" };
 			IsCalificacionValid( calificacionSeleccionada );
 		}
