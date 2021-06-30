@@ -74,7 +74,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 				  {
 					  if( Task.Exception == null )
 					  {
-			
+						  NavigateToHistorialComprasCommand.Execute( this );	
 					  }
 				  } );
 			}
