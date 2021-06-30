@@ -1,4 +1,5 @@
-﻿using SistemaDeComprasYVentas.Commands;
+﻿using SistemaDeComprasYVentas.ApiRequests;
+using SistemaDeComprasYVentas.Commands;
 using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 nombres = value;
                 AreNombresValid( nombres );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).Nombres = nombres;
+                OnPropertyChanged( nameof( Nombres ) );
 			}
         }
         public string Apellidos
@@ -43,6 +45,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 apellidos = value;
                 AreApellidosValid( apellidos );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).Apellidos = apellidos;
+                OnPropertyChanged( nameof( Apellidos ) );
             }
         }
         public string Nombre_Usuario
@@ -53,6 +56,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 nombre_usuario = value;
                 IsUsuarioValid( nombre_usuario );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).Nombre_Usuario = nombre_usuario;
+                OnPropertyChanged( nameof( Nombre_Usuario ) );
             }
         }
         public string Correo_Electronico
@@ -63,6 +67,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 correo_electronico = value;
                 IsCorreoValid( correo_electronico );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).Correo_Electronico = correo_electronico;
+                OnPropertyChanged( nameof( Correo_Electronico ) );
             }
         }
         public string Telefono
@@ -73,6 +78,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 telefono = value;
                 IsTelefonoValid( telefono );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).Telefono = telefono;
+                OnPropertyChanged( nameof( Telefono ) );
             }
         }
         public SecureString Contrasena
@@ -83,6 +89,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 contrasena = value;
                 IsContrasenaValid( ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).convertToUNSecureString( contrasena ) );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).Contrasena = contrasena;
+                OnPropertyChanged( nameof( Contrasena ) );
             }
         }
         public SecureString ConfirmarContrasena
@@ -94,6 +101,7 @@ namespace SistemaDeComprasYVentas.ViewModels
                 DoContrasenasMatch( ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).convertToUNSecureString( Contrasena ),
                                     ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).convertToUNSecureString( confirmarcontrasena ) );
                 ( ( RegistrarUsuarioCommand )RegistrarUsuarioCommand ).ConfirmarContrasena = confirmarcontrasena;
+                OnPropertyChanged( nameof( ConfirmarContrasena ) );
             }
         }
 
@@ -181,6 +189,24 @@ namespace SistemaDeComprasYVentas.ViewModels
         private void SetErrorMessage( string errorText )
         {
             ErrorText = errorText;
+        }
+
+        public void RegistrarUsuario()
+		{
+            RegistrarUsuarioCommand.Execute( this );
+            ClearTextBoxes();
+		}
+
+        private void ClearTextBoxes()
+		{
+            Nombres = "";
+            Apellidos = "";
+            Nombre_Usuario = "";
+            Correo_Electronico = "";
+            Telefono = "";
+            Contrasena = new SecureString();
+            ConfirmarContrasena = new SecureString();
+            ErrorText = "";
         }
     }
 }

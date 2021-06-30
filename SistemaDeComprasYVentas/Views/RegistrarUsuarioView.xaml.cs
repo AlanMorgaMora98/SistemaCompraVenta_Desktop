@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeComprasYVentas.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,5 +37,10 @@ namespace SistemaDeComprasYVentas.Views
             if( DataContext != null )
             { ( ( dynamic )DataContext ).ConfirmarContrasena = ( ( PasswordBox )sender ).SecurePassword; }
         }
-    }
+
+		private void RegistrarUsuario( object sender, RoutedEventArgs e )
+		{
+            ( ( RegistrarUsuarioViewModel )DataContext ).RegistrarUsuario();
+		}
+	}
 }
