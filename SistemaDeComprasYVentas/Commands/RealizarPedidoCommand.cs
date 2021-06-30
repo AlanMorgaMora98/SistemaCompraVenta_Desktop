@@ -59,7 +59,8 @@ namespace SistemaDeComprasYVentas.Commands
 		private Transaccion CreateTransaccion( int claveVendedor, Publicacion publicacion )
 		{
 			return new Transaccion( 0, claveVendedor, DomicilioSeleccionado.callecompleta, 
-									TarjetaSeleccionada.numero, DateTime.Today.ToString(), publicacion.precio, false );
+									TarjetaSeleccionada.numero, Convert.ToDateTime( DateTime.Now.ToShortDateString() ).ToString( "yyyy-MM-dd" ), 
+									publicacion.precio, false, publicacion.clave_publicacion );
 		}
 	}
 }

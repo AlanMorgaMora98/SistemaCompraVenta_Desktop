@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Session;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +24,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 
 		public async Task< UsuarioPublicacion > RecuperarClaveUsuario( int clavePublicacion, string accessToken )
 		{
-			string requestURL = publicacionClaveURL + "/" + clavePublicacion;
+			string requestURL = publicacionClaveURL + "/" + clavePublicacion + "/" + LoginSession.GetInstance().ClaveUsuario;
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
 			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
 			{
