@@ -12,7 +12,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class VisualizarTransaccionCompradorViewModel : ViewModelBase
 	{
-		private ICommand NavigateEvaluarUsuario { get; }
+		public ICommand NavigateEvaluarUsuario { get; }
 		private string claveTransaccion;
 		private string claveVendedor;
 		private string direccionComprador;

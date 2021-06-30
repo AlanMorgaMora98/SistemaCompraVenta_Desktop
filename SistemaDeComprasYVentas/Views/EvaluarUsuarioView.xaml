@@ -6,7 +6,50 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White" >
-    <Grid>
-            
-    </Grid>
+    <Border
+        Background="#272537"
+        CornerRadius="20">
+        
+        <Grid>
+            <TextBlock FontSize="22" Foreground="White" FontWeight="Bold" Margin="251,10,-251,-10" >Evaluar Vendedor</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="37,66,-37,-66">¿Cómo fue tu experiencia con el vendedor?</TextBlock>
+            <TextBox Height="200" Width="630" Margin="38,97,32,303" TextWrapping="Wrap" MaxLength="200"></TextBox>
+            <TextBlock FontSize="20" Foreground="White" Margin="38,346,-38,-346">Selecciona la Calificación:</TextBlock>
+            <ComboBox Height="45" Width="200" Margin="38,374,462,181"></ComboBox>
+
+            <Button
+                Content="Mandar Evaluación" 
+                HorizontalAlignment="Left" 
+                Margin="385,374,0,0" 
+                VerticalAlignment="Top" 
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+        </Grid>
+    </Border>
 </UserControl>
