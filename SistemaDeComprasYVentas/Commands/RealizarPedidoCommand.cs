@@ -2,23 +2,29 @@
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
+using SistemaDeComprasYVentas.Utilities;
+using SistemaDeComprasYVentas.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SistemaDeComprasYVentas.Commands
 {
 	public class RealizarPedidoCommand : CommandBase
 	{
 		private TransaccionRequests requests;
+		private ICommand NavigateToCartCommand { get; }
 		public Domicilio DomicilioSeleccionado { get; set; }
 		public Tarjeta TarjetaSeleccionada { get; set; }
 
 		public RealizarPedidoCommand()
 		{
 			requests = new TransaccionRequests();
+			NavigateToCartCommand = new NavigateCommand< CarritoComprasViewModel >( 
+									NavigationServiceCreator.GetInstance().CreateCarritoCompraNavigationService() );
 			DomicilioSeleccionado = null;
 			TarjetaSeleccionada = null;
 		}
@@ -52,7 +58,9 @@ namespace SistemaDeComprasYVentas.Commands
 										 LoginSession.GetInstance().AccessToken ).ContinueWith( Task => 
 			{
 				if( Task.Exception == null )
-				{ }
+				{
+					NavigateToCartCommand.Execute( this );
+				}
 			} );
 		}
 
