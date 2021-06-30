@@ -65,6 +65,7 @@
     </ApplicationDefinition>
     <Compile Include="ApiRequests\ApiHelper.cs" />
     <Compile Include="ApiRequests\DomicilioRequests.cs" />
+    <Compile Include="ApiRequests\EvaluacionRequests.cs" />
     <Compile Include="ApiRequests\LoginRequests.cs" />
     <Compile Include="ApiRequests\PublicacionesRequests.cs" />
     <Compile Include="ApiRequests\TarjetaRequests.cs" />

@@ -13,6 +13,7 @@ namespace SistemaDeComprasYVentas.Models
 		public int clave_evaluador_de_usuario { get; set; }
 		public string evaluacion { get; set; }
 		public int calificacion { get; set; }
+		public int clave_transaccion { get; set; }
 
 		public EvaluacionUsuario()
 		{
@@ -21,6 +22,7 @@ namespace SistemaDeComprasYVentas.Models
 			clave_evaluador_de_usuario = -1;
 			evaluacion = "";
 			calificacion = -1;
+			clave_transaccion = -1;
 		}
 
 		public EvaluacionUsuario( EvaluacionUsuario original )
@@ -30,16 +32,18 @@ namespace SistemaDeComprasYVentas.Models
 			clave_evaluador_de_usuario = original.clave_evaluador_de_usuario;
 			evaluacion = original.evaluacion;
 			calificacion = original.calificacion;
+			clave_transaccion = original.clave_transaccion;
 		}
 
 		public EvaluacionUsuario( int discriminanteIn, int claveUsuarioIn, int claveEvaluadorIn, 
-								  string evaluacionIn, int calificacionIn )
+								  string evaluacionIn, int calificacionIn, int claveTransaccionIn )
 		{
 			discriminante_evaluacion = discriminanteIn;
 			clave_usuario = claveUsuarioIn;
 			clave_evaluador_de_usuario = claveEvaluadorIn;
 			evaluacion = evaluacionIn;
 			calificacion = calificacionIn;
+			clave_transaccion = claveTransaccionIn;
 		}
 	}
 }
