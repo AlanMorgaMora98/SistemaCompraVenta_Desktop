@@ -6,7 +6,57 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
-    <Grid>
-            
-    </Grid>
+    <Border
+        Background="#272537"
+        CornerRadius="20">
+
+        <Grid>
+            <Label FontSize="22" Foreground="White" Margin="238,20,-238,0">Visualizar Transacción</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,100,-238,0">Clave Transacción:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,160,-238,0">Clave Vendedor:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,220,-238,0">Dirección seleccionada:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,280,-238,0">Fecha de Realización:</Label>
+            <Label FontSize="20" Foreground="White" Margin="88,340,-238,0">Total:</Label>
+            <TextBlock FontSize="20" Foreground="White" Margin="288,105,-238,0">Clave Transaccion</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="268,165,-238,0">Clave Vendedor</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="318,225,-238,0">Direccion seleccionada</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="318,285,-238,0">Fecha de Realizacion</TextBlock>
+            <TextBlock FontSize="20" Foreground="White" Margin="168,345,-238,0">Total de transaccion</TextBlock>
+
+            <Button
+                Content="Evaluar Vendedor" 
+                HorizontalAlignment="Left" 
+                Margin="268,415,0,0" 
+                VerticalAlignment="Top" 
+                Command="{ Binding NavigateEvaluarUsuario }"
+                FontWeight="Bold" FontSize="14">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF4C70"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE6584"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" 
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+        </Grid>
+    </Border>
 </UserControl>

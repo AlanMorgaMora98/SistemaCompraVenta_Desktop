@@ -34,6 +34,20 @@ namespace SistemaDeComprasYVentas.Utilities
 			return creator;
 		}
 
+        public INavigationService< EvaluarUsuarioViewModel > CreateEvaluarUsuarioNavigationService()
+        {
+            return new LayoutNavigationService< EvaluarUsuarioViewModel >(
+                _navigationStore,
+                () => new EvaluarUsuarioViewModel(), CreateNavigationBarViewModel );
+        }
+
+        public INavigationService< VisualizarTransaccionCompradorViewModel > CreateVisualizarTransaccionNavigationService()
+        {
+            return new LayoutNavigationService< VisualizarTransaccionCompradorViewModel >(
+                _navigationStore,
+                () => new VisualizarTransaccionCompradorViewModel(), CreateNavigationBarViewModel );
+        }
+
         public INavigationService< TarjetasViewModel > CreateTarjetasNavigationService()
         {
             return new LayoutNavigationService< TarjetasViewModel >(
