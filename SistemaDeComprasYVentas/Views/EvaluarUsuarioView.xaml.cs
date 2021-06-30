@@ -32,5 +32,10 @@ namespace SistemaDeComprasYVentas.Views
 				( ( dynamic )DataContext ).CalificacionSeleccionada = ( string )( ( ComboBox )sender ).SelectedItem;
 			}
 		}
+
+		private void MandarEvaluacion( object sender, RoutedEventArgs e )
+		{
+			( ( dynamic )DataContext ).MandarEvaluacion();
+		}
 	}
 }

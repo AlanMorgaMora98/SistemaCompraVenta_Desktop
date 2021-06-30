@@ -21,7 +21,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 
 		public async Task< EvaluacionUsuario > AgregarEvaluacion( EvaluacionUsuario evaluacion, string accessToken )
 		{
-			string requestURL = evaluacionURL + "/" + evaluacion.clave_usuario;
+			string requestURL = evaluacionURL + "/" + evaluacion.clave_usuario + "/evaluaciones";
 			var json = JsonConvert.SerializeObject( evaluacion );
 			var data = new StringContent( json, Encoding.UTF8, "application/json" );
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );

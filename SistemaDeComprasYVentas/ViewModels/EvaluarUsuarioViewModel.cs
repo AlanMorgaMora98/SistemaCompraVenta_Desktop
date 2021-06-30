@@ -2,6 +2,7 @@
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class EvaluarUsuarioViewModel : ViewModelBase
 	{
-		private EvaluacionRequests requests; 
+		private EvaluacionRequests requests;
+		private StringValidator validator;
+		private OutputMessages messages;
 		private string evaluacion;
 		private string calificacionSeleccionada;
 		private string errorText;
@@ -24,6 +27,8 @@ namespace SistemaDeComprasYVentas.ViewModels
 			set 
 			{
 				evaluacion = value;
+				IsEvaluacionValid( evaluacion );
+				OnPropertyChanged( nameof( Evaluacion ) );
 			}
 		}
 
@@ -33,7 +38,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			set
 			{
 				calificacionSeleccionada = value;
-
+				IsCalificacionValid( calificacionSeleccionada );
 			}
 		}
 
@@ -50,18 +55,24 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public EvaluarUsuarioViewModel()
 		{
 			requests = new EvaluacionRequests();
+			validator = new StringValidator();
+			messages = new OutputMessages();
 			CalificacionValues = new List< string > { "1", "2", "3", "4", "5" };
+			IsCalificacionValid( calificacionSeleccionada );
 		}
 
 		public void MandarEvaluacion()
 		{
-			requests.AgregarEvaluacion( CreateEvaluacion(),LoginSession.GetInstance().AccessToken ).ContinueWith( Task => 
+			if( validator.IsEvaluacionValid( Evaluacion ) && !string.IsNullOrEmpty( CalificacionSeleccionada ) )
 			{
-				if( Task.Exception == null )
-				{
-
-				}
-			} );
+				requests.AgregarEvaluacion( CreateEvaluacion(), LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
+				  {
+					  if( Task.Exception == null )
+					  {
+			
+					  }
+				  } );
+			}
 		}
 
 		private EvaluacionUsuario CreateEvaluacion()
@@ -69,6 +80,29 @@ namespace SistemaDeComprasYVentas.ViewModels
 			return new EvaluacionUsuario( 0, SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial.clave_vendedor,
 										  LoginSession.GetInstance().ClaveUsuario, Evaluacion, int.Parse( CalificacionSeleccionada ), 
 										  SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial.clave_transaccion );
+		}
+
+		private void IsEvaluacionValid( string evaluacion )
+		{
+			ErrorText = "";
+			if( !string.IsNullOrEmpty( evaluacion ) && !validator.IsEvaluacionValid( evaluacion ) )
+			{
+				SetErrorMessage( messages.EvaluacionNoEsValida() );
+			}
+		}
+
+		private void IsCalificacionValid( string calificacion )
+		{
+			ErrorText = "";
+			if( string.IsNullOrEmpty( calificacion ) )
+			{
+				SetErrorMessage( messages.CalificacionNoEsValida() );
+			}
+		}
+
+		public void SetErrorMessage( string errorMessage )
+		{
+			ErrorText = errorMessage;
 		}
 	}
 }

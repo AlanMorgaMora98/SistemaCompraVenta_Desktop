@@ -18,15 +18,16 @@
             <TextBlock Grid.Column="1" FontSize="20" Foreground="White" Margin="37,66,-37,-66">¿Cómo fue tu experiencia con el vendedor?</TextBlock>
             <TextBox Grid.Column="1" Height="200" Width="630" Margin="38,97,32,303" TextWrapping="Wrap" MaxLength="200" Text="{ Binding Evaluacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"></TextBox>
             <TextBlock Grid.Column="1" FontSize="20" Foreground="White" Margin="38,346,-38,-346">Selecciona la Calificación:</TextBlock>
-            <ComboBox Grid.Column="1" Height="30" Width="200" Margin="-420,280, 0, 0" ItemsSource="{ Binding CalificacionValues }"
+            <ComboBox Grid.Column="1" Height="30" Width="200" Margin="-420,280, 0, 0" ItemsSource="{ Binding CalificacionValues, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
                       SelectionChanged="CalificacionChanged"/>
-            <TextBlock FontSize="22" Foreground="Red" Margin="202,302,-202,-302" Text="{ Binding ErrorText }">ErrorText</TextBlock>
+            <TextBlock FontSize="18" Foreground="Red" Margin="232,272,-202,-302" Text="{ Binding ErrorText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }">ErrorText</TextBlock>
 
             <Button
                 Content="Mandar Evaluación" 
                 HorizontalAlignment="Left" 
                 Margin="385,374,0,0" 
                 VerticalAlignment="Top" 
+                Click="MandarEvaluacion"
                 FontWeight="Bold" FontSize="14">
 
                 <Button.Style>

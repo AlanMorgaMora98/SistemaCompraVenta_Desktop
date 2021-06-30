@@ -14,12 +14,14 @@ namespace SistemaDeComprasYVentas.Utilities
 		private const int maxNombreSize = 30;
 		private const int maxApellidoSize = 50;
 		private const int maxCorreoSize = 50;
+		private const int maxEvaluacionSize = 200;
 		private const int minUsuarioSize = 3;
 		private const int minContrasenaSize = 8;
 		private const int minNombreSize = 3;
 		private const int minApellidoSize = 5;
 		private const int minCorreoSize = 10;
 		private const int minCalleSize = 3;
+		private const int minEvaluacionSize = 20;
 		private const int telefonoSize = 10;
 
 		public bool IsLoginRequestDataValid( LoginRequestData loginInfo )
@@ -72,6 +74,12 @@ namespace SistemaDeComprasYVentas.Utilities
 		public bool DoPasswordsMatch( string password, string confirmPassword )
 		{
 			return password.Equals( confirmPassword );
+		}
+
+		public bool IsEvaluacionValid( string evaluacion )
+		{
+			return ( IsStringValidSize( evaluacion, minEvaluacionSize, maxEvaluacionSize ) && !HasInvalidCharacter( evaluacion ) &&
+					 !HasNumbers( evaluacion ) );
 		}
 
 		private bool IsStringValidSize( string input, int minSize, int maxSize )
