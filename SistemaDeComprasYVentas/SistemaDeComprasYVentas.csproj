@@ -95,6 +95,7 @@
     <Compile Include="Enumerations\UnidadMedida.cs" />
     <Compile Include="Models\CarritoFavoritoData.cs" />
     <Compile Include="Models\Domicilio.cs" />
+    <Compile Include="Models\EvaluacionUsuario.cs" />
     <Compile Include="Models\LoginRequestData.cs" />
     <Compile Include="Models\LoginResponseData.cs" />
     <Compile Include="Models\Tarjeta.cs" />
