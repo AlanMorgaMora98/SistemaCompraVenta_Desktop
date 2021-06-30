@@ -70,6 +70,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			NavigateEvaluarUsuario = new NavigateCommand< EvaluarUsuarioViewModel >( 
 										 NavigationServiceCreator.GetInstance().CreateEvaluarUsuarioNavigationService() );
 			UsuarioNoEstaEvaluado = SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial.usuario_evaluado;
+
 			ClaveTransaccion = SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial.clave_transaccion.ToString();
 			ClaveVendedor = SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial.clave_vendedor.ToString();
 			DireccionComprador = SelectionContainerStore.GetInstance().TransaccionSeleccionadaHistorial.direccion_comprador;
