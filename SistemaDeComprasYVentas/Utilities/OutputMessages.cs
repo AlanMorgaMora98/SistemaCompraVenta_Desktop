@@ -25,5 +25,31 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string EvaluacionNoEsValida() { return "La evaluación no es válida."; }
 
 		public string CalificacionNoEsValida() { return "La calificación no es válida."; }
+
+		public string CodigoPostalNoValido() { return "El Codigo Postal no es válida."; }
+
+		public string EstadoNoValido() { return "El Estado no es válido."; }
+
+		public string MunicipioNoValido() { return "El Municipio no es válido."; }
+
+		public string ColoniaNoValida() { return "La Colonia no es válida."; }
+
+		public string DireccionNoValida() { return "La Direccion no es válida."; }
+
+		public string NumExtNoValido() { return "El numero externo no es válido."; }
+
+		public string NumIntNoValido() { return "El numero interno no es válido."; }
+
+		public string DescripcionNoValida() { return "La descripcion no es válida."; }
+
+		public string HabienteNoValido() { return "El nombre no es válido."; }
+
+		public string NumeroTarjetaNoValido() { return "El numero de la tarjeta no es válido."; }
+
+		public string FechaVencimientoNoValida() { return "La fecha no es válida."; }
+
+		public string NombrePublicacionNoValido() { return "El nombre no es válido."; }
+
+		public string PrecioPublicacionNoValido() { return "El precio no es válido."; }
 	}
 }

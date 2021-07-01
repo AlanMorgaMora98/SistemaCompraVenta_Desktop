@@ -107,7 +107,7 @@
                                     <TextBlock Text="{ Binding codigo_postal }" Margin="0, 5, 0, 5 " />
                                     <TextBlock Text="{ Binding estado }" Margin="0, 5, 0, 5 " />
                                     <TextBlock Text="{ Binding numero_interno }" Margin="0, 5, 0, 5 " />
-                                    <TextBlock Text="{ Binding umero_externo }" Margin="0, 5, 0, 5 " />
+                                    <TextBlock Text="{ Binding numero_externo }" Margin="0, 5, 0, 5 " />
                                     <TextBlock Text="{ Binding descripcion }" Margin="0, 5, 0, 5 " />
                                 </StackPanel>
                             </Border>

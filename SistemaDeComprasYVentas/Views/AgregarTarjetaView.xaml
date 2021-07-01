@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
+             xmlns:viewmodels="clr-namespace:SistemaDeComprasYVentas.ViewModels"
+             d:DataContext="{ d:DesignInstance Type=viewmodels:AgregarTarjetaViewModel }"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
 
@@ -12,18 +14,55 @@
         CornerRadius="20">
 
         <Grid>
-            <Label Content="Agregar Tarjeta" Foreground="White" HorizontalAlignment="Left" Margin="277,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="190,187,0,0" VerticalAlignment="Top" Width="270"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="190,277,0,0" VerticalAlignment="Top" Width="270"/>
-            <Label Content="Nombre tarjetahabiente:" Foreground="White" HorizontalAlignment="Left" Margin="267,129,0,0" VerticalAlignment="Top"/>
-            <Label Content="Numero de tarjeta:"  Foreground="White" HorizontalAlignment="Left" Margin="267,229,0,0" VerticalAlignment="Top"/>
-            <ComboBox HorizontalAlignment="Left" Margin="255,363,0,0" VerticalAlignment="Top" Width="163"/>
-            <Label Content="Tipo de tarjeta:" Foreground="White" HorizontalAlignment="Left" Margin="288,319,0,0" VerticalAlignment="Top"/>
+            <Label Content="Agregar Tarjeta" Foreground="White" HorizontalAlignment="Left" Margin="300,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Nombre tarjetahabiente:" Foreground="White" HorizontalAlignment="Left" Margin="95,110,0,0" VerticalAlignment="Top" Width="165" HorizontalContentAlignment="Right"/>
+            <Label Content="Numero de tarjeta:"  Foreground="White" HorizontalAlignment="Left" Margin="95,181,0,0" VerticalAlignment="Top" Width="165" HorizontalContentAlignment="Right"/>
+            <Label Content="Fecha de vencimiento:" Foreground="White" HorizontalAlignment="Left" Margin="95,245,0,0" VerticalAlignment="Top" Width="165" HorizontalContentAlignment="Right"/>
+            <Label Content="Tipo de tarjeta:" Foreground="White" HorizontalAlignment="Left" Margin="95,315,0,0" VerticalAlignment="Top" Width="165" HorizontalContentAlignment="Right"/>
+            <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="161,360,105,-92" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }"></TextBlock>
+
+
+            <TextBox HorizontalAlignment="Left"
+                     MaxLength="80"
+                     Text="{ Binding NombreTarjetaHabiente, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26" 
+                     Margin="300,110,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="270" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.769">
+            </TextBox>
+
+            <TextBox HorizontalAlignment="Left" 
+                     MaxLength="16"
+                     Text="{ Binding NumeroTarjeta, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26" 
+                     Margin="300,181,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="270" VerticalContentAlignment="Center">
+            </TextBox>
+
+            <DatePicker HorizontalAlignment="Left" 
+                        Margin="300,245,0,0" 
+                        VerticalAlignment="Top"
+                        Text="{ Binding FechaVencimiento, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, StringFormat='{}{0:yyyy/MM/dd}'}"
+                        Height="26" 
+                        Width="270"
+                        VerticalContentAlignment="Center">
+            </DatePicker>
+
+            <ComboBox HorizontalAlignment="Left" 
+                      Margin="300,315,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="270" 
+                      Height="26">
+            </ComboBox>
 
             <Button Content="Guardar" 
                     HorizontalAlignment="Left" 
-                    Margin="430,430,0,0" 
-                    VerticalAlignment="Top" FontWeight="Bold">
+                    Margin="490,450,0,0"
+                    Command="{ Binding AgregarTarjetaCommand }"
+                    VerticalAlignment="Top"
+                    
+                    FontWeight="Bold">
 
                 <Button.Style>
                     <Style TargetType="Button">
@@ -53,7 +92,8 @@
 
             <Button Content="Regresar" 
                     HorizontalAlignment="Left" 
-                    Margin="86,430,0,0" 
+                    Margin="110,450,0,0"
+                    Command="{ Binding NavigateTarjetaCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
                 <Button.Style>
                     <Style TargetType="Button">
@@ -80,7 +120,6 @@
 
                 </Button.Template>
             </Button>
-
 
         </Grid>
 

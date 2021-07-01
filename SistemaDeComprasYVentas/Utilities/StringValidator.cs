@@ -23,6 +23,31 @@ namespace SistemaDeComprasYVentas.Utilities
 		private const int minCalleSize = 3;
 		private const int minEvaluacionSize = 20;
 		private const int telefonoSize = 10;
+		private const int codigoPostalSize = 5;
+		private const int maxEstadoSize = 20;
+		private const int minEstadoSize = 6;
+		private const int maxMunicipioSize = 30;
+		private const int minMunicipioSize = 6;
+		private const int maxColoniaSize = 30;
+		private const int minColoniaSize = 3;
+		private const int maxDireccionSize = 25;
+		private const int minDireccionSize = 5;
+		private const int maxNumeroInternoSize = 5;
+		private const int minNumeroInternoSize = 1;
+		private const int maxNumeroExternoSize = 3;
+		private const int minNumeroExternoSize = 1;
+		private const int maxDescripcionSize = 200;
+		private const int minDescripcionSize = 15;
+		private const int maxNombreHabienteSize = 80;
+		private const int minNombreHabienteSize = 10;
+		private const int NumeroTarjetaSize = 16;
+		private const int maxNombrePublicacionSize = 50;
+		private const int minNombrePublicacionSize = 3;
+		private const int maxDescripcionPublicacionSize = 200;
+		private const int minDescripcionPublicacionSize = 10;
+		private const int maxCantidadPublicacionSize = 10000;
+		private const int minCantidadPublicacionSize = 1;
+
 
 		public bool IsLoginRequestDataValid( LoginRequestData loginInfo )
 		{
@@ -85,6 +110,84 @@ namespace SistemaDeComprasYVentas.Utilities
 		private bool IsStringValidSize( string input, int minSize, int maxSize )
 		{
 			return ( input.Length >= minSize && input.Length <= maxSize );
+		}
+
+		private bool IsIntValidSize(int input, int minSize, int maxSize)
+		{
+			return (input >= minSize && input <= maxSize);
+		}
+
+		public bool IsCodigoPostalValid(string codigoPostal)
+		{
+			return (codigoPostal.Length == codigoPostalSize) && !HasInvalidCharacter(codigoPostal) && HasOnlyNumbers(codigoPostal);
+		}
+
+		public bool IsEstadoValid(string estado)
+		{
+			return (IsStringValidSize(estado, minEstadoSize, maxEstadoSize) && !HasNumbers(estado) &&
+					 !HasInvalidCharacter(estado) && !HasSingleAtCharacter(estado));
+		}
+
+		public bool IsMunicipioValid(string municipio)
+		{
+			return (IsStringValidSize(municipio, minMunicipioSize, maxMunicipioSize) && !HasNumbers(municipio) &&
+					 !HasInvalidCharacter(municipio) && !HasSingleAtCharacter(municipio));
+		}
+
+		public bool IsColoniaValid(string colonia)
+		{
+			return (IsStringValidSize(colonia, minColoniaSize, maxColoniaSize) && !HasSingleAtCharacter(colonia) &&
+					 !HasInvalidCharacter(colonia) && !HasOnlyNumbers(colonia));
+		}
+
+		public bool IsDireccionValid(string direccion)
+		{
+			return (IsStringValidSize(direccion, minDireccionSize, maxDireccionSize) && !HasSingleAtCharacter(direccion) &&
+					 !HasInvalidCharacter(direccion) && !HasOnlyNumbers(direccion));
+		}
+
+		public bool IsNumeroInternoValid(int interno)
+		{
+			return (IsIntValidSize(interno, minNumeroInternoSize, maxNumeroInternoSize));
+		}
+
+		public bool IsNumeroExternoValid(int externo)
+		{
+			return (IsIntValidSize(externo, minNumeroExternoSize, maxNumeroExternoSize));
+		}
+
+		public bool IsDescripcionValid(string descripcion)
+		{
+			return (IsStringValidSize(descripcion, minDescripcionSize, maxDescripcionSize) && !HasSingleAtCharacter(descripcion) &&
+					 !HasInvalidCharacter(descripcion) && !HasOnlyNumbers(descripcion));
+		}
+
+		public bool IsNombreHabienteValid(string nombre)
+		{
+			return (IsStringValidSize(nombre, minNombreHabienteSize, maxNombreHabienteSize) && !HasNumbers(nombre) &&
+					 !HasInvalidCharacter(nombre) && !HasSingleAtCharacter(nombre));
+		}
+		
+		public bool IsNumeroTarjetaValid(string tarjeta)
+		{
+			return (IsStringValidSize(tarjeta, NumeroTarjetaSize, NumeroTarjetaSize) && HasOnlyNumbers(tarjeta));
+		}
+		
+		public bool IsNombrePublicacionValid(string nombre)
+		{
+			return (IsStringValidSize(nombre, minNombrePublicacionSize, maxNombrePublicacionSize) && !HasInvalidCharacter(nombre) && 
+					 !HasSingleAtCharacter(nombre));
+		}
+
+		public bool IsDescripcionPublicacionValid(string descripcion)
+		{
+			return (IsStringValidSize(descripcion, minDescripcionPublicacionSize, maxDescripcionPublicacionSize) && !HasInvalidCharacter(descripcion) &&
+					 !HasSingleAtCharacter(descripcion) && !HasOnlyNumbers(descripcion));
+		}
+
+		public bool IsCantidadPublicacionValid(int cantidad)
+		{
+			return (IsIntValidSize(cantidad, minCantidadPublicacionSize, maxCantidadPublicacionSize));
 		}
 
 		private bool HaveSpaces( string input )
