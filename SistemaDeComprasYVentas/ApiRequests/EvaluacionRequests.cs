@@ -12,7 +12,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 {
 	public class EvaluacionRequests
 	{
-		private string evaluacionURL = "http://192.168.56.1:5000/usuarios";
+		private string evaluacionURL = "http://192.168.1.68:5000/usuarios";
 
 		public EvaluacionRequests()
 		{

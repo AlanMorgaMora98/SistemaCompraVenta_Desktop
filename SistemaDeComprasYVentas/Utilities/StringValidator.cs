@@ -185,6 +185,16 @@ namespace SistemaDeComprasYVentas.Utilities
 					 !HasSingleAtCharacter(descripcion) && !HasOnlyNumbers(descripcion));
 		}
 
+		public bool IsUnidadDeMedidaValid( string unidad )
+		{
+			return ( !HasInvalidCharacter( unidad ) && !HaveSpaces( unidad ) );
+		}
+
+		public bool IsPrecioValid( string precio )
+		{
+			return ( !HasInvalidCharacter( precio ) );
+		}
+
 		public bool IsCantidadPublicacionValid(int cantidad)
 		{
 			return (IsIntValidSize(cantidad, minCantidadPublicacionSize, maxCantidadPublicacionSize));

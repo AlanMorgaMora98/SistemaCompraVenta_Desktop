@@ -50,7 +50,7 @@ namespace SistemaDeComprasYVentas.Models
 
 		public Publicacion( int claveIn, string nombreIn, string descripcionIn, Categoria categoriaIn,
 							double precioIn, int cantidadIn, double calificacionIn, string unidadIn, 
-							int ventasIn, string imagenIn)
+							int ventasIn, string imagenIn )
 		{
 			clave_publicacion = claveIn;
 			nombre = nombreIn;
