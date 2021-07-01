@@ -188,5 +188,25 @@ namespace SistemaDeComprasYVentas.ApiRequests
 				}
 			}
 		}
+
+		public async Task<Publicacion> RegistrarPublicacion(int claveUsuario, Publicacion publicacion, string accessToken)
+		{
+			string requestURL = publicacionesURL + "/" + claveUsuario;
+			var json = JsonConvert.SerializeObject(publicacion);
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			var data = new StringContent(json, Encoding.UTF8, "application/json");
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync(requestURL, data))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					Publicacion respuesta = await response.Content.ReadAsAsync<Publicacion>();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
 	}
 }

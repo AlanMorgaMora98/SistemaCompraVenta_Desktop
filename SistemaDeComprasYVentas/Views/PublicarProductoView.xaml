@@ -19,14 +19,64 @@
             <Label Content="Cantidad:" Foreground="White" HorizontalAlignment="Left" Margin="93,280,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Right"/>
             <Label Content="Unidad de medida:" Foreground="White" HorizontalAlignment="Left" Margin="93,325,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Right"/>
             <Label Content="Imagenes:" Foreground="White" HorizontalAlignment="Left" Margin="93,386,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Right"/>
-            <TextBox Name="TBNombre" HorizontalAlignment="Left" Height="23" Margin="255,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322"/>
-            <TextBox Name="TBDescripcion" HorizontalAlignment="Left" Height="42" Margin="255,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322"/>
-            <TextBox Name="TBPrecio" HorizontalAlignment="Left" Height="23" Margin="255,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322"/>
-            <TextBox Name="TBCantidad" HorizontalAlignment="Left" Height="23" Margin="255,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322"/>
-            <ComboBox HorizontalAlignment="Left" Margin="255,196,0,0" VerticalAlignment="Top" Width="322"/>
-            <ComboBox HorizontalAlignment="Left" Margin="255,329,0,0" VerticalAlignment="Top" Width="322"/>
+            <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="176,525,90,-257" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }"></TextBlock>
+            
+            <TextBox HorizontalAlignment="Left" 
+                     MaxLength="50"
+                     Text="{ Binding NombrePublicacion, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"                
+                     Height="23" 
+                     Margin="255,93,0,0"  
+                     VerticalAlignment="Top"
+                     Width="322">
+            </TextBox>
+
+            <TextBox HorizontalAlignment="Left" 
+                     MaxLength="200"
+                     Text="{ Binding Descripcion, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="42" 
+                     Margin="255,137,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="322" 
+                     TextWrapping="Wrap" 
+                     AcceptsReturn="True" 
+                     VerticalScrollBarVisibility="Auto">
+            </TextBox>
+
+            <TextBox HorizontalAlignment="Left" 
+                     MaxLength="8"
+                     Text="{ Binding Precio, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="23" 
+                     Margin="255,243,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="322">
+            </TextBox>
+
+            <TextBox HorizontalAlignment="Left" 
+                     MaxLength="5"
+                     Text="{ Binding Cantidad, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="23" 
+                     Margin="255,284,0,0"
+                     VerticalAlignment="Top" 
+                     Width="322">
+            </TextBox>
+
+            <TextBox HorizontalAlignment="Left"
+                     Text="{ Binding UnidadMedida, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26"
+                     Margin="255,325,0,0"
+                     VerticalAlignment="Top" 
+                     Width="322">
+            </TextBox>
+
+            <ComboBox HorizontalAlignment="Left" 
+                      ItemsSource="{Binding listaCategorias, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectionChanged="SeleccionDeCategoria"
+                      Margin="255,196,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="322"/>
 
             <Button Content="..." 
+                    Click="AbrirExploradorArchivos"
                     HorizontalAlignment="Left" 
                     Margin="255,386,0,0" 
                     VerticalAlignment="Top" FontWeight="Bold" FontSize="18">
@@ -59,7 +109,8 @@
 
             <Button Content="Publicar" 
                     HorizontalAlignment="Left" 
-                    Margin="525,465,0,0" 
+                    Margin="525,465,0,0"
+                    Command="{ Binding PublicarProductoCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
 
                 <Button.Style>
@@ -86,42 +137,12 @@
                     </ControlTemplate>
 
                 </Button.Template>
-            </Button>
-
-            <Button Content="Cancelar" 
-                    HorizontalAlignment="Left" 
-                    Margin="395,465,0,0" 
-                    VerticalAlignment="Top" FontWeight="Bold">
-
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#FF4C70"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FE6584"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="100" 
-                                Height="40"
-                                CornerRadius="20"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-
             </Button>
 
             <Button Content="Regresar" 
                     HorizontalAlignment="Left" 
-                    Margin="135,465,0,0" 
+                    Margin="135,465,0,0"
+                    Command="{ Binding NavigatePublicacionCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
 
                 <Button.Style>
@@ -150,6 +171,7 @@
 
             </Button>
             <Image HorizontalAlignment="Left" Height="75" Margin="340,365,0,0" VerticalAlignment="Top" Width="80"/>
+           
 
         </Grid>
     </Border>

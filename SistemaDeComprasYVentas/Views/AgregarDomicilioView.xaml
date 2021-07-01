@@ -18,76 +18,78 @@
             <Label Content="Municipio:" Foreground="White" HorizontalAlignment="Left" Margin="107,148,0,0" VerticalAlignment="Top"/>
             <Label Content="Colonia:" Foreground="White" HorizontalAlignment="Left" Margin="119,200,0,0" VerticalAlignment="Top"/>
             <Label Content="Direccion:" Foreground="White" HorizontalAlignment="Left" Margin="107,244,0,0" VerticalAlignment="Top"/>
-            <Label Content="Numero interno:" Foreground="White" HorizontalAlignment="Left" Margin="74,292,0,0" VerticalAlignment="Top"/>
-            <Label Content="Numero externo:" Foreground="White" HorizontalAlignment="Left" Margin="325,292,0,0" VerticalAlignment="Top"/>
+            <Label Content="Numero interno:" Foreground="White" HorizontalAlignment="Left" Margin="347,292,0,0" VerticalAlignment="Top"/>
+            <Label Content="Numero externo:" Foreground="White" HorizontalAlignment="Left" Margin="72,292,0,0" VerticalAlignment="Top"/>
             <Label Content="Descripcion:" Foreground="White" HorizontalAlignment="Left" Margin="95,347,0,0" VerticalAlignment="Top"/>
             <Label Content="Estado:" Foreground="White" HorizontalAlignment="Left" Margin="377,90,0,0" VerticalAlignment="Top"/>
+            <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="146,425,120,-157" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }"></TextBlock>
+
             <TextBox HorizontalAlignment="Left" 
                      MaxLength="5" 
-                     Text="{ Binding CodigoPostal }"
-                     Height="22" 
-                     Margin="187,94,0,0" 
+                     Text="{ Binding CodigoPostal, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26" 
+                     Margin="187,90,0,0" 
                      VerticalAlignment="Top" 
-                     Width="144">
+                     Width="144" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
-                     MaxLength="20" 
-                     Text="{ Binding Estado }" 
+                     MaxLength="20"
+                     Text="{ Binding Estado, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                      Height="26" 
                      Margin="434,90,0,0" 
                      VerticalAlignment="Top" 
-                     Width="120">
+                     Width="120" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
-                     MaxLength="30" 
-                     Text="{ Binding Municipio }" 
+                     MaxLength="30"
+                     Text="{ Binding Municipio, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                      Height="24" 
                      Margin="187,148,0,0" 
                      VerticalAlignment="Top" 
-                     Width="181">
+                     Width="181" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
-                     MaxLength="30" 
-                     Text="{ Binding Colonia }" 
+                     MaxLength="30"
+                     Text="{ Binding Colonia, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                      Height="24" 
                      Margin="187,202,0,0" 
                      VerticalAlignment="Top" 
-                     Width="326">
+                     Width="326" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
                      MaxLength="25" 
-                     Text="{ Binding Direccion }" 
-                     Height="22" 
-                     Margin="187,248,0,0" 
+                     Text="{ Binding Direccion, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26" 
+                     Margin="187,244,0,0" 
                      VerticalAlignment="Top" 
-                     Width="326">
+                     Width="326" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
                      MaxLength="3" 
-                     Text="{ Binding NumInterno }" 
-                     Height="23" 
-                     Margin="187,292,0,0" 
+                     Text="{ Binding NumInterno, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26" 
+                     Margin="460,292,0,0" 
                      VerticalAlignment="Top" 
-                     Width="120">
+                     Width="120" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
                      MaxLength="4" 
-                     Text="{ Binding NumExterno }" 
-                     Height="23" 
-                     Margin="434,292,0,0" 
+                     Text="{ Binding NumExterno, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
+                     Height="26" 
+                     Margin="187,292,0,0" 
                      VerticalAlignment="Top" 
-                     Width="120">
+                     Width="120" VerticalContentAlignment="Center">
             </TextBox>
 
             <TextBox HorizontalAlignment="Left" 
-                     MaxLength="200" 
-                     Text="{ Binding Descripcion }" 
+                     MaxLength="200"
+                     Text="{ Binding Descripcion, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }"
                      Height="59" 
                      Margin="187,351,0,0" 
                      VerticalAlignment="Top" 
@@ -97,38 +99,9 @@
                      VerticalScrollBarVisibility="Auto">
             </TextBox>
 
-            <Button Content="Cancelar" 
-                    HorizontalAlignment="Left" 
-                    Margin="381,465,0,0"
-                    VerticalAlignment="Top" FontWeight="Bold">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#FF4C70"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FE6584"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="100" 
-                                    Height="40"
-                                    CornerRadius="20"
-                                    Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
             <Button Content="Guardar" 
                     HorizontalAlignment="Left" 
-                    Margin="515,465,0,0"
+                    Margin="515,471,0,0"
                     Command="{ Binding AgregarDomicilioCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
 
@@ -159,7 +132,7 @@
 
             <Button Content="Regresar" 
                     HorizontalAlignment="Left" 
-                    Margin="95,465,0,0" 
+                    Margin="95,471,0,0" 
                     Command="{ Binding NavigateDomicilioCommand }"
                     VerticalAlignment="Top" FontWeight="Bold">
                 <Button.Style>
@@ -186,7 +159,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            
+
         </Grid>
     </Border>
 

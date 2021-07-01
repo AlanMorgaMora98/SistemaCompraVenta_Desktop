@@ -1,4 +1,5 @@
-﻿using SistemaDeComprasYVentas.Models;
+﻿using Newtonsoft.Json;
+using SistemaDeComprasYVentas.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,6 +43,26 @@ namespace SistemaDeComprasYVentas.ApiRequests
 			string requestURL = tarjetasGeneralURL + "/" + claveUsuario + "/tarjetas/" + claveTarjeta;
 			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 			using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(requestURL))
+			{
+				if (response.IsSuccessStatusCode)
+				{
+					Tarjeta respuesta = await response.Content.ReadAsAsync<Tarjeta>();
+					return respuesta;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public async Task<Tarjeta> RegistrarTarjeta(int claveUsuario, string accessToken, Tarjeta tarjeta)
+		{
+			string requestURL = tarjetasGeneralURL + "/" + claveUsuario + "/tarjetas";
+			var json = JsonConvert.SerializeObject(tarjeta);
+			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+			var data = new StringContent(json, Encoding.UTF8, "application/json");
+			using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync(requestURL, data))
 			{
 				if (response.IsSuccessStatusCode)
 				{

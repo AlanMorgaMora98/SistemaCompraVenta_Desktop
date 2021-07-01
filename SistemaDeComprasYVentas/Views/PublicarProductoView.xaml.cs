@@ -24,5 +24,19 @@ namespace SistemaDeComprasYVentas.Views
 		{
 			InitializeComponent();
 		}
-	}
+
+		public void SeleccionDeCategoria(object sender, RoutedEventArgs e)
+        {
+			((dynamic)DataContext).seleccion = (string)((ComboBox)sender).SelectedItem;
+			Console.WriteLine(((dynamic)DataContext).seleccion);
+        }
+
+
+		private void AbrirExploradorArchivos(object sender, RoutedEventArgs e)
+        {
+			openFileDialog.Filter = "Imagenes |*.jpg; *.png";
+			openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+			openFileDialog.Title = "Seleccionar Imagen";
+		}
+    }
 }
