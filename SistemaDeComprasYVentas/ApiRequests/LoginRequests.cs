@@ -12,7 +12,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 {
 	public class LoginRequests
 	{
-		private string loginURL = "http://192.168.56.1:5000/login";
+		private string loginURL = "http://192.168.1.68:5000/login";
 
 		public LoginRequests()
 		{

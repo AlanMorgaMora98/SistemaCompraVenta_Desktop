@@ -16,8 +16,8 @@ namespace SistemaDeComprasYVentas.Commands
 		public string NombrePublicacion { get; set; }
 		public string Descripcion { get; set; }
 		public Categoria categoria { get; set; }
-		public double Precio { get; set; }
-		public int Cantidad { get; set; }
+		public string Precio { get; set; }
+		public string Cantidad { get; set; }
 		public string UnidadMedida { get; set; }
 		public string Imagen { get; set; }
 
@@ -39,7 +39,7 @@ namespace SistemaDeComprasYVentas.Commands
 
 		private Publicacion CreatePublicacion()
 		{
-			return new Publicacion (0, NombrePublicacion, Descripcion, categoria, Precio, Cantidad, 0.0f, UnidadMedida, 0, Imagen);
+			return new Publicacion (0, NombrePublicacion, Descripcion, categoria, double.Parse( Precio ), int.Parse( Cantidad ), 0.0f, UnidadMedida, 0, Imagen);
 		}
 	}
 }

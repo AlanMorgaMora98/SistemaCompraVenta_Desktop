@@ -4,10 +4,14 @@ using SistemaDeComprasYVentas.Enumerations;
 using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace SistemaDeComprasYVentas.ViewModels
 {
@@ -22,10 +26,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		private string nombre;
 		private string descripcion;
-		private double precio;
-		private Categoria categoria;
+		private string precio;
 		private List<string> categorias;
-		private int cantidad_disponible;
+		private string cantidad_disponible;
 		private string unidad_medida;
 		private string imagen;
 		private string errorText;
@@ -95,18 +98,18 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
-		public double Precio
+		public string Precio
 		{
 			get { return precio; }
 			set
 			{
 				precio = value;
-				IsPrecioValid(precio);
-				((PublicarProductoCommand)PublicarProductoCommand).Precio = precio;
+				IsPrecioValid( precio );
+				( ( PublicarProductoCommand )PublicarProductoCommand ).Precio = precio;
 			}
 		}
 
-		public int Cantidad
+		public string Cantidad
 		{
 			get { return cantidad_disponible; }
 			set
@@ -181,7 +184,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
-		private void IsDescripcionValid(string descripcion)
+		private void IsDescripcionValid( string descripcion )
 		{
 			ErrorText = "";
 			if (!string.IsNullOrEmpty(descripcion) && !validator.IsDescripcionPublicacionValid(descripcion))
@@ -190,19 +193,19 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 		
-		private void IsPrecioValid(double precio)
+		private void IsPrecioValid( string precio )
 		{
 			ErrorText = "";
-			if (!validator.IsCodigoPostalValid(descripcion))
+			if( !validator.IsPrecioValid( precio ) )
 			{
-				SetErrorMessage(messages.PrecioPublicacionNoValido());
+				SetErrorMessage( messages.PrecioPublicacionNoValido() );
 			}
 		}
 
 		private void IsUnidadMedidaValid(string cantidad)
 		{
 			ErrorText = "";
-			if (!string.IsNullOrEmpty(cantidad) && !validator.IsCodigoPostalValid(cantidad))
+			if( !string.IsNullOrEmpty( cantidad ) && !validator.IsUnidadDeMedidaValid( cantidad ) )
 			{
 				SetErrorMessage(messages.CodigoPostalNoValido());
 			}
@@ -211,6 +214,18 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private void SetErrorMessage(string errorText)
 		{
 			ErrorText = errorText;
+		}
+
+		public void GetImage( string imagePath )
+		{
+			Image image = Image.FromFile( imagePath );
+			using( MemoryStream stream = new MemoryStream() )
+			{
+				image.Save( stream, System.Drawing.Imaging.ImageFormat.Png );
+				stream.Close();
+
+				( ( PublicarProductoCommand )PublicarProductoCommand ).Imagen = Convert.ToBase64String( stream.ToArray() );
+			}
 		}
 	}
 }

@@ -19,7 +19,7 @@
             <Label Content="Cantidad:" Foreground="White" HorizontalAlignment="Left" Margin="93,280,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Right"/>
             <Label Content="Unidad de medida:" Foreground="White" HorizontalAlignment="Left" Margin="93,325,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Right"/>
             <Label Content="Imagenes:" Foreground="White" HorizontalAlignment="Left" Margin="93,386,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Right"/>
-            <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="176,525,90,-257" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }"></TextBlock>
+            <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="176,360, 0, 0" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }">Test</TextBlock>
             
             <TextBox HorizontalAlignment="Left" 
                      MaxLength="50"
