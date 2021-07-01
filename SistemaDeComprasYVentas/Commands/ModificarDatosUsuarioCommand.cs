@@ -39,7 +39,7 @@ namespace SistemaDeComprasYVentas.Commands
 
 		public override void Execute( object parameter )
 		{
-			if( validator.IsUsuarioDataValid( GetUsuario(), convertToUNSecureString( confirmarContrasena ) ) )
+			if( validator.IsCreateUsuarioDataValid( GetUsuario(), convertToUNSecureString( confirmarContrasena ) ) )
 			{
 				requests.ActualizarUsuarioInformation( LoginSession.GetInstance().ClaveUsuario, LoginSession.GetInstance().AccessToken,
 													   GetUsuario() ).ContinueWith( Task =>
