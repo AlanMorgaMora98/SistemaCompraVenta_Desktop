@@ -17,9 +17,9 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	public class TransaccionRequests
 	{
 		private OutputMessages messages;
-		private string publicacionClaveURL = "http://192.168.1.68:5000/publicaciones";
-		private string transaccionURL = "http://192.168.1.68:5000/transacciones";
-		private string transaccionVendedorURL = "http://192.168.1.68:5000/transacciones/vendedores";
+		private string publicacionClaveURL = "http://192.168.1.108:5000/publicaciones";
+		private string transaccionURL = "http://192.168.1.108:5000/transacciones";
+		private string transaccionVendedorURL = "http://192.168.1.108:5000/transacciones/vendedores";
 
 		public TransaccionRequests()
 		{
