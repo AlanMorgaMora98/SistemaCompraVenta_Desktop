@@ -16,7 +16,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	public class DomicilioRequests
 	{
 		private OutputMessages messages;
-		private string domicilioURL = "http://192.168.1.68:5000/usuarios";
+		private string domicilioURL = "http://192.168.1.108:5000/usuarios";
 
 		public DomicilioRequests()
 		{

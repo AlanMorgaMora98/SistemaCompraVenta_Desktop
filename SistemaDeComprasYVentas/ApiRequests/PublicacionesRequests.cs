@@ -19,9 +19,9 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	public class PublicacionesRequests
 	{
 		private OutputMessages messages;
-		private string publicacionesURL = "http://192.168.1.68:5000/publicaciones";
-		private string carritoURL = "http://192.168.1.68:5000/usuarios";
-		private string favoritoURL = "http://192.168.1.68:5000/usuarios";
+		private string publicacionesURL = "http://192.168.1.108:5000/publicaciones";
+		private string carritoURL = "http://192.168.1.108:5000/usuarios";
+		private string favoritoURL = "http://192.168.1.108:5000/usuarios";
 
 		public PublicacionesRequests()
 		{

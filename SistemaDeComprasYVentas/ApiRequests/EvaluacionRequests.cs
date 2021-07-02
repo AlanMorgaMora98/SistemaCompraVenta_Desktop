@@ -15,7 +15,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 	public class EvaluacionRequests
 	{
 		private OutputMessages messages;
-		private string evaluacionURL = "http://192.168.1.68:5000/usuarios";
+		private string evaluacionURL = "http://192.168.1.108:5000/usuarios";
 
 		public EvaluacionRequests()
 		{

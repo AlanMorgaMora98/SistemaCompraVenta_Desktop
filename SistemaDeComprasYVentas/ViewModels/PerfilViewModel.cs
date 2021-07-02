@@ -108,12 +108,15 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		private void SetUserFields()
 		{
-			Nombres = LoginSession.GetInstance().Usuario.nombres;
-			Apellidos = LoginSession.GetInstance().Usuario.apellidos;
-			Correo = LoginSession.GetInstance().Usuario.correo_electronico;
-			Usuario = LoginSession.GetInstance().Usuario.nombre_usuario;
-			Telefono = LoginSession.GetInstance().Usuario.telefono;
-			Calificacion = string.Format( "{0:N2}", LoginSession.GetInstance().Usuario.calificacion );
+			if( LoginSession.GetInstance().Usuario != null )
+			{
+				Nombres = LoginSession.GetInstance().Usuario.nombres;
+				Apellidos = LoginSession.GetInstance().Usuario.apellidos;
+				Correo = LoginSession.GetInstance().Usuario.correo_electronico;
+				Usuario = LoginSession.GetInstance().Usuario.nombre_usuario;
+				Telefono = LoginSession.GetInstance().Usuario.telefono;
+				Calificacion = string.Format( "{0:N2}", LoginSession.GetInstance().Usuario.calificacion );
+			}
 		}
 	}
 }
