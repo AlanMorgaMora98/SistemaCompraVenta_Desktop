@@ -38,6 +38,7 @@ namespace SistemaDeComprasYVentas.ApiRequests
 					}
 					else
 					{
+						MessageBox.Show( messages.RegistrarUsuarioError(), messages.ErrorTitle() );
 						return null;
 					}
 				}

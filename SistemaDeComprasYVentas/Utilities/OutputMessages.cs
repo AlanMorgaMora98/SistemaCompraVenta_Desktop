@@ -67,5 +67,9 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string SinConexionTitle() { return "Error de Conexion"; }
 
 		public string NoHayConexionAlServido() { return "No hay conexión al servidor. Por favor inténtelo más tarde"; }
+
+		public string RegistrarUsuarioError() { return "Ocurrio un error o ya existe ese usuario."; }
+
+		public string ErrorTitle() { return "Error"; }
 	}
 }
