@@ -15,7 +15,18 @@ namespace SistemaDeComprasYVentas.ViewModels
 	public class HistorialVentasViewModel : ViewModelBase
 	{
 		private TransaccionRequests requests;
+		private int ventasTotales;
 		private ObservableCollection<Transaccion> transaccionesUsuario;
+
+		public int VentasTotales
+		{
+			get { return ventasTotales; }
+			set
+			{
+				ventasTotales = value;
+				OnPropertyChanged( nameof( VentasTotales ) );
+			}
+		}
 
 		public ObservableCollection<Transaccion> TransaccionesUsuario
 		{
@@ -42,9 +53,9 @@ namespace SistemaDeComprasYVentas.ViewModels
 					if( Task.Exception == null )
 					{
 						TransaccionesUsuario = Task.Result;
+						VentasTotales = TransaccionesUsuario.Count;
 					}
 				});
 		}
-
 	}
 }
