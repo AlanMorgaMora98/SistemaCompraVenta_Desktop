@@ -1,5 +1,6 @@
 ﻿using SistemaDeComprasYVentas.ApiRequests;
 using SistemaDeComprasYVentas.Commands;
+using SistemaDeComprasYVentas.Enumerations;
 using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,45 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private string nombre_tarjeta_habiente;
 		private string numero;
 		private string fecha_vencimiento;
+		private TipoTarjeta tipoTarjeta;
+		private List<string> listaTipoTarjeta;
 		private string errorText;
+		private string seleccionTipoTarjeta;
+		
+		private TipoTarjeta regresarTipoTarjeta(string card)
+		{
+			TipoTarjeta tarjetaSeleccionada = TipoTarjeta.debito;
+			if (card.Equals("debito"))
+			{
+				tarjetaSeleccionada = TipoTarjeta.debito;
+			}
+
+			if (card.Equals("credito"))
+			{
+				tarjetaSeleccionada = TipoTarjeta.credito;
+			}
+			return tarjetaSeleccionada;
+		}
+
+		public string seleccion
+		{
+			get { return seleccionTipoTarjeta; }
+			set
+			{
+				seleccionTipoTarjeta = value;
+				((AgregarTarjetaCommand)AgregarTarjetaCommand).tipoTarjeta = regresarTipoTarjeta(seleccionTipoTarjeta);
+			}
+		}
+
+		public List<string> tiposTarjeta
+		{
+			get { return listaTipoTarjeta; }
+			set
+			{
+				listaTipoTarjeta = value;
+				OnPropertyChanged(nameof(tiposTarjeta));
+			}
+		}
 
 		public string NombreTarjetaHabiente
 		{
@@ -67,6 +106,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public AgregarTarjetaViewModel()
 		{
+			tiposTarjeta = new List<string> { "debito", "credito" };
 			validator = new StringValidator();
 			messages = new OutputMessages();
 			AgregarTarjetaCommand = new AgregarTarjetaCommand();

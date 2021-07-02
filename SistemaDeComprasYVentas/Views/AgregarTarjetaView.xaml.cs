@@ -24,5 +24,13 @@ namespace SistemaDeComprasYVentas.Views
 		{
 			InitializeComponent();
 		}
+
+		public void SeleccionDeTarjeta(object sender, RoutedEventArgs e)
+		{
+			if (((ComboBox)sender).SelectedIndex > -1)
+			{
+				((dynamic)DataContext).seleccion = (string)((ComboBox)sender).SelectedItem;
+			}
+		}
 	}
 }
