@@ -25,10 +25,13 @@ namespace SistemaDeComprasYVentas.Views
 			InitializeComponent();
 		}
 
-		public void SeleccionDeCategoria( object sender, RoutedEventArgs e )
-        {
-			( ( dynamic )DataContext ).seleccion = ( string )( ( ComboBox )sender ).SelectedItem;
-        }
+		public void SeleccionDeCategoria(object sender, RoutedEventArgs e)
+		{
+			if (((ComboBox)sender).SelectedIndex > -1)
+			{
+				((dynamic)DataContext).seleccion = (string)((ComboBox)sender).SelectedItem;
+			}
+		}
 
 
 		private void AbrirExploradorArchivos( object sender, RoutedEventArgs e )
