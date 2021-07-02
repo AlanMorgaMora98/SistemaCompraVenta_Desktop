@@ -38,41 +38,54 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public bool TarjetaSeleccionada
+		{
+			get
+			{
+				return SelectionContainerStore.GetInstance().TarjetaSeleccionadaUsuario != null;
+			}
+		}
+
 		public TarjetasViewModel()
 		{
 			requests = new TarjetaRequests();
 			NavigateAgregarTarjetaCommand = new NavigateCommand<AgregarTarjetaViewModel>(
-											NavigationServiceCreator.GetInstance().CreateAgregarTarjetaNavigationService());
+											NavigationServiceCreator.GetInstance().CreateAgregarTarjetaNavigationService() );
+			SelectionContainerStore.GetInstance().TarjetaSeleccionadaUsuario = null;
 			RecuperarTarjetasDeUsuario();
 		}
 
 		private void RecuperarTarjetasDeUsuario()
 		{
-			requests.RecuperarTarjetasUsuario(LoginSession.GetInstance().ClaveUsuario,
-													LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
+			requests.RecuperarTarjetasUsuario( LoginSession.GetInstance().ClaveUsuario,
+											   LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
 			{
-				if (Task.Exception == null)
+				if( Task.Exception == null )
 				{
 					Tarjetas = Task.Result;
 				}
-			});
+			} );
 		}
 
 		public void EliminarTarjetaDeUsuario()
 		{
-			requests.EliminarTarjeta(LoginSession.GetInstance().ClaveUsuario,
+			if( SelectionContainerStore.GetInstance().TarjetaSeleccionadaUsuario != null )
+			{
+				requests.EliminarTarjeta( LoginSession.GetInstance().ClaveUsuario,
 										  SelectionContainerStore.GetInstance().TarjetaSeleccionadaUsuario.discriminante_tarjeta,
-										  LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
-				{
-					if (Task.Exception == null)
-					{
-						System.Windows.Application.Current.Dispatcher.Invoke(delegate
-						{
-							SelectionContainerStore.GetInstance().EliminarTarjetaDeUsuario();
-							RecuperarTarjetasDeUsuario();
-						});
-					}
-				});
+										  LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
+				  {
+					  if( Task.Exception == null )
+					  {
+						  System.Windows.Application.Current.Dispatcher.Invoke( delegate
+						  {
+							  SelectionContainerStore.GetInstance().EliminarTarjetaDeUsuario();
+							  SelectionContainerStore.GetInstance().TarjetaSeleccionadaUsuario = null;
+							  RecuperarTarjetasDeUsuario();
+						  } );
+					  }
+				  } );
+			}
 		}
 	}
 }
