@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:SistemaDeComprasYVentas.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700" Background="White">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Border
         Background="#272537"
         CornerRadius="20">
@@ -29,6 +32,7 @@
                 HorizontalAlignment="Left" 
                 Margin="10,126,0,0" 
                 VerticalAlignment="Top"
+                Visibility="{ Binding PublicacionSeleccionada, Converter={ StaticResource BooleanToVisibilityConverter } }"
                 Command="{ Binding NavigateVisualizarPublicacion }"
                 FontWeight="Bold" FontSize="14">
 
@@ -64,6 +68,7 @@
                 HorizontalAlignment="Left" 
                 Margin="10,275,0,0" 
                 VerticalAlignment="Top" 
+                Visibility="{ Binding PublicacionSeleccionada, Converter={ StaticResource BooleanToVisibilityConverter } }"
                 Click="EliminarPublicacion"
                 FontWeight="Bold" FontSize="14">
 

@@ -38,9 +38,18 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public bool PublicacionSeleccionada
+		{
+			get
+			{
+				return SelectionContainerStore.GetInstance().PublicacionSeleccionadaFavorito != null;
+			}
+		}
+
 		public FavoritosViewModel()
 		{
 			SelectionContainerStore.GetInstance().PublicacionSeleccionadaBusqueda = null;
+			SelectionContainerStore.GetInstance().PublicacionSeleccionadaFavorito = null;
 			requests = new PublicacionesRequests();
 			NavigateVisualizarPublicacion = new NavigateCommand< VisualizarPublicacionCompradorViewModel >(
 												NavigationServiceCreator.GetInstance().CreateVisualizarPublicacionCompradorService() );
@@ -61,19 +70,23 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public void EliminarPublicacionDeFavoritos()
 		{
-			requests.EliminarDeFavoritos( LoginSession.GetInstance().ClaveUsuario,
-										  SelectionContainerStore.GetInstance().PublicacionSeleccionadaFavorito.clave_publicacion,
-										  LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
-				{
-					if( Task.Exception == null )
-					{
-						System.Windows.Application.Current.Dispatcher.Invoke( delegate
-						{
-							SelectionContainerStore.GetInstance().EliminarPublicacionDeListaFavoritos();
-							RecuperarPublicacionesFavoritos();
-						} );
-					}
-				} );
+			if( SelectionContainerStore.GetInstance().PublicacionSeleccionadaFavorito != null )
+			{
+				requests.EliminarDeFavoritos( LoginSession.GetInstance().ClaveUsuario,
+											  SelectionContainerStore.GetInstance().PublicacionSeleccionadaFavorito.clave_publicacion,
+											  LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
+				  {
+					  if( Task.Exception == null )
+					  {
+						  System.Windows.Application.Current.Dispatcher.Invoke( delegate
+						  {
+							  SelectionContainerStore.GetInstance().EliminarPublicacionDeListaFavoritos();
+							  SelectionContainerStore.GetInstance().PublicacionSeleccionadaFavorito = null;
+							  RecuperarPublicacionesFavoritos();
+						  } );
+					  }
+				  } );
+			}
 		}
 	}
 }
