@@ -2,6 +2,7 @@
 using SistemaDeComprasYVentas.Enumerations;
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Utilities;
+using SistemaDeComprasYVentas.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SistemaDeComprasYVentas.Commands
 {
@@ -16,6 +18,7 @@ namespace SistemaDeComprasYVentas.Commands
     {
 		private UsuarioRequests requests;
 		private StringValidator validator;
+		private ICommand NavigateToLoginCommand { get; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Nombre_Usuario { get; set; }
@@ -28,6 +31,8 @@ namespace SistemaDeComprasYVentas.Commands
 		{
 			requests = new UsuarioRequests();
 			validator = new StringValidator();
+			NavigateToLoginCommand = new NavigateCommand< IniciarSesionViewModel >( 
+										NavigationServiceCreator.GetInstance().CreateIniciarSesionNavigationService() );
 		}
 
 		public override void Execute( object parameter )
@@ -39,6 +44,7 @@ namespace SistemaDeComprasYVentas.Commands
 					if( Task.Exception == null )
 					{
 						Usuario response = Task.Result;
+						NavigateToLoginCommand.Execute( this );
 					}
 				} );
 			}

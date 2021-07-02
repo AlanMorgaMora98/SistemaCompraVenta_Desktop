@@ -26,7 +26,6 @@
                 <Label Content="Confirmar contraseña:" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="109,322,0,0" VerticalAlignment="Top" Width="147" HorizontalContentAlignment="Center"/>
                 <Label Content="Correo Electronico:" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="109,148,0,0" VerticalAlignment="Top" Height="26" Width="147" HorizontalContentAlignment="Center"/>
                 <Label Content="Telefono:" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="115,226,0,0" VerticalAlignment="Top" Height="26" Width="122" HorizontalContentAlignment="Center"/>
-                <Label Content="Tipo de Usuario:" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="115,322,0,0" VerticalAlignment="Top" Height="26" Width="122" HorizontalContentAlignment="Center"/>
                 <TextBox MaxLength="30" HorizontalAlignment="Left" Text="{ Binding Nombres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
                 <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Apellidos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,88,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" VerticalContentAlignment="Center"/>
                 <TextBox MaxLength="50" HorizontalAlignment="Left" Text="{ Binding Nombre_Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,174,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
@@ -34,76 +33,13 @@
                 <TextBox MaxLength="10" HorizontalAlignment="Left" Text="{ Binding Telefono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Height="26" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" VerticalContentAlignment="Center"/>
                 <PasswordBox MaxLength="20" Grid.Column="1" PasswordChanged="Contrasena_Changed" HorizontalAlignment="Left" Margin="65,259,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <PasswordBox MaxLength="20" HorizontalAlignment="Left"  PasswordChanged="ConfirmarContrasena_Changed" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" Grid.Column="1" VerticalContentAlignment="Center"/>
-                <ComboBox HorizontalAlignment="Left" Margin="65,348,0,0" VerticalAlignment="Top" Width="230" Height="26" VerticalContentAlignment="Center"/>
                 <Label Content="Registrar Usuario" Foreground="White" HorizontalAlignment="Left" Margin="274,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.579,0.577" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="18"/>
                 <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold" Margin="226,398,0,0" Text="{ Binding ErrorText, Mode=TwoWay, NotifyOnSourceUpdated=True }" Grid.ColumnSpan="2" >Error</TextBlock>
                 <Button Content="Registrar" 
-                        Grid.Column="1" 
                         HorizontalAlignment="Left" 
-                        Margin="195,435,0,0" 
+                        Margin="301,431,0,0" 
                         Click="RegistrarUsuario"
-                        VerticalAlignment="Top" FontWeight="Bold">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF4C70"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FE6584"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" 
-                                    Height="40"
-                                    CornerRadius="20"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-                <Button Content="Cancelar" 
-                        Grid.Column="1" 
-                        HorizontalAlignment="Left" 
-                        Margin="65,435,0,0" 
-                        VerticalAlignment="Top" FontWeight="Bold">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#FF4C70"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FE6584"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" 
-                                    Height="40"
-                                    CornerRadius="20"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-                <Button Content="Regresar" 
-                        Grid.Column="0" 
-                        HorizontalAlignment="Left" 
-                        Margin="124,435,0,0" 
-                        VerticalAlignment="Top" FontWeight="Bold">
-
+                        VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF4C70"/>
