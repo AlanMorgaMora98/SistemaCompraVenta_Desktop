@@ -49,7 +49,9 @@
                         VerticalContentAlignment="Center">
             </DatePicker>
 
-            <ComboBox HorizontalAlignment="Left" 
+            <ComboBox HorizontalAlignment="Left"
+                      ItemsSource="{Binding tiposTarjeta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectionChanged="SeleccionDeTarjeta"
                       Margin="300,315,0,0" 
                       VerticalAlignment="Top" 
                       Width="270" 

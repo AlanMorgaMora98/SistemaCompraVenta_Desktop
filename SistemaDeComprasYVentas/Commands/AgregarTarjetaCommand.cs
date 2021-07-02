@@ -1,5 +1,6 @@
 ﻿using SistemaDeComprasYVentas.ApiRequests;
 using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Enumerations;
 using SistemaDeComprasYVentas.Session;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SistemaDeComprasYVentas.Commands
         private TarjetaRequests request;
         public string NombreTarjetaHabiente { get; set; }
         public string NumeroTarjeta { get; set; }
+        public TipoTarjeta tipoTarjeta { get; set; }
         public string FechaVencimiento { get; set; }
 
         public AgregarTarjetaCommand()
@@ -35,7 +37,7 @@ namespace SistemaDeComprasYVentas.Commands
         
         private Tarjeta CreateTarjeta()
         {
-            return new Tarjeta(0, LoginSession.GetInstance().ClaveUsuario, NombreTarjetaHabiente, NumeroTarjeta, FechaVencimiento, Enumerations.TipoTarjeta.debito);
+            return new Tarjeta(0, LoginSession.GetInstance().ClaveUsuario, NombreTarjetaHabiente, NumeroTarjeta, FechaVencimiento, tipoTarjeta);
         }
     }
 }
