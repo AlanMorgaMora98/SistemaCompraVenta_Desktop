@@ -37,9 +37,9 @@ namespace SistemaDeComprasYVentas.Views
 		private void AbrirExploradorArchivos( object sender, RoutedEventArgs e )
         {
 			Microsoft.Win32.OpenFileDialog fileDialog = new Microsoft.Win32.OpenFileDialog();
+			fileDialog.Filter = "Image files(*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
 			bool? response = fileDialog.ShowDialog();
-
-			if (response == true)
+			if( response == true )
 			{
 				string filepath = fileDialog.FileName;
 				( ( dynamic )DataContext ).GetImage( filepath );
