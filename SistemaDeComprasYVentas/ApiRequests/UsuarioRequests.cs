@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SistemaDeComprasYVentas.Models;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,89 +8,120 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SistemaDeComprasYVentas.ApiRequests
 {
 	public class UsuarioRequests
 	{
+		private OutputMessages messages;
 		private string usuarioGeneralURL = "http://192.168.1.68:5000/usuarios";
 
 		public UsuarioRequests()
 		{
 			ApiHelper.InitializeClient();
+			messages = new OutputMessages();
 		}
 
 		public async Task< Usuario > RegistrarUsuario( Usuario usuario )
 		{
-			var json = JsonConvert.SerializeObject( usuario );
-			var data = new StringContent( json, Encoding.UTF8, "application/json" );
-			using ( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( usuarioGeneralURL, data ) )
+			try
 			{
-				if( response.IsSuccessStatusCode )
+				var json = JsonConvert.SerializeObject(usuario);
+				var data = new StringContent( json, Encoding.UTF8, "application/json" );
+				using( HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync( usuarioGeneralURL, data ) )
 				{
-					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
-					return respuesta;
+					if( response.IsSuccessStatusCode )
+					{
+						Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
+						return respuesta;
+					}
+					else
+					{
+						return null;
+					}
 				}
-				else
-				{
-					return null;
-				}
+			} catch( Exception )
+			{
+				MessageBox.Show( messages.NoHayConexionAlServido(), messages.SinConexionTitle() );
+				return null;
 			}
 		}
 
 		public async Task< Usuario > GetUsuarioInformation( int claveUsuario, string accessToken )
 		{
-			string requestURL = usuarioGeneralURL + "/" + claveUsuario;
-			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
+			try
 			{
-				if( response.IsSuccessStatusCode )
+				string requestURL = usuarioGeneralURL + "/" + claveUsuario;
+				ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+				using( HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync( requestURL ) )
 				{
-					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
-					return respuesta;
+					if( response.IsSuccessStatusCode )
+					{
+						Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
+						return respuesta;
+					}
+					else
+					{
+						return null;
+					}
 				}
-				else
-				{
-					return null;
-				}
+			} catch( Exception )
+			{
+				MessageBox.Show( messages.NoHayConexionAlServido(), messages.SinConexionTitle() );
+				return null;
 			}
 		}
 
 		public async Task< Usuario > ActualizarUsuarioInformation( int claveUsuario, string accessToken, Usuario usuario )
 		{
-			string requestURL = usuarioGeneralURL + "/" + claveUsuario;
-			var json = JsonConvert.SerializeObject( usuario );
-			var data = new StringContent( json, Encoding.UTF8, "application/json" );
-			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.PutAsync( requestURL, data ) )
+			try
 			{
-				if( response.IsSuccessStatusCode )
+				string requestURL = usuarioGeneralURL + "/" + claveUsuario;
+				var json = JsonConvert.SerializeObject(usuario);
+				var data = new StringContent( json, Encoding.UTF8, "application/json" );
+				ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+				using( HttpResponseMessage response = await ApiHelper.ApiClient.PutAsync( requestURL, data ) )
 				{
-					Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
-					return respuesta;
+					if( response.IsSuccessStatusCode )
+					{
+						Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
+						return respuesta;
+					}
+					else
+					{
+						return null;
+					}
 				}
-				else
-				{
-					return null;
-				}
+			} catch( Exception )
+			{
+				MessageBox.Show( messages.NoHayConexionAlServido(), messages.SinConexionTitle() );
+				return null;
 			}
 		}
 
 		public async Task< Usuario > DeleteUsuario( int claveUsuario, string accessToken )
 		{
-			string requestURL = usuarioGeneralURL + "/" + claveUsuario;
-			ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
-			using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
+			try
 			{
-				if( response.IsSuccessStatusCode )
+				string requestURL = usuarioGeneralURL + "/" + claveUsuario;
+				ApiHelper.ApiClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", accessToken );
+				using( HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync( requestURL ) )
 				{
-					Usuario respuesta = await response.Content.ReadAsAsync<Usuario>();
-					return respuesta;
+					if( response.IsSuccessStatusCode )
+					{
+						Usuario respuesta = await response.Content.ReadAsAsync< Usuario >();
+						return respuesta;
+					}
+					else
+					{
+						return null;
+					}
 				}
-				else
-				{
-					return null;
-				}
+			} catch( Exception )
+			{
+				MessageBox.Show( messages.NoHayConexionAlServido(), messages.SinConexionTitle() );
+				return null;
 			}
 		}
 	}

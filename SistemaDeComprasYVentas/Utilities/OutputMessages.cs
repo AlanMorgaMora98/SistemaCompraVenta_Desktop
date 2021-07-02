@@ -63,5 +63,9 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string MensajeConfirmarEliminarCuenta() { return "¿Estas seguro que deseas eliminar tu cuenta?"; }
 
 		public string ConfirmTitle() { return "Confirmar Eliminacion"; }
+
+		public string SinConexionTitle() { return "Error de Conexion"; }
+
+		public string NoHayConexionAlServido() { return "No hay conexión al servidor. Por favor inténtelo más tarde"; }
 	}
 }
