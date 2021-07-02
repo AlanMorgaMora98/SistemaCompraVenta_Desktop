@@ -38,11 +38,20 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public bool PublicacionSeleccionada
+		{
+			get
+			{
+				return SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario != null;
+			}
+		}
+
 		public PublicacionesViewModel()
 		{
 			requests = new PublicacionesRequests();
 			NavigateAgregarPublicacionCommand = new NavigateCommand<PublicarProductoViewModel>(
 											NavigationServiceCreator.GetInstance().CreateAgregarPublicacionNavigationService());
+			SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario = null;
 			RecuperarPublicacionesDeUsuario();
 		}
 
@@ -60,19 +69,23 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public void EliminarPublicacionDeUsuario()
 		{
-			requests.EliminarPublicacion( LoginSession.GetInstance().ClaveUsuario,
-										  SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario.clave_publicacion,
-										  LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
-				{
-					if (Task.Exception == null)
-					{
-						System.Windows.Application.Current.Dispatcher.Invoke(delegate
-						{
-							SelectionContainerStore.GetInstance().EliminarPublicacionDeUsuario();
-							RecuperarPublicacionesDeUsuario();
-						});
-					}
-				});
+			if( SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario != null )
+			{
+				requests.EliminarPublicacion( LoginSession.GetInstance().ClaveUsuario,
+											  SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario.clave_publicacion,
+											  LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
+				  {
+					  if( Task.Exception == null )
+					  {
+						  System.Windows.Application.Current.Dispatcher.Invoke( delegate
+						  {
+							  SelectionContainerStore.GetInstance().EliminarPublicacionDeUsuario();
+							  SelectionContainerStore.GetInstance().PublicacionSeleccionadaUsuario = null;
+							  RecuperarPublicacionesDeUsuario();
+						  } );
+					  }
+				  } );
+			}
 		}
 	}
 }
