@@ -59,5 +59,9 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string ProductoAgregadoACarrito() { return "¡Producto agregado a carrito!"; }
 
 		public string ProductoAgregadoAFavoritos() { return "¡Producto agregado a Favoritos!"; }
+
+		public string MensajeConfirmarEliminarCuenta() { return "¿Estas seguro que deseas eliminar tu cuenta?"; }
+
+		public string ConfirmTitle() { return "Confirmar Eliminacion"; }
 	}
 }
