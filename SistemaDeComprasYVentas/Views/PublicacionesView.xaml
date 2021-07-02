@@ -101,11 +101,21 @@
                         <DataTemplate>
                             <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{ Binding nombre }" Margin="0, 5, 0, 5 " />
-                                    <TextBlock Text="{ Binding descripcion }" Margin="0, 5, 0, 5 " />
-                                    <TextBlock Text="{ Binding precio }" Margin="0, 5, 0, 5 " />
-                                    <TextBlock Text="{ Binding cantidad_disponible }" Margin="0, 5, 0, 5 " />
-                                    <TextBlock Text="{ Binding calificacion_general }" Margin="0, 5, 0, 5 " />
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Column="0" MaxHeight="100" MaxWidth="100" Margin="5, 5, 5, 5" Source="{ Binding Image }"></Image>
+
+                                        <TextBlock Grid.Column="1" Text="Nombre:" FontSize="14" Margin="20, 5, 0, 5 " />
+                                        <TextBlock Grid.Column="1" Text="Descripción:" FontSize="14" Margin="20, 45, 0, 5 " />
+                                        <TextBlock Grid.Column="1" Text="Precio:" FontSize="14" Margin="20, 85, 0, 5 " />
+                                        <TextBlock Grid.Column="1" Text="{ Binding nombre }" FontSize="14" Margin="80, 5, 0, 5 " />
+                                        <TextBlock Grid.Column="1" Text="{ Binding descripcion }" FontSize="14" Margin="105, 45, 0, 5 " />
+                                        <TextBlock Grid.Column="1" Text="{ Binding precio }" FontSize="14" Margin="70, 85, 0, 5 " />
+                                    </Grid>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
