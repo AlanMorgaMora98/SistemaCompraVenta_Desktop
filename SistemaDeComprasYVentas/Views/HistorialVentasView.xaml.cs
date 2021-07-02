@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using SistemaDeComprasYVentas.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -23,6 +32,14 @@ namespace SistemaDeComprasYVentas.Views
 		public HistorialVentasView()
 		{
 			InitializeComponent();
+		}
+
+		public void SelectionChanged(object sender, RoutedEventArgs e)
+		{
+			if (((ListBox)sender).SelectedIndex > -1)
+			{
+				((dynamic)DataContext).ItemSeleccionado = (Transaccion)((ListBox)sender).SelectedItem;
+			}
 		}
 	}
 }
