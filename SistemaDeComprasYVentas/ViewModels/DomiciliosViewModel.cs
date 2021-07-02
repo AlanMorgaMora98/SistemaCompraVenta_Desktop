@@ -37,11 +37,20 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public bool DomicilioSeleccionado
+		{
+			get
+			{
+				return SelectionContainerStore.GetInstance().DomicilioSeleccionado != null;
+			}
+		}
+
 		public DomiciliosViewModel()
 		{
 			requests = new DomicilioRequests();
 			NavigateAgregarDomicilioCommand = new NavigateCommand<AgregarDomicilioViewModel>(
 											NavigationServiceCreator.GetInstance().CreateAgregarDomicilioNavigationService());
+			SelectionContainerStore.GetInstance().DomicilioSeleccionado = null;
 			RecuperarDomiciliosDeUsuario();
 		}
 
@@ -59,19 +68,23 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public void EliminarDomicilioDeUsuario()
 		{
-			requests.EliminarDomicilio(LoginSession.GetInstance().ClaveUsuario,
-										SelectionContainerStore.GetInstance().DomicilioSeleccionado.discriminante_domicilio,
-										LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
-				{
-					if (Task.Exception == null)
+			if( SelectionContainerStore.GetInstance().DomicilioSeleccionado != null )
+			{
+				requests.EliminarDomicilio( LoginSession.GetInstance().ClaveUsuario,
+											SelectionContainerStore.GetInstance().DomicilioSeleccionado.discriminante_domicilio,
+											LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
 					{
-						System.Windows.Application.Current.Dispatcher.Invoke(delegate
+						if( Task.Exception == null )
 						{
-							SelectionContainerStore.GetInstance().EliminarDomicilioDeUsuario();
-							RecuperarDomiciliosDeUsuario();
-						});
-					}
-				});
+							System.Windows.Application.Current.Dispatcher.Invoke( delegate
+							{
+								SelectionContainerStore.GetInstance().EliminarDomicilioDeUsuario();
+								SelectionContainerStore.GetInstance().DomicilioSeleccionado = null;
+								RecuperarDomiciliosDeUsuario();
+							} );
+						}
+					} );
+			}
 		}
 
 	}

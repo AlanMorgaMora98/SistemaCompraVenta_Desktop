@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 using SistemaDeComprasYVentas.Enumerations;
 
 namespace SistemaDeComprasYVentas.Models
@@ -19,6 +21,21 @@ namespace SistemaDeComprasYVentas.Models
 		public string unidad_medida { get; set; }
 		public int numero_ventas { get; set; }
 		public string imagen { get; set; }
+
+		public BitmapImage Image
+		{
+			get 
+			{
+				if( !string.IsNullOrEmpty( imagen ) )
+				{
+					return GetBitmapImage( Convert.FromBase64String( imagen ) );
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
 
 		public Publicacion()
 		{
@@ -62,6 +79,26 @@ namespace SistemaDeComprasYVentas.Models
 			unidad_medida = unidadIn;
 			numero_ventas = ventasIn;
 			imagen = imagenIn;
+		}
+
+		private BitmapImage GetBitmapImage( byte[] imageArray )
+		{
+			if( imageArray == null || imageArray.Length == 0 )
+				return null;
+
+			var image = new BitmapImage();
+			using( var memoryStream = new MemoryStream( imageArray ) )
+			{
+				memoryStream.Position = 0;
+				image.BeginInit();
+				image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+				image.CacheOption = BitmapCacheOption.OnLoad;
+				image.UriSource = null;
+				image.StreamSource = memoryStream;
+				image.EndInit();
+			}
+			image.Freeze();
+			return image;
 		}
 
 	}
