@@ -40,8 +40,11 @@ namespace SistemaDeComprasYVentas.Commands
 					if( Task.Exception == null )
 					{
 						LoginResponseData response = Task.Result;
-						LoginSession.GetInstance().Login( response.clave_usuario, response.access_token );
-						NavigateToHomeCommand.Execute( this );
+						if( response != null )
+						{
+							LoginSession.GetInstance().Login( response.clave_usuario, response.access_token );
+							NavigateToHomeCommand.Execute( this );
+						}
 					}
 				} );
 			}

@@ -29,6 +29,21 @@ namespace SistemaDeComprasYVentas.ViewModels
 			}
 		}
 
+		public bool HasPublicacionesInCart
+		{
+			get 
+			{
+				if( SelectionContainerStore.GetInstance().PublicacionesCarrito != null )
+				{
+					return SelectionContainerStore.GetInstance().PublicacionesCarrito.Count > 0;
+				}
+			    else
+				{
+					return false;
+				}
+			}
+		}
+
 		public Publicacion ItemSeleccionado
 		{
 			set
@@ -42,6 +57,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			requests = new PublicacionesRequests();
 			NavigateRealizarPedidoCommand = new NavigateCommand< RealizarPedidoViewModel >( 
 											NavigationServiceCreator.GetInstance().CreateRealizarPedidoNavigationService() );
+			SelectionContainerStore.GetInstance().PublicacionSeleccionadaCarrito = null;
 			RecuperarPublicacionesCarrito();
 		}
 
@@ -59,19 +75,23 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public void EliminarPublicacionDeCarrito()
 		{
-			requests.EliminarDeCarrito( LoginSession.GetInstance().ClaveUsuario,
-										SelectionContainerStore.GetInstance().PublicacionSeleccionadaCarrito.clave_publicacion,
-										LoginSession.GetInstance().AccessToken ).ContinueWith( Task =>
-				{
-					if( Task.Exception == null )
+			if( SelectionContainerStore.GetInstance().PublicacionSeleccionadaCarrito != null )
+			{
+				requests.EliminarDeCarrito( LoginSession.GetInstance().ClaveUsuario,
+											SelectionContainerStore.GetInstance().PublicacionSeleccionadaCarrito.clave_publicacion,
+											LoginSession.GetInstance().AccessToken).ContinueWith( Task =>
 					{
-						System.Windows.Application.Current.Dispatcher.Invoke( delegate
+						if( Task.Exception == null )
 						{
-							SelectionContainerStore.GetInstance().EliminarPublicacionDeListaCarrito();
-							RecuperarPublicacionesCarrito();
-						} );
-					}
-				} );
+							System.Windows.Application.Current.Dispatcher.Invoke( delegate
+							{
+								SelectionContainerStore.GetInstance().EliminarPublicacionDeListaCarrito();
+								SelectionContainerStore.GetInstance().PublicacionSeleccionadaCarrito = null;
+								RecuperarPublicacionesCarrito();
+							} );
+						}
+					} );
+			}
 		}
 	}
 }

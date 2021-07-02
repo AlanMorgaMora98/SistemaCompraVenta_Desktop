@@ -3,6 +3,7 @@ using SistemaDeComprasYVentas.Commands;
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 {
 	public class RealizarPedidoViewModel : ViewModelBase
 	{
+		private OutputMessages messages;
 		private DomicilioRequests domicilioRequests;
 		private TarjetaRequests tarjetaRequests;
 		public ICommand RealizarPedidoCommand { get; }
@@ -22,6 +24,17 @@ namespace SistemaDeComprasYVentas.ViewModels
 		private ObservableCollection< Tarjeta > tarjetasUsuario;
 		private string productosTotales;
 		private string subtotal;
+		private string errorText;
+
+		public string ErrorText
+		{
+			get { return errorText; }
+			set
+			{
+				errorText = value;
+				OnPropertyChanged( nameof( ErrorText ) );
+			}
+		}
 
 		public string ProductosTotales 
 		{
@@ -83,6 +96,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 
 		public RealizarPedidoViewModel()
 		{
+			messages = new OutputMessages();
 			domicilioRequests = new DomicilioRequests();
 			tarjetaRequests = new TarjetaRequests();
 			RealizarPedidoCommand = new RealizarPedidoCommand();
@@ -110,6 +124,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 				if( Task.Exception == null )
 				{
 					DomiciliosUsuario = Task.Result;
+					CheckIfUserHasDomicilios();
 				}
 			} );
 		}
@@ -122,8 +137,29 @@ namespace SistemaDeComprasYVentas.ViewModels
 				 if( Task.Exception == null )
 				 {
 					 TarjetasUsuario = Task.Result;
+					 CheckIfUserHasTarjetas();
 				 }
 				} );
+		}
+
+		private void CheckIfUserHasDomicilios()
+		{
+			if( DomiciliosUsuario.Count == 0 )
+			{
+				ErrorText = messages.UsuarioNoTieneDomicilios();
+			}
+		}
+		private void CheckIfUserHasTarjetas()
+		{
+			if( TarjetasUsuario.Count == 0 )
+			{
+				ErrorText = messages.UsuarioNoTieneTarjetas();
+			}
+		}
+
+		private void setErrorText( string errorMessage )
+		{
+			ErrorText = errorMessage;
 		}
 	}
 }

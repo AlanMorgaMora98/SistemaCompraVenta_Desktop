@@ -51,5 +51,21 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string NombrePublicacionNoValido() { return "El nombre no es válido."; }
 
 		public string PrecioPublicacionNoValido() { return "El precio no es válido."; }
+
+		public string UsuarioNoTieneDomicilios() { return "Favor de registrar por lo menos un domicilio."; }
+
+		public string UsuarioNoTieneTarjetas() { return "Favor de registrar por lo menos una tarjeta."; }
+
+		public string ProductoAgregadoACarrito() { return "¡Producto agregado a carrito!"; }
+
+		public string ProductoAgregadoAFavoritos() { return "¡Producto agregado a Favoritos!"; }
+
+		public string MensajeConfirmarEliminarCuenta() { return "¿Estas seguro que deseas eliminar tu cuenta?"; }
+
+		public string ConfirmTitle() { return "Confirmar Eliminacion"; }
+
+		public string SinConexionTitle() { return "Error de Conexion"; }
+
+		public string NoHayConexionAlServido() { return "No hay conexión al servidor. Por favor inténtelo más tarde"; }
 	}
 }
