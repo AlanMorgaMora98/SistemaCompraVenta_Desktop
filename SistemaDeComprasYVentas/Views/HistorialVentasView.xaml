@@ -24,7 +24,6 @@
                         <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{ Binding clave_transaccion }" Margin="0, 5, 0, 5 " />
-                                <TextBlock Text="{ Binding direccion_comprador }" Margin="0, 5, 0, 5 " />
                                 <TextBlock Text="{ Binding total }" Margin="0, 5, 0, 5 " />
                                 <TextBlock Text="{ Binding fecha_venta }" Margin="0, 5, 0, 5 " />
                             </StackPanel>

@@ -15,7 +15,6 @@ namespace SistemaDeComprasYVentas.ViewModels
 	public class HistorialVentasViewModel : ViewModelBase
 	{
 		private TransaccionRequests requests;
-		private ICommand NavigateVisualizarTransaccion { get; set; }
 		private ObservableCollection<Transaccion> transaccionesUsuario;
 
 		public ObservableCollection<Transaccion> TransaccionesUsuario
@@ -24,7 +23,7 @@ namespace SistemaDeComprasYVentas.ViewModels
 			set
 			{
 				transaccionesUsuario = value;
-				OnPropertyChanged(nameof(TransaccionesUsuario));
+				OnPropertyChanged( nameof( TransaccionesUsuario ) );
 			}
 		}
 
@@ -32,21 +31,20 @@ namespace SistemaDeComprasYVentas.ViewModels
 		public HistorialVentasViewModel()
 		{
 			requests = new TransaccionRequests();
-			//RecuperarTransacciones();
+			RecuperarTransaccionesVendedor();
 		}
 
-		/*
-		private void RecuperarTransacciones()
+		private void RecuperarTransaccionesVendedor()
 		{
-			requests.RecuperarTransaccionesUsuario(LoginSession.GetInstance().ClaveUsuario,
-													LoginSession.GetInstance().AccessToken).ContinueWith(Task =>
+			requests.RecuperarTransaccionesUsuario( LoginSession.GetInstance().ClaveUsuario,
+													LoginSession.GetInstance().AccessToken ).ContinueWith(Task =>
 				{
-					if (Task.Exception == null)
+					if( Task.Exception == null )
 					{
 						TransaccionesUsuario = Task.Result;
 					}
 				});
-		}*/
+		}
 
 	}
 }
