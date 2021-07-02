@@ -2,21 +2,25 @@
 using SistemaDeComprasYVentas.Models;
 using SistemaDeComprasYVentas.Session;
 using SistemaDeComprasYVentas.Stores;
+using SistemaDeComprasYVentas.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SistemaDeComprasYVentas.Commands
 {
 	public class AgregarAFavoritosCommand : CommandBase
 	{
 		private PublicacionesRequests requests;
+		private OutputMessages messages;
 
 		public AgregarAFavoritosCommand()
 		{
 			requests = new PublicacionesRequests();
+			messages = new OutputMessages();
 		}
 
 		public override void Execute( object parameter )
@@ -27,7 +31,7 @@ namespace SistemaDeComprasYVentas.Commands
 				{
 					if( Task.Exception == null )
 					{
-
+						MessageBox.Show( messages.ProductoAgregadoAFavoritos() );
 					}
 				} );
 		}

@@ -55,5 +55,9 @@ namespace SistemaDeComprasYVentas.Utilities
 		public string UsuarioNoTieneDomicilios() { return "Favor de registrar por lo menos un domicilio."; }
 
 		public string UsuarioNoTieneTarjetas() { return "Favor de registrar por lo menos una tarjeta."; }
+
+		public string ProductoAgregadoACarrito() { return "¡Producto agregado a carrito!"; }
+
+		public string ProductoAgregadoAFavoritos() { return "¡Producto agregado a Favoritos!"; }
 	}
 }
